@@ -27,7 +27,29 @@
   to { transform: rotate(360deg); }
 }*/
 
+/* FONTS */
+@font-face {
+    font-family: 'OpenSans';
+    src: url('./public/font/OpenSans.woff2');
+}
+@font-face {
+    font-family: 'OpenSansBold';
+    src: url('./public/font/OpenSansBold.woff2');
+}
+@font-face {
+    font-family: 'RobotoBold';
+    src: url('./public/font/RobotoSlabBold.woff2');
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('./public/font/RobotoSlab.woff2');
+}
+
+
+
 body {
     margin: 0;
     padding: 0;
+    background: url('public/images/fond.png') repeat;
+    font-family: 'Open Sans', 'sans-serif';
 }

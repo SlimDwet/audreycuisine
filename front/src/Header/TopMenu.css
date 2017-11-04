@@ -1,0 +1,35 @@
+.topMenu {
+    height: 50px;
+    background: url('../public/images/fond_menu.png') no-repeat 139% center;
+    padding: 23px 0;
+}
+.topMenu ul {
+    height: inherit;
+    float: right;
+    list-style: none;
+    padding: 0;
+    margin: 0 18% 0 0;
+}
+.topMenu ul li {
+    height: inherit;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: OpenSansBold;
+}
+.topMenu ul li a {
+    display: inline-block;
+    padding: 0 14px;
+    font-size: 14px;
+    line-height: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+.topMenu ul li:hover a {
+    background-color: #000000;
+}
+.topMenu ul li a.active, .topMenu ul li a:hover {
+    background-color: #bb0963;
+    border-radius: 5px;
+}

@@ -49,12 +49,13 @@ class TopMenu extends React.Component {
         let topMenuItems = [];
         this.topMenuDefinition.forEach((menu, index) => {
             let url = this.dns+menu.slug;
-            topMenuItems.push(<li key={index}><a href={url}>{menu.title}</a></li>);
+            let linkClass = (menu.slug === "") ? "active" : "";
+            topMenuItems.push(<li key={index}><a href={url} className={linkClass}>{menu.title}</a></li>);
         });
         return (
-            <div className="top-menu">
+            <nav className="topMenu">
                 <ul>{topMenuItems}</ul>
-            </div>
+            </nav>
         );
     }
 
