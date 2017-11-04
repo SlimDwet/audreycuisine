@@ -1,0 +1,4 @@
+audrey_cuisine:
+    resource: "@AudreyCuisineBundle/Controller/"
+    type:     annotation
+    prefix:   /

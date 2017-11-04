@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="audreycuisine.fr" id="Project_152a9be" template="Default" database="MariaDb" >
+	<comment><![CDATA[Projet de refonte du site www.audreycuisine.fr]]></comment>
+	<schema name="audreycuisine.fr" schemaname="audreycuisine.fr" >
+		<table name="Post" >
+			<comment><![CDATA[Définition des articles]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="title" type="varchar" length="255" jt="12" mandatory="y" >
+				<comment><![CDATA[Titre de l'article]]></comment>
+			</column>
+			<column name="slug" type="varchar" length="255" jt="12" mandatory="y" >
+				<comment><![CDATA[Slug pour l'URL]]></comment>
+			</column>
+			<column name="content" type="text" jt="-1" mandatory="y" >
+				<comment><![CDATA[Contenu de l'article]]></comment>
+			</column>
+			<column name="is_visible" type="tinyint" jt="-6" mandatory="y" unsigned="y" >
+				<defo>1</defo>
+				<comment><![CDATA[Affiche ou non l'article]]></comment>
+			</column>
+			<column name="user_id" type="int" jt="4" mandatory="y" unsigned="y" >
+				<comment><![CDATA[ID de l'auteur]]></comment>
+			</column>
+			<column name="views" type="int" jt="4" mandatory="y" unsigned="y" >
+				<defo>0</defo>
+				<comment><![CDATA[Nombre de consultation de l'article]]></comment>
+			</column>
+			<column name="updated" type="datetime" jt="93" mandatory="y" >
+				<defo>CURRENT_TIMESTAMP</defo>
+				<comment><![CDATA[Date de la dernière mise à jour de l'article]]></comment>
+			</column>
+			<index name="Pk_posts_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="Idx_posts_users_id" unique="NORMAL" >
+				<column name="user_id" />
+			</index>
+			<fk name="fk_posts_users" to_schema="audreycuisine.fr" to_table="User" >
+				<fk_column name="user_id" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="ProbeMaster" >
+			<column name="Id" type="int" jt="4" mandatory="y" />
+			<column name="Name" type="varchar" length="100" jt="12" mandatory="y" />
+			<index name="Pk_Master" unique="PRIMARY_KEY" >
+				<column name="Id" />
+			</index>
+		</table>
+		<table name="ProbeSlave" >
+			<column name="Id" type="int" jt="4" mandatory="y" />
+			<column name="Name" type="varchar" length="120" jt="12" mandatory="y" />
+			<index name="Pk_Slave" unique="PRIMARY_KEY" >
+				<column name="Id" />
+			</index>
+			<fk name="Fk" to_schema="audreycuisine.fr" to_table="ProbeMaster" >
+				<fk_column name="Id" pk="Id" />
+			</fk>
+		</table>
+		<table name="Tag" >
+			<comment><![CDATA[Mots-clés d'ingrédients]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="slug" type="varchar" length="50" jt="12" mandatory="y" >
+				<comment><![CDATA[Slug du mot-clé]]></comment>
+			</column>
+			<index name="Pk_tags_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_tags_posts" to_schema="audreycuisine.fr" to_table="Post" />
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="TopMenu" >
+			<comment><![CDATA[Cette table contient la définition du top menu]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" >
+				<comment><![CDATA[Nom de l'entrée du menu tel qu'il sera affiché sur le site]]></comment>
+			</column>
+			<column name="slug" type="varchar" length="100" jt="12" mandatory="y" >
+				<comment><![CDATA[Slug pour l'URL]]></comment>
+			</column>
+			<column name="order_item" type="smallint" jt="5" mandatory="y" unsigned="y" >
+				<comment><![CDATA[Ordre d'affichage]]></comment>
+			</column>
+			<column name="is_visible" type="tinyint" jt="-6" mandatory="y" unsigned="y" >
+				<defo>1</defo>
+				<comment><![CDATA[Affiche ou non cette item dans le top menu]]></comment>
+			</column>
+			<column name="updated" type="datetime" jt="93" >
+				<defo>CURRENT_TIMESTAMP</defo>
+				<comment><![CDATA[Date de la dernière modification de l'item]]></comment>
+			</column>
+			<index name="pk_topmenu_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="topmenu_order" unique="UNIQUE" >
+				<column name="order_item" />
+			</index>
+			<index name="topmenu_is_visible" unique="NORMAL" >
+				<column name="is_visible" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="User" >
+			<comment><![CDATA[Liste des utilisateurs]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="full_name" type="varchar" length="100" jt="12" >
+				<comment><![CDATA[Nom complet]]></comment>
+			</column>
+			<index name="Pk_users_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="books" >
+			<comment><![CDATA[Liste des livres écrits]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="url" type="varchar" length="255" jt="12" >
+				<comment><![CDATA[URL vers la plateforme d'achat du livre]]></comment>
+			</column>
+			<column name="content" type="text" jt="-1" mandatory="y" >
+				<comment><![CDATA[Description du livre]]></comment>
+			</column>
+			<index name="Pk_books_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="categories_parents" >
+			<comment><![CDATA[Arborescence des catégories]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="category_id" type="int" jt="4" mandatory="y" unsigned="y" >
+				<comment><![CDATA[ID de la catégorie]]></comment>
+			</column>
+			<column name="parent_id" type="int" jt="4" mandatory="y" unsigned="y" >
+				<comment><![CDATA[ID de la catégorie parente]]></comment>
+			</column>
+			<index name="Pk_categories_parents_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="Idx_categories_parents_category_id" unique="NORMAL" >
+				<column name="category_id" />
+			</index>
+			<fk name="fk_categories_parents" to_schema="audreycuisine.fr" to_table="category" delete_action="cascade" update_action="cascade" >
+				<fk_column name="category_id" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="category" >
+			<comment><![CDATA[Définition des catégories du site]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" >
+				<comment><![CDATA[Nom de la catégorie tel qu'il sera affiché]]></comment>
+			</column>
+			<column name="slug" type="varchar" length="100" jt="12" mandatory="y" >
+				<comment><![CDATA[Slug pour l'URL]]></comment>
+			</column>
+			<column name="level" type="smallint" jt="5" unsigned="y" >
+				<comment><![CDATA[Niveau de la catégorie dans l'arborescence]]></comment>
+			</column>
+			<column name="order_item" type="smallint" jt="5" mandatory="y" unsigned="y" >
+				<comment><![CDATA[Ordre d'affichage de la catégorie]]></comment>
+			</column>
+			<column name="is_visible" type="tinyint" jt="-6" mandatory="y" unsigned="y" >
+				<defo>1</defo>
+				<comment><![CDATA[Affiche ou non cette catégorie]]></comment>
+			</column>
+			<column name="parent_id" type="int" jt="4" unsigned="y" >
+				<comment><![CDATA[ID de la catégorie parente]]></comment>
+			</column>
+			<column name="updated" type="datetime" jt="93" mandatory="y" >
+				<defo>CURRENT_TIMESTAMP</defo>
+				<comment><![CDATA[Date de la dernière mise à jour de la catégorie]]></comment>
+			</column>
+			<index name="Pk_categories_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="comments" >
+			<comment><![CDATA[Définition des commentaires]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="posts_id" type="int" jt="4" mandatory="y" unsigned="y" >
+				<comment><![CDATA[ID de l'article commenté]]></comment>
+			</column>
+			<column name="content" type="text" jt="-1" mandatory="y" >
+				<comment><![CDATA[Contenu du commentaire]]></comment>
+			</column>
+			<column name="name" type="varchar" length="255" jt="12" >
+				<comment><![CDATA[Nom complet de l'auteur du commentaire]]></comment>
+			</column>
+			<column name="email" type="varchar" length="100" jt="12" >
+				<comment><![CDATA[Email de l'auteur du commentaire]]></comment>
+			</column>
+			<index name="Pk_comments_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="Idx_comments_posts_id" unique="NORMAL" >
+				<column name="posts_id" />
+			</index>
+			<fk name="fk_comments_posts" to_schema="audreycuisine.fr" to_table="Post" >
+				<fk_column name="posts_id" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="seo" >
+			<comment><![CDATA[Référencement]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="url" type="varchar" length="255" jt="12" >
+				<comment><![CDATA[URL référencement]]></comment>
+			</column>
+			<index name="Pk_seo_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="social_network" >
+			<comment><![CDATA[Liens vers les réseaux sociaux]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="title" type="varchar" length="100" jt="12" mandatory="y" >
+				<comment><![CDATA[Nom du réseau social]]></comment>
+			</column>
+			<column name="url" type="varchar" length="255" jt="12" mandatory="y" >
+				<comment><![CDATA[Lien vers le réseau social]]></comment>
+			</column>
+			<index name="Pk_social_network_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="subscribes" >
+			<comment><![CDATA[Emails des personnes inscrites à la newsletter]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="email" type="varchar" length="255" jt="12" mandatory="y" >
+				<comment><![CDATA[Email de l'intéressé]]></comment>
+			</column>
+			<column name="is_valid" type="tinyint" jt="-6" mandatory="y" unsigned="y" >
+				<defo>1</defo>
+				<comment><![CDATA[Valide ou non l'enregistrement à la newsletter]]></comment>
+			</column>
+			<column name="created" type="date" jt="91" mandatory="y" >
+				<defo>CURRENT_DATE</defo>
+				<comment><![CDATA[Date d'inscription à la newsletter]]></comment>
+			</column>
+			<index name="Pk_subscribes_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout_40a2681" show_relation="columns" >
+		<entity schema="audreycuisine.fr" name="comments" color="1f5182" x="465" y="135" />
+		<entity schema="audreycuisine.fr" name="social_network" color="1f5182" x="570" y="300" />
+		<entity schema="audreycuisine.fr" name="subscribes" color="1f5182" x="825" y="345" />
+		<entity schema="audreycuisine.fr" name="seo" color="1f5182" x="660" y="465" />
+		<entity schema="audreycuisine.fr" name="books" color="1f5182" x="780" y="495" />
+		<entity schema="audreycuisine.fr" name="Post" color="1f5182" x="105" y="330" />
+		<entity schema="audreycuisine.fr" name="category" color="ff9999" x="930" y="150" />
+		<entity schema="audreycuisine.fr" name="TopMenu" color="cccccc" x="765" y="75" />
+		<entity schema="audreycuisine.fr" name="User" color="1f5182" x="375" y="285" />
+		<entity schema="audreycuisine.fr" name="Tag" color="1f5182" x="285" y="435" />
+		<callout x="45" y="45" pointer="NO" >
+			<comment><![CDATA[This project is in offline mode.
+Design the schema and save the design to project file. Later create or upgrade the schema on any database.
+Right-click the layout to add new tables. Drop this callout from its right-click pop-up menu.]]></comment>
+		</callout>
+	</layout>
+</project>

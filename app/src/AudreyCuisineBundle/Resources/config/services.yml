@@ -1,0 +1,4 @@
+services:
+#    audrey_cuisine.example:
+#        class: AudreyCuisineBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
