@@ -1,5 +1,5 @@
-.logo {
+header .logo {
     display: inline-block;
-    padding-left: 14px;
+    padding-left: 13%;
     background: linear-gradient(90deg, #78616D, #78616D 60%, transparent);
 }

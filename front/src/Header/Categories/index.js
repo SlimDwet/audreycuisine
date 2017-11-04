@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 
 class Categories extends React.Component {
 
@@ -799,9 +800,9 @@ class Categories extends React.Component {
                     // On traite un nouveau niveau de sous-catégorie
                     if(item.hasOwnProperty('children') && item.children.length > 0) {
                         let resultSubtree = this.buildRender(item.children, true);
-                        subtree = <li key={this.getRandomKey()}>{item.title}{resultSubtree}</li>
+                        subtree = <li key={this.getRandomKey()}><a href="#">{item.title}</a>{resultSubtree}</li>
                     } else {
-                        subtree = <li key={this.getRandomKey()}>{item.title}</li>
+                        subtree = <li key={this.getRandomKey()}><a href="#">{item.title}</a></li>
                     }
                     return subtree;
                 })
@@ -809,14 +810,14 @@ class Categories extends React.Component {
             </ul>;
             return result;
         } else {
-            this.categoriesTree = <ul>
+            this.categoriesTree = <ul className="categoriesWrapper">
             {
                 tree.map(item => {
                     let subtree;
                     // Traitement des sous-catégories
                     if(item.hasOwnProperty('children') && item.children.length > 0) {
                         let resultSubtree = this.buildRender(item.children, true);
-                        subtree = <li key={this.getRandomKey()}>{item.title}{resultSubtree}</li>;
+                        subtree = <li key={this.getRandomKey()}><a href="#">{item.title}</a>{resultSubtree}</li>;
                     } else {
                         subtree = <li key={this.getRandomKey()}>{item.title}</li>;
                     }
@@ -831,9 +832,9 @@ class Categories extends React.Component {
         // Construction du rendu
         this.buildRender(this.categoriesDefinition, false);
         return (
-            <div className="categories">
+            <nav className="categories">
                 {this.categoriesTree}
-            </div>
+            </nav>
         );
     }
 
