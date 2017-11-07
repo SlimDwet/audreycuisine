@@ -793,7 +793,7 @@ class Categories extends React.Component {
     buildRender(tree, isChildren) {
         // Traitement des sous-catégories
         if(isChildren) {
-            let result = <ul key={this.getRandomKey()}>
+            let result = <ul key={this.getRandomKey()} className="submenu">
             {
                 tree.map(item => {
                     let subtree;
@@ -810,7 +810,7 @@ class Categories extends React.Component {
             </ul>;
             return result;
         } else {
-            this.categoriesTree = <ul className="categoriesWrapper">
+            this.categoriesTree = <ul>
             {
                 tree.map(item => {
                     let subtree;
