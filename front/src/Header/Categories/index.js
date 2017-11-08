@@ -10,7 +10,7 @@ class Categories extends React.Component {
         this.categoriesDefinition = [
             {
                 "title": "Brunchs",
-                "slug": "Brunchs",
+                "slug": "brunchs",
                 "isVisible": true,
                 "children": [
                     {
@@ -609,7 +609,54 @@ class Categories extends React.Component {
                     {
                         "title": "France",
                         "slug": "france",
-                        "isVisible": true
+                        "isVisible": true,
+                        "children": [
+                            {
+                                "title": "Aquitaine Limousin Poitou Charentes",
+                                "slug": "aquitaine",
+                                "isVisible": true
+                            },
+                            {
+                                "title": "Bourgogne Franche Comté",
+                                "slug": "bourgogne",
+                                "isVisible": true
+                            },
+                            {
+                                "title": "Bretagne",
+                                "slug": "bretagne",
+                                "isVisible": true
+                            },
+                            {
+                                "title": "Corse",
+                                "slug": "corse",
+                                "isVisible": true
+                            },
+                            {
+                                "title": "Occitanie",
+                                "slug": "occitanie",
+                                "isVisible": true
+                            },
+                            {
+                                "title": "Pays de la Loire",
+                                "slug": "pays-de-la-loire",
+                                "isVisible": true
+                            },
+                            {
+                                "title": "Provence Alpes Côte d'Azur",
+                                "slug": "provence-alpes",
+                                "isVisible": true
+                            },
+                            {
+                                "title": "Rhône Alpes",
+                                "slug": "rhonealpes",
+                                "isVisible": true
+                            },
+                            {
+                                "title": "Ile de France",
+                                "slug": "ile-de-france",
+                                "isVisible": true
+                            }
+                        ]
                     },
                     {
                         "title": "Europe",
@@ -623,7 +670,7 @@ class Categories extends React.Component {
                             },
                             {
                                 "title": "Barcelone (City Guid)",
-                                "slug": "barcelone",
+                                "slug": "barcelone-city-guid",
                                 "isVisible": true
                             },
                             {
@@ -639,6 +686,21 @@ class Categories extends React.Component {
                             {
                                 "title": "Italie",
                                 "slug": "italie",
+                                "isVisible": true
+                            },
+                            {
+                                "title": "Londres (City Guid)",
+                                "slug": "londres-city-guid",
+                                "isVisible": true
+                            },
+                            {
+                                "title": "Malte",
+                                "slug": "malte",
+                                "isVisible": true
+                            },
+                            {
+                                "title": "Royaume-Uni",
+                                "slug": "royaume-uni",
                                 "isVisible": true
                             }
                         ]
@@ -781,7 +843,7 @@ class Categories extends React.Component {
      * @return {[str]} [Index unique]
      */
     getRandomKey() {
-        return 'category-'+Math.round(Math.random()*1000);
+        return 'category-'+Math.round(Math.random()*100000);
     }
 
     /**
@@ -790,7 +852,7 @@ class Categories extends React.Component {
      * @param  {Boolean} isChildren [On traite une sous-catégorie]
      * @return {[void]}             []
      */
-    buildRender(tree, isChildren) {
+    buildRender(tree, isChildren, slug = null) {
         // Traitement des sous-catégories
         if(isChildren) {
             let result = <ul key={this.getRandomKey()} className="submenu">
@@ -799,10 +861,11 @@ class Categories extends React.Component {
                     let subtree;
                     // On traite un nouveau niveau de sous-catégorie
                     if(item.hasOwnProperty('children') && item.children.length > 0) {
-                        let resultSubtree = this.buildRender(item.children, true);
-                        subtree = <li key={this.getRandomKey()}><a href="#">{item.title}</a>{resultSubtree}</li>
+                        let currentSlug = slug + '/' + item.slug;
+                        let resultSubtree = this.buildRender(item.children, true, currentSlug);
+                        subtree = <li key={this.getRandomKey()}><a href={this.dns+currentSlug}>{item.title}</a>{resultSubtree}</li>
                     } else {
-                        subtree = <li key={this.getRandomKey()}><a href="#">{item.title}</a></li>
+                        subtree = <li key={this.getRandomKey()}><a href={this.dns+slug+'/'+item.slug}>{item.title}</a></li>
                     }
                     return subtree;
                 })
@@ -810,16 +873,16 @@ class Categories extends React.Component {
             </ul>;
             return result;
         } else {
-            this.categoriesTree = <ul>
+            this.categoriesTree = <ul key={this.getRandomKey()}>
             {
                 tree.map(item => {
                     let subtree;
                     // Traitement des sous-catégories
                     if(item.hasOwnProperty('children') && item.children.length > 0) {
-                        let resultSubtree = this.buildRender(item.children, true);
-                        subtree = <li key={this.getRandomKey()}><a href="#">{item.title}</a>{resultSubtree}</li>;
+                        let resultSubtree = this.buildRender(item.children, true, item.slug);
+                        subtree = <li key={this.getRandomKey()}><a href={this.dns+item.slug}>{item.title}</a>{resultSubtree}</li>;
                     } else {
-                        subtree = <li key={this.getRandomKey()}>{item.title}</li>;
+                        subtree = <li key={this.getRandomKey()}><a href={this.dns+item.slug}>{item.title}</a></li>;
                     }
                     return subtree;
                 })
