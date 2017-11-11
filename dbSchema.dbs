@@ -47,6 +47,9 @@
 				<defo>CURRENT_TIMESTAMP</defo>
 				<comment><![CDATA[Date de la dernière mise à jour de l'article]]></comment>
 			</column>
+			<column name="urlPostPicture" type="varchar" length="255" jt="12" >
+				<comment><![CDATA[URL vers la photo d'illustration de l'article]]></comment>
+			</column>
 			<index name="Pk_posts_id" unique="PRIMARY_KEY" >
 				<column name="id" />
 			</index>
@@ -81,10 +84,9 @@
 			<column name="slug" type="varchar" length="50" jt="12" mandatory="y" >
 				<comment><![CDATA[Slug du mot-clé]]></comment>
 			</column>
-			<index name="Pk_tags_id" unique="PRIMARY_KEY" >
+			<index name="_0" unique="PRIMARY_KEY" >
 				<column name="id" />
 			</index>
-			<fk name="fk_tags_posts" to_schema="audreycuisine.fr" to_table="Post" />
 			<storage><![CDATA[engine=InnoDB]]></storage>
 		</table>
 		<table name="TopMenu" >
@@ -194,6 +196,50 @@
 			</index>
 			<storage><![CDATA[engine=InnoDB]]></storage>
 		</table>
+		<table name="post_category" >
+			<comment><![CDATA[Table de liaison entre les articles et les catégories]]></comment>
+			<column name="post_id" type="int" jt="4" unsigned="y" >
+				<comment><![CDATA[ID de l'article]]></comment>
+			</column>
+			<column name="category_id" type="int" jt="4" unsigned="y" >
+				<comment><![CDATA[ID de la catégorie]]></comment>
+			</column>
+			<index name="Idx_post_category_post_id" unique="NORMAL" >
+				<column name="post_id" />
+			</index>
+			<index name="Idx_post_category_category_id" unique="NORMAL" >
+				<column name="category_id" />
+			</index>
+			<fk name="fk_post_category_post" to_schema="audreycuisine.fr" to_table="Post" >
+				<fk_column name="post_id" pk="id" />
+			</fk>
+			<fk name="fk_post_category_category" to_schema="audreycuisine.fr" to_table="category" >
+				<fk_column name="category_id" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="post_tag" >
+			<comment><![CDATA[Table de liaison entre les articles et les tags]]></comment>
+			<column name="post_id" type="int" jt="4" mandatory="y" unsigned="y" >
+				<comment><![CDATA[ID de l'article]]></comment>
+			</column>
+			<column name="tag_id" type="int" jt="4" unsigned="y" >
+				<comment><![CDATA[ID du tag]]></comment>
+			</column>
+			<index name="Idx_post_tag_post_id" unique="NORMAL" >
+				<column name="post_id" />
+			</index>
+			<index name="Idx_post_tag_tag_id" unique="NORMAL" >
+				<column name="tag_id" />
+			</index>
+			<fk name="fk_post_tag_post" to_schema="audreycuisine.fr" to_table="Post" >
+				<fk_column name="post_id" pk="id" />
+			</fk>
+			<fk name="fk_post_tag_tag" to_schema="audreycuisine.fr" to_table="Tag" >
+				<fk_column name="tag_id" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
 		<table name="seo" >
 			<comment><![CDATA[Référencement]]></comment>
 			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
@@ -242,14 +288,16 @@
 	<layout name="Default Layout" id="Layout_40a2681" show_relation="columns" >
 		<entity schema="audreycuisine.fr" name="social_network" color="1f5182" x="570" y="300" />
 		<entity schema="audreycuisine.fr" name="subscribes" color="1f5182" x="825" y="345" />
-		<entity schema="audreycuisine.fr" name="seo" color="1f5182" x="660" y="465" />
 		<entity schema="audreycuisine.fr" name="books" color="1f5182" x="780" y="495" />
-		<entity schema="audreycuisine.fr" name="Post" color="1f5182" x="105" y="330" />
-		<entity schema="audreycuisine.fr" name="category" color="ff9999" x="930" y="150" />
 		<entity schema="audreycuisine.fr" name="TopMenu" color="cccccc" x="765" y="75" />
 		<entity schema="audreycuisine.fr" name="User" color="1f5182" x="375" y="285" />
-		<entity schema="audreycuisine.fr" name="Tag" color="1f5182" x="285" y="435" />
 		<entity schema="audreycuisine.fr" name="Comment" color="1f5182" x="465" y="135" />
+		<entity schema="audreycuisine.fr" name="seo" color="1f5182" x="660" y="465" />
+		<entity schema="audreycuisine.fr" name="post_category" color="1f5182" x="150" y="660" />
+		<entity schema="audreycuisine.fr" name="category" color="ff9999" x="285" y="660" />
+		<entity schema="audreycuisine.fr" name="Tag" color="1f5182" x="435" y="435" />
+		<entity schema="audreycuisine.fr" name="post_tag" color="1f5182" x="270" y="465" />
+		<entity schema="audreycuisine.fr" name="Post" color="1f5182" x="105" y="330" />
 		<callout x="45" y="45" pointer="NO" >
 			<comment><![CDATA[This project is in offline mode.
 Design the schema and save the design to project file. Later create or upgrade the schema on any database.
