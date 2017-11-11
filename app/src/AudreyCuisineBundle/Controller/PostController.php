@@ -17,10 +17,13 @@ class PostController extends Controller
      * @Route("/category/last-posts", name="last_posts")
      */
     public function getLastPosts(Request $request) {
+        $response = new JsonResponse();
         $repository = $this->getDoctrine()->getRepository(Post::class);
         // On récupère les derniers articles postés
-        $lastPosts = $repository->getLastPosts();
-        return new JsonResponse($lastPosts);
+        $lastPosts = array('data' => $repository->getLastPosts());
+        $response->setData($lastPosts);
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
     }
 
 }

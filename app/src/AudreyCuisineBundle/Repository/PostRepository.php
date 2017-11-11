@@ -25,14 +25,27 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
         return $this->toArray($posts);
     }
 
+    /**
+     * Formate un tableau d'entité en tableau prêt à être affiché
+     * @param  Post[] $posts [description]
+     * @return array        [description]
+     */
     private function toArray(array $posts): array {
         $result = [];
-        foreach ($posts as $key => $Post) {
-            $result[$key] = array(
+        foreach ($posts as $keyPost => $Post) {
+            // Récupération des catégoriees de l'article
+            $categories = [];
+            foreach ($Post->getCategory() as $keyCat => $Category) {
+                $categories[$keyCat] = array(
+                    'name' => $Category->getName()
+                );
+            }
+
+            $result[$keyPost] = array(
                 'title' => $Post->getTitle(),
                 'content' => $Post->getContent(),
                 'updated' => $Post->getUpdated()->format(\Datetime::ISO8601), // Date au format ISO
-                'category' => $Post->getCategory()->getName()
+                'category' => $categories
             );
         }
         return $result;

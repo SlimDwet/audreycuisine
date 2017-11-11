@@ -51,6 +51,13 @@ class Post
     private $isVisible;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="postPicture", type="string", length=255, nullable=true, options={"comment": "URL vers la photo d'illustration de l'article"})
+     */
+    private $urlPostPicture;
+
+    /**
      * @var int
      *
      * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
@@ -60,7 +67,7 @@ class Post
     /**
      * @var [type]
      *
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="posts")
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="posts")
      */
     private $category;
 
@@ -332,5 +339,87 @@ class Post
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \AudreyCuisineBundle\Entity\Comment $comment
+     *
+     * @return Post
+     */
+    public function addComment(\AudreyCuisineBundle\Entity\Comment $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \AudreyCuisineBundle\Entity\Comment $comment
+     */
+    public function removeComment(\AudreyCuisineBundle\Entity\Comment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Add category
+     *
+     * @param \AudreyCuisineBundle\Entity\Category $category
+     *
+     * @return Post
+     */
+    public function addCategory(\AudreyCuisineBundle\Entity\Category $category)
+    {
+        $this->category[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \AudreyCuisineBundle\Entity\Category $category
+     */
+    public function removeCategory(\AudreyCuisineBundle\Entity\Category $category)
+    {
+        $this->category->removeElement($category);
+    }
+
+    /**
+     * Set postPicture
+     *
+     * @param string $postPicture
+     *
+     * @return Post
+     */
+    public function setPostPicture($postPicture)
+    {
+        $this->postPicture = $postPicture;
+
+        return $this;
+    }
+
+    /**
+     * Get postPicture
+     *
+     * @return string
+     */
+    public function getPostPicture()
+    {
+        return $this->postPicture;
     }
 }

@@ -73,7 +73,7 @@ class Category
     /**
      * @var [type]
      *
-     * @ORM\OneToMany(targetEntity="Post", mappedBy="category")
+     * @ORM\ManyToMany(targetEntity="Post", mappedBy="category")
      */
     private $posts;
 

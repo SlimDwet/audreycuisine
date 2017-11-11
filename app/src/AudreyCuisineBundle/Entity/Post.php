@@ -51,6 +51,13 @@ class Post
     private $isVisible;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="urlPostPicture", type="string", length=255, nullable=true, options={"comment": "URL vers la photo d'illustration de l'article"})
+     */
+    private $urlPostPicture;
+
+    /**
      * @var int
      *
      * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
@@ -60,7 +67,7 @@ class Post
     /**
      * @var [type]
      *
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="posts")
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="posts")
      */
     private $category;
 
@@ -366,5 +373,53 @@ class Post
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Add category
+     *
+     * @param \AudreyCuisineBundle\Entity\Category $category
+     *
+     * @return Post
+     */
+    public function addCategory(\AudreyCuisineBundle\Entity\Category $category)
+    {
+        $this->category[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \AudreyCuisineBundle\Entity\Category $category
+     */
+    public function removeCategory(\AudreyCuisineBundle\Entity\Category $category)
+    {
+        $this->category->removeElement($category);
+    }
+
+    /**
+     * Set urlPostPicture
+     *
+     * @param string $urlPostPicture
+     *
+     * @return Post
+     */
+    public function setUrlPostPicture($urlPostPicture)
+    {
+        $this->urlPostPicture = $urlPostPicture;
+
+        return $this;
+    }
+
+    /**
+     * Get urlPostPicture
+     *
+     * @return string
+     */
+    public function getUrlPostPicture()
+    {
+        return $this->urlPostPicture;
     }
 }
