@@ -45,11 +45,22 @@
     src: url('./public/font/RobotoSlab.woff2');
 }
 
-
-
 body {
     margin: 0;
     padding: 0;
     background: url('public/images/fond.png') repeat;
     font-family: 'Open Sans', 'sans-serif';
+}
+.container {
+    width: 1220px;
+    margin: 0 auto;
+}
+.titleBlock {
+    display: inline-block;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #FFF;
 }
