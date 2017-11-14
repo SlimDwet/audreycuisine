@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionTitle from '../Components/SectionTitle/SectionTitle';
 
 class LastPosts extends React.Component {
 
@@ -18,9 +19,11 @@ class LastPosts extends React.Component {
 
     render() {
         this.getLastPosts();
-        return (<div className="lastBlockContainer">
-            <h4 className="titleBlock">Mes derniers articles publiés</h4>
-        </div>);
+        return (
+            <div className="lastPostsContainer">
+                <SectionTitle title="Mes derniers articles publiés" />
+            </div>
+        );
     }
 
 }

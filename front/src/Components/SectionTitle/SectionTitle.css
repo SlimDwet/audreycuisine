@@ -1,0 +1,33 @@
+/*******  TITRE DE BLOCS  ******/
+.titleContainer {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+}
+.title {
+    flex: 0 1 auto;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #FFF;
+}
+.separatorContainer {
+    flex: 1 1 auto;
+}
+.separator {
+    display: block;
+    position: relative;
+    height: 1px;
+    top: 50%;
+    margin-left: 10px;
+    background-color: #FFF;
+}

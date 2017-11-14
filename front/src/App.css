@@ -55,12 +55,3 @@ body {
     width: 1220px;
     margin: 0 auto;
 }
-.titleBlock {
-    display: inline-block;
-    margin: 0;
-    font-family: Roboto, sans-serif;
-    font-size: 22px;
-    font-weight: normal;
-    text-transform: uppercase;
-    color: #FFF;
-}
