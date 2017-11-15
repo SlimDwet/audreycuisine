@@ -53,9 +53,16 @@ class Post
     /**
      * @var string
      *
-     * @ORM\Column(name="postPicture", type="string", length=255, nullable=true, options={"comment": "URL vers la photo d'illustration de l'article"})
+     * @ORM\Column(name="urlPostPicture", type="string", length=255, nullable=true, options={"comment": "URL vers la photo d'illustration de l'article"})
      */
     private $urlPostPicture;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="urlPostThumbnail", type="string", length=255, nullable=true, options={"comment": "URL vers la photo miniature de l'article"})
+     */
+    private $urlPostThumbnail;
 
     /**
      * @var int
@@ -400,26 +407,26 @@ class Post
     }
 
     /**
-     * Set postPicture
+     * Set urlPostPicture
      *
-     * @param string $postPicture
+     * @param string $urlPostPicture
      *
      * @return Post
      */
-    public function setPostPicture($postPicture)
+    public function setUrlPostPicture($urlPostPicture)
     {
-        $this->postPicture = $postPicture;
+        $this->urlPostPicture = $urlPostPicture;
 
         return $this;
     }
 
     /**
-     * Get postPicture
+     * Get urlPostPicture
      *
      * @return string
      */
-    public function getPostPicture()
+    public function getUrlPostPicture()
     {
-        return $this->postPicture;
+        return $this->urlPostPicture;
     }
 }

@@ -58,6 +58,13 @@ class Post
     private $urlPostPicture;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="urlPostThumbnail", type="string", length=255, nullable=true, options={"comment": "URL vers la photo miniature de l'article"})
+     */
+    private $urlPostThumbnail;
+
+    /**
      * @var int
      *
      * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
@@ -421,5 +428,29 @@ class Post
     public function getUrlPostPicture()
     {
         return $this->urlPostPicture;
+    }
+
+    /**
+     * Set urlPostThumbnail
+     *
+     * @param string $urlPostThumbnail
+     *
+     * @return Post
+     */
+    public function setUrlPostThumbnail($urlPostThumbnail)
+    {
+        $this->urlPostThumbnail = $urlPostThumbnail;
+
+        return $this;
+    }
+
+    /**
+     * Get urlPostThumbnail
+     *
+     * @return string
+     */
+    public function getUrlPostThumbnail()
+    {
+        return $this->urlPostThumbnail;
     }
 }
