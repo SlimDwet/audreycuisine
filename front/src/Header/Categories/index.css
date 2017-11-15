@@ -15,6 +15,7 @@
 }
 .categories li {
     position: relative;
+    z-index: 100;
     list-style: none;
 }
 .categories a {
