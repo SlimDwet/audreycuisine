@@ -10,7 +10,10 @@ class App extends Component {
             <div className="App">
                 <Header />
                 <div className="container">
-                    <LastPosts urlLastPosts="http://audreycuisine-dev.fr/app_dev.php/category/last-posts" />
+                    <div className="leftContent">
+                        <LastPosts urlLastPosts="http://audreycuisine-dev.fr/app_dev.php/category/last-posts" />
+                    </div>
+                    <div className="rightContent"></div>
                 </div>
             </div>
         );

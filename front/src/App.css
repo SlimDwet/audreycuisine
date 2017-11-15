@@ -55,3 +55,16 @@ body {
     width: 1220px;
     margin: 0 auto;
 }
+.container::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.leftContent {
+    width: 70%;
+    float: left;
+}
+.rightContent {
+    width: 30%;
+    float: left;
+}
