@@ -843,7 +843,7 @@ class Categories extends React.Component {
      * @return {[str]} [Index unique]
      */
     getRandomKey() {
-        return 'category-'+Math.round(Math.random()*100000);
+        return 'category-'+Math.round((Math.random() * 1000) * (Math.random() * 1000));
     }
 
     /**
