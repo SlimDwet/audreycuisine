@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
+import urls from './utils/urls';
 import Header from './Header';
 import LastPosts from './LastPosts';
 import './App.css';
@@ -11,7 +12,7 @@ class App extends Component {
                 <Header />
                 <div className="container">
                     <div className="leftContent">
-                        <LastPosts urlLastPosts="http://audreycuisine-dev.fr/app_dev.php/category/last-posts" />
+                        <LastPosts urlLastPosts={urls.lastPosts} />
                     </div>
                     <div className="rightContent"></div>
                 </div>
