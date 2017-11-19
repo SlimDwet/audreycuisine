@@ -4,7 +4,42 @@
     display: -ms-flex;
     display: -o-flex;
     display: flex;
+    justify-content: space-between;
 }
 .lastPostsContainer .post {
-    flex: 1;
+    width: 20%;
+}
+.post img {
+    display: block;
+    width: 100%;
+}
+.postContainer {
+    margin: 0;
+    padding: 20px 15px;
+    background-color: #FFFFFF;
+}
+.postCategories {
+    display: block;
+    height: 44px;
+    margin-bottom: 10px;
+    padding: 5px;
+    min-height: 44px;
+    box-sizing: border-box;
+    color: #FFF;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #cfa4b3;
+    overflow: hidden;
+}
+.postLink {
+    color: #be0063;
+    font-family: OpenSansBold, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+}
+.postLink:hover {
+    text-decoration: underline;
+}
+.postExcerpt {
+    font-size: 12px;
 }

@@ -12,12 +12,11 @@ class LastPosts extends React.Component {
     }
 
     componentDidMount() {
+        if(this.props.urlLastPosts === undefined || this.props.urlLastPosts.length === 0) throw new Error("L'URL vers les derniers articles est manquante");
         this.getLastPosts();
     }
 
     getLastPosts() {
-        if(this.props.urlLastPosts === undefined) throw new Error("L'URL vers les derniers articles est manquante");
-
         // On récupère les derniers articles
         if(!this.state.lastPosts) {
             fetch(this.props.urlLastPosts)
@@ -36,13 +35,51 @@ class LastPosts extends React.Component {
     render() {
         let allPosts = [];
         if(this.state.lastPosts) {
-            this.state.lastPosts.forEach(post => {
-                allPosts.push(
-                    <div className="post">
-                        {/*<img src={post.urlPostThumbnail} />*/}
-                    </div>
-                );
-            })
+            // this.state.lastPosts.forEach(post => {
+            //     allPosts.push();
+            // })
+            allPosts.push(
+                <div className="post">
+                    <a href="#">
+                        <img src="https://picsum.photos/300/255/?random" />
+                    </a>
+                    <p className="postContainer">
+                        <span className="postCategories">blabla</span>
+                        <a href="#" className="postLink">post link</a>
+                        <p className="postExcerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis quidem eaque praesentium, incidunt deleniti voluptates, assumenda, repellendus, sapiente voluptas temporibus in ullam. Sit excepturi dolorem inventore. Culpa obcaecati minus dicta? Eius ullam deleniti ipsam, voluptate libero sint, molestiae dolore earum sapiente iusto consequatur nostrum corporis ipsum, expedita eum, nihil veniam.</p>
+                    </p>
+                </div>,
+                <div className="post">
+                    <a href="#">
+                        <img src="https://picsum.photos/300/255/?random" />
+                    </a>
+                    <p className="postContainer">
+                        <span className="postCategories">blabla</span>
+                        <a href="#" className="postLink">post link</a>
+                        <p className="postExcerpt">lorem50</p>
+                    </p>
+                </div>,
+                <div className="post">
+                    <a href="#">
+                        <img src="https://picsum.photos/300/255/?random" />
+                    </a>
+                    <p className="postContainer">
+                        <span className="postCategories">blabla</span>
+                        <a href="#" className="postLink">post link</a>
+                        <p className="postExcerpt">lorem50</p>
+                    </p>
+                </div>,
+                <div className="post">
+                    <a href="#">
+                        <img src="https://picsum.photos/300/255/?random" />
+                    </a>
+                    <p className="postContainer">
+                        <span className="postCategories">blabla</span>
+                        <a href="#" className="postLink">post link</a>
+                        <p className="postExcerpt">lorem50</p>
+                    </p>
+                </div>
+            );
         }
         return (
             <div>
