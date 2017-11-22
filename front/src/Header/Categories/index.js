@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import {getRandomKey} from '../../utils/functions';
 
 class Categories extends React.Component {
 
@@ -839,14 +840,6 @@ class Categories extends React.Component {
     }
 
     /**
-     * Retourne un index unique
-     * @return {[str]} [Index unique]
-     */
-    getRandomKey() {
-        return 'category-'+Math.round((Math.random() * 1000) * (Math.random() * 1000));
-    }
-
-    /**
      * Construction de l'arbre de catégories
      * @param  {[array]}  tree       [Liste des éléments]
      * @param  {Boolean} isChildren [On traite une sous-catégorie]
@@ -855,7 +848,7 @@ class Categories extends React.Component {
     buildRender(tree, isChildren, slug = null) {
         // Traitement des sous-catégories
         if(isChildren) {
-            let result = <ul key={this.getRandomKey()} className="submenu">
+            let result = <ul key={getRandomKey('category')} className="submenu">
             {
                 tree.map(item => {
                     let subtree;
@@ -863,9 +856,9 @@ class Categories extends React.Component {
                     if(item.hasOwnProperty('children') && item.children.length > 0) {
                         let currentSlug = slug + '/' + item.slug;
                         let resultSubtree = this.buildRender(item.children, true, currentSlug);
-                        subtree = <li key={this.getRandomKey()}><a href={this.dns+currentSlug}>{item.title}</a>{resultSubtree}</li>
+                        subtree = <li key={getRandomKey('category')}><a href={this.dns+currentSlug}>{item.title}</a>{resultSubtree}</li>
                     } else {
-                        subtree = <li key={this.getRandomKey()}><a href={this.dns+slug+'/'+item.slug}>{item.title}</a></li>
+                        subtree = <li key={getRandomKey('category')}><a href={this.dns+slug+'/'+item.slug}>{item.title}</a></li>
                     }
                     return subtree;
                 })
@@ -873,16 +866,16 @@ class Categories extends React.Component {
             </ul>;
             return result;
         } else {
-            this.categoriesTree = <ul key={this.getRandomKey()}>
+            this.categoriesTree = <ul key={getRandomKey('category')}>
             {
                 tree.map(item => {
                     let subtree;
                     // Traitement des sous-catégories
                     if(item.hasOwnProperty('children') && item.children.length > 0) {
                         let resultSubtree = this.buildRender(item.children, true, item.slug);
-                        subtree = <li key={this.getRandomKey()}><a href={this.dns+item.slug}>{item.title}</a>{resultSubtree}</li>;
+                        subtree = <li key={getRandomKey('category')}><a href={this.dns+item.slug}>{item.title}</a>{resultSubtree}</li>;
                     } else {
-                        subtree = <li key={this.getRandomKey()}><a href={this.dns+item.slug}>{item.title}</a></li>;
+                        subtree = <li key={getRandomKey('category')}><a href={this.dns+item.slug}>{item.title}</a></li>;
                     }
                     return subtree;
                 })
