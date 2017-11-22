@@ -8,6 +8,7 @@
 }
 .lastPostsContainer .post {
     width: 20%;
+    background-color: #FFFFFF;
 }
 .post img {
     display: block;
@@ -16,7 +17,6 @@
 .postContainer {
     margin: 0;
     padding: 20px 15px;
-    background-color: #FFFFFF;
 }
 .postCategories {
     display: block;
@@ -42,4 +42,10 @@
 }
 .postExcerpt {
     font-size: 12px;
+}
+.postDate {
+    color: #cfa4b3;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align: center;
 }
