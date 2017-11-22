@@ -44,6 +44,7 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
             $result[$keyPost] = array(
                 'title' => $Post->getTitle(),
                 'content' => $Post->getContent(),
+                'contentNoHtml' => strip_tags($Post->getContent()),
                 'urlPostThumbnail' => $Post->getUrlPostThumbnail(),
                 'updated' => $Post->getUpdated()->format(\Datetime::ISO8601), // Date au format ISO
                 'category' => $categories
