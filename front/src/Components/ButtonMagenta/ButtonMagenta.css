@@ -1,0 +1,10 @@
+.buttonMagenta {
+    display: inline-block;
+    padding: 15px 20px;
+    font-family: Roboto;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #FFF;
+    background-color: #be0063;
+}
