@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import urls from './utils/urls';
 import Header from './Header';
 import LastPosts from './LastPosts';
+import SectionTitle from './Components/SectionTitle/SectionTitle';
+import ButtonMagenta from './Components/ButtonMagenta/ButtonMagenta';
 import './App.css';
 
 class App extends Component {
@@ -12,7 +14,9 @@ class App extends Component {
                 <Header />
                 <div className="container">
                     <div className="leftContent">
-                        <LastPosts urlLastPosts={urls.lastPosts} />
+                        <LastPosts urlLastPosts={urls.lastPosts} /><br/><br/>
+                        <ButtonMagenta text="Tous mes articles" link={urls.allPosts} /><br/><br/>
+                        <SectionTitle title="Dans ma p'tite cuisine" />
                     </div>
                     <div className="rightContent"></div>
                 </div>
