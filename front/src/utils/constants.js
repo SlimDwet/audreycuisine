@@ -1,5 +1,5 @@
 const constants = {
-    "excerptLength": 55
+    "excerptLength": 30
 }
 
 export default constants;
