@@ -5,6 +5,7 @@ import Header from './Header';
 import LastPosts from './LastPosts';
 import SectionTitle from './Components/SectionTitle/SectionTitle';
 import ButtonMagenta from './Components/ButtonMagenta/ButtonMagenta';
+import InMyKitchen from './InMyKitchen/InMyKitchen';
 import './App.css';
 
 class App extends Component {
@@ -16,7 +17,7 @@ class App extends Component {
                     <div className="leftContent">
                         <LastPosts urlLastPosts={urls.lastPosts} /><br/><br/>
                         <ButtonMagenta text="Tous mes articles" link={urls.allPosts} /><br/><br/>
-                        <SectionTitle title="Dans ma p'tite cuisine" />
+                        <InMyKitchen urlInMyKitchen={urls.inMyKitchen} />
                     </div>
                     <div className="rightContent"></div>
                 </div>
