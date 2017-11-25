@@ -14,7 +14,7 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
     /**
      * Retourne les X derniers articles postés
      * @param  integer $nb [Nombre d'articles à retourner]
-     * @return Category[]       [Tableau d'entité Category]
+     * @return array       [Liste des derniers articles]
      */
     public function getLastPosts(int $nb = 4): array {
         $posts = $this->findBy(
@@ -27,7 +27,7 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
 
     /**
      * Formate un tableau d'entité en tableau prêt à être affiché
-     * @param  Post[] $posts [description]
+     * @param  Post[] $posts [Tableau d'entité Post]
      * @return array        [description]
      */
     private function toArray(array $posts): array {
