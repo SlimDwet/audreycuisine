@@ -429,4 +429,28 @@ class Post
     {
         return $this->urlPostPicture;
     }
+
+    /**
+     * Set urlPostThumbnail
+     *
+     * @param string $urlPostThumbnail
+     *
+     * @return Post
+     */
+    public function setUrlPostThumbnail($urlPostThumbnail)
+    {
+        $this->urlPostThumbnail = $urlPostThumbnail;
+
+        return $this;
+    }
+
+    /**
+     * Get urlPostThumbnail
+     *
+     * @return string
+     */
+    public function getUrlPostThumbnail()
+    {
+        return $this->urlPostThumbnail;
+    }
 }
