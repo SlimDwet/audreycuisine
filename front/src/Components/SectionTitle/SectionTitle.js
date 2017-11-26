@@ -11,7 +11,7 @@ class SectionTitle extends React.Component {
     render() {
         if(this.props.title === undefined) throw new Error("Le titre n'a pas été renseigné");
         return (
-            <div className="titleContainer">
+            <div className="sectionTitleContainer">
                 <h4 className="title">{this.props.title}</h4>
                 <span className="separatorContainer">
                     <span className="separator"></span>

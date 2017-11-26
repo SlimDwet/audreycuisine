@@ -1,5 +1,5 @@
 /*******  TITRE DE BLOCS  ******/
-.titleContainer {
+.sectionTitleContainer {
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
@@ -12,7 +12,7 @@
     flex-direction: row;
     margin-bottom: 15px;
 }
-.title {
+.sectionTitleContainer .title {
     flex: 0 1 auto;
     margin: 0;
     font-family: Roboto, sans-serif;
@@ -21,10 +21,10 @@
     text-transform: uppercase;
     color: #FFF;
 }
-.separatorContainer {
+.sectionTitleContainer .separatorContainer {
     flex: 1 1 auto;
 }
-.separator {
+.sectionTitleContainer .separator {
     display: block;
     position: relative;
     height: 1px;
