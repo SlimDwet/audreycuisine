@@ -1,0 +1,32 @@
+.tilePost {
+    border-bottom: 2px solid #cfa4b3;
+    background-color: #FFFFFF;
+}
+.tilePost:nth-child(4n+1) {
+    border-bottom-color: transparent;
+}
+.tilePost img {
+    width: 100%;
+}
+.tilePost a {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    padding: 0 9px;
+    color: #be0063;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: OpenSansBold;
+    text-decoration: none;
+}
+.tilePost a:hover {
+    text-decoration: underline;
+}
+.tilePost .date {
+    margin-bottom: 0;
+    padding: 0 0 30px 0;
+    color: #cfa4b3;
+    font-size: 13px;
+    text-align: center;
+    text-transform: uppercase;
+}
