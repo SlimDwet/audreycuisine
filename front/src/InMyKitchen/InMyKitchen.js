@@ -1,5 +1,7 @@
 import React from 'react';
+import './InMyKitchen.css';
 import SectionTitle from '../Components/SectionTitle/SectionTitle';
+import TileContainer from './TileContainer';
 
 class InMyKitchen extends React.Component {
 
@@ -36,9 +38,16 @@ class InMyKitchen extends React.Component {
     }
 
     render() {
+        let tileContainers = [];
+        if(this.state.inMyKitchen) {
+            this.state.inMyKitchen.forEach(selection => tileContainers.push(<TileContainer name={selection.name} posts={selection.posts} />));
+        }
         return (
-            <div>
+            <div className="inMyKitchenContainer">
                 <SectionTitle title="Dans ma p'tite cuisine" />
+                <div className="content">
+                    {tileContainers}
+                </div>
             </div>
         );
     }
