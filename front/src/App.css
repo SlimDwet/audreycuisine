@@ -67,6 +67,10 @@ body {
     margin-top: 10px;
 }
 .rightContent {
-    width: 30%;
+    width: 27%;
     float: left;
+    margin-left: 3%;
+}
+.modules {
+    background-color: #FFFFFF;
 }

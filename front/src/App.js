@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
+import './App.css';
 import urls from './utils/urls';
 import Header from './Header';
 import LastPosts from './LastPosts';
-import SectionTitle from './Components/SectionTitle/SectionTitle';
 import ButtonMagenta from './Components/ButtonMagenta/ButtonMagenta';
 import InMyKitchen from './InMyKitchen/InMyKitchen';
-import './App.css';
+import WhoAmI from './Modules/WhoAmI/WhoAmI';
 
 class App extends Component {
     render() {
@@ -19,7 +18,9 @@ class App extends Component {
                         <ButtonMagenta text="Tous mes articles" link={urls.allPosts} />
                         <InMyKitchen urlInMyKitchen={urls.inMyKitchen} />
                     </div>
-                    <div className="rightContent"></div>
+                    <div className="rightContent">
+                        <WhoAmI />
+                    </div>
                 </div>
             </div>
         );
