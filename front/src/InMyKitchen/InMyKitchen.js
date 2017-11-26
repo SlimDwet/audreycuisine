@@ -2,6 +2,7 @@ import React from 'react';
 import './InMyKitchen.css';
 import SectionTitle from '../Components/SectionTitle/SectionTitle';
 import TileContainer from './TileContainer';
+import {getRandomKey} from '../utils/functions';
 
 class InMyKitchen extends React.Component {
 
@@ -40,7 +41,9 @@ class InMyKitchen extends React.Component {
     render() {
         let tileContainers = [];
         if(this.state.inMyKitchen) {
-            this.state.inMyKitchen.forEach(selection => tileContainers.push(<TileContainer name={selection.name} posts={selection.posts} />));
+            this.state.inMyKitchen.forEach(selection => tileContainers.push(
+                <TileContainer name={selection.name} posts={selection.posts} key={getRandomKey('tileContainer')} />
+            ));
         }
         return (
             <div className="inMyKitchenContainer">
