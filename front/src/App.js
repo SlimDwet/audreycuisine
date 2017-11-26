@@ -16,7 +16,7 @@ class App extends Component {
                 <div className="container">
                     <div className="leftContent">
                         <LastPosts urlLastPosts={urls.lastPosts} /><br/><br/>
-                        <ButtonMagenta text="Tous mes articles" link={urls.allPosts} /><br/><br/>
+                        <ButtonMagenta text="Tous mes articles" link={urls.allPosts} />
                         <InMyKitchen urlInMyKitchen={urls.inMyKitchen} />
                     </div>
                     <div className="rightContent"></div>
