@@ -10,7 +10,7 @@
     -ms-flex-direction: row;
     -o-flex-direction: row;
     flex-direction: row;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 .title {
     flex: 0 1 auto;
