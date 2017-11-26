@@ -1,0 +1,25 @@
+.tileContainer {
+    margin: 10px 6% 0 0;
+    width: 20%;
+}
+.tileContainer:nth-child(4n) {
+    margin-right: 0;
+}
+.tileName {
+    padding: 15px 15px 25px 15px;
+    background-color: #FFFFFF;
+}
+.tileName span {
+    display: block;
+    min-height: 40px;
+    padding: 3px 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    line-height: 1.1em;
+    font-family: Roboto;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #cfa4b3;
+    color: #FFF;
+}
