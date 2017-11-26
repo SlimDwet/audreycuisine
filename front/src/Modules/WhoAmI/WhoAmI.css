@@ -1,0 +1,33 @@
+.whoAmIContainer {
+    padding: 0 4% 20px 4%;
+}
+.whoAmIContainer img {
+    display: block;
+    width: 100%;
+}
+.whoAmIContainer .name, .whoAmIContainer .hobbies {
+    display: block;
+    text-align: center;
+    font-family: Roboto;
+    line-height: 1.555em;
+}
+.whoAmIContainer .name {
+    color: #993366;
+    font-weight: 700;
+}
+.whoAmIContainer .hobbies {
+    color: #333;
+    font-weight: 400;
+}
+.whoAmIContainer .myStory {
+    color: #78626c;
+    font-size: 12px;
+    line-height: 16px;
+}
+.whoAmIContainer .myStory strong {
+    font-weight: 700;
+}
+.whoAmIContainer .myStory a {
+    text-decoration: none;
+    color: #be0063;
+}
