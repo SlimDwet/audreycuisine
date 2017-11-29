@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import urls from './utils/urls';
 import Header from './Header/Header';
-import LastPosts from './LastPosts';
+import LastPosts from './LastPosts/LastPosts';
 import ButtonMagenta from './Components/ButtonMagenta/ButtonMagenta';
 import InMyKitchen from './InMyKitchen/InMyKitchen';
 import WhoAmI from './Modules/WhoAmI/WhoAmI';
 import SocialMedias from './Modules/SocialMedias/SocialMedias';
+import Search from './Modules/Search/Search';
 
 class App extends Component {
     render() {
@@ -21,7 +22,8 @@ class App extends Component {
                     </div>
                     <div className="rightContent">
                         <WhoAmI /><br/>
-                        <SocialMedias />
+                        <SocialMedias /><br/>
+                        <Search />
                     </div>
                 </div>
             </div>
