@@ -1,5 +1,5 @@
 .whoAmIContainer {
-    padding: 0 4% 20px 4%;
+    padding: 0 4% 30px 4%;
 }
 .whoAmIContainer img {
     display: block;
@@ -20,6 +20,7 @@
     font-weight: 400;
 }
 .whoAmIContainer .myStory {
+    margin: 0;
     color: #78626c;
     font-size: 12px;
     line-height: 16px;
