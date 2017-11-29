@@ -6,6 +6,7 @@ import LastPosts from './LastPosts';
 import ButtonMagenta from './Components/ButtonMagenta/ButtonMagenta';
 import InMyKitchen from './InMyKitchen/InMyKitchen';
 import WhoAmI from './Modules/WhoAmI/WhoAmI';
+import SocialMedias from './Modules/SocialMedias/SocialMedias';
 
 class App extends Component {
     render() {
@@ -19,7 +20,8 @@ class App extends Component {
                         <InMyKitchen urlInMyKitchen={urls.inMyKitchen} />
                     </div>
                     <div className="rightContent">
-                        <WhoAmI />
+                        <WhoAmI /><br/>
+                        <SocialMedias />
                     </div>
                 </div>
             </div>

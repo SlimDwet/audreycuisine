@@ -44,6 +44,10 @@
     font-family: 'Roboto';
     src: url('./public/font/RobotoSlab.woff2');
 }
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('./public/font/fontawesome-webfont.woff');
+}
 
 body {
     margin: 0;
