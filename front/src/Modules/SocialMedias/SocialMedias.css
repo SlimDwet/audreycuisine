@@ -1,0 +1,13 @@
+.socialMediasContainer {
+    padding-bottom: 10px;
+}
+.socialMediaList {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    margin-bottom: 0;
+}

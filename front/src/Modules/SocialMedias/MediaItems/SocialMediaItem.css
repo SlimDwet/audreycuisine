@@ -1,5 +1,4 @@
 .socialMediaItem {
-    display: inline-block;
     margin-right: 5px;
     list-style: none;
 }
@@ -9,11 +8,34 @@
     height: 32px;
     border: 2px solid #be0063;
     border-radius: 100%;
+    box-sizing: border-box;
+    line-height: 32px;
+    text-align: center;
 }
 .socialMediaItem a::after {
     display: inline-block;
-    content: '\f408';
+    color: #be0063;
     font-family: 'FontAwesome';
+    font-size: 16px;
 }
-.socialMediaItem .rss {
+.socialMediaItem .rss::after {
+    content: '\f09e';
+}
+.socialMediaItem .instagram::after {
+    content: '\f16d';
+}
+.socialMediaItem .facebook::after {
+    content: '\f09a';
+}
+.socialMediaItem .twitter::after {
+    content: '\f099';
+}
+.socialMediaItem .googleplus::after {
+    content: '\f0d5';
+}
+.socialMediaItem .tumblr::after {
+    content: '\f173';
+}
+.socialMediaItem .pinterest::after {
+    content: '\f0d2';
 }

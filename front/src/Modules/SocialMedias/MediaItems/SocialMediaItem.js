@@ -1,12 +1,12 @@
 import React from 'react'
-import './MediaItem.css'
+import './SocialMediaItem.css'
 
-const mediaItem = props => {
+const socialMediaItem = props => {
     return (
         <li className="socialMediaItem">
-            <a className={props.itemClass} href={props.itemLink}></a>
+            <a className={props.itemClass} href={props.itemLink} target="_blank"></a>
         </li>
     );
 }
 
-export default mediaItem
+export default socialMediaItem
