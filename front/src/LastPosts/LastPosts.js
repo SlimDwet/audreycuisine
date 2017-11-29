@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './LastPosts.css';
 import SectionTitle from '../Components/SectionTitle/SectionTitle';
 import constants from '../utils/constants';
 import {getFrenchDate, getRandomKey} from '../utils/functions';
