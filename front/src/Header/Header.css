@@ -1,4 +1,7 @@
-header .logo {
+.topMenuWrapper {
+    margin-bottom: 50px;
+}
+.topMenuWrapper .logo {
     display: inline-block;
     padding-left: 13%;
     background: linear-gradient(90deg, #78616D, #78616D 60%, transparent);
