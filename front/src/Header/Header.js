@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './index.css';
-import './TopMenu/TopMenu.css';
+import './Header.css';
 import TopMenu from './TopMenu/TopMenu';
-import Categories from './Categories/index';
+import Categories from './Categories/Categories';
 
 class Header extends Component {
     render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './Categories.css';
 import {getRandomKey} from '../../utils/functions';
 
 class Categories extends React.Component {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import urls from './utils/urls';
-import Header from './Header';
+import Header from './Header/Header';
 import LastPosts from './LastPosts';
 import ButtonMagenta from './Components/ButtonMagenta/ButtonMagenta';
 import InMyKitchen from './InMyKitchen/InMyKitchen';
