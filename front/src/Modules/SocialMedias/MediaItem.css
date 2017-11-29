@@ -1,0 +1,19 @@
+.socialMediaItem {
+    display: inline-block;
+    margin-right: 5px;
+    list-style: none;
+}
+.socialMediaItem a {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #be0063;
+    border-radius: 100%;
+}
+.socialMediaItem a::after {
+    display: inline-block;
+    content: '\f408';
+    font-family: 'FontAwesome';
+}
+.socialMediaItem .rss {
+}
