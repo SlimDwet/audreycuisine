@@ -8,6 +8,7 @@ import InMyKitchen from './InMyKitchen/InMyKitchen';
 import WhoAmI from './Modules/WhoAmI/WhoAmI';
 import SocialMedias from './Modules/SocialMedias/SocialMedias';
 import Search from './Modules/Search/Search';
+import Newsletter from './Modules/Newsletter/Newsletter';
 
 class App extends Component {
     render() {
@@ -23,7 +24,8 @@ class App extends Component {
                     <div className="rightContent">
                         <WhoAmI /><br/>
                         <SocialMedias /><br/>
-                        <Search />
+                        <Search /><br/>
+                        <Newsletter /><br/>
                     </div>
                 </div>
             </div>
