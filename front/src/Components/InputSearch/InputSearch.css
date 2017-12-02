@@ -1,0 +1,9 @@
+.components-input {
+    height: 35px;
+    padding: 10px 35px 10px 10px;
+    font-family: OpenSans;
+    font-size: 14px;
+    border: 1px solid #be0063;
+    box-sizing: border-box;
+    color: #999;
+}

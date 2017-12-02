@@ -1,7 +1,10 @@
 import React from 'react';
+import './InputSearch.css';
 
 const inputSearch = props => {
-    return <input type="text" placeholder="Tapez votre recherche puis Ent" id="inputSearch" />
+    return <input type="text"
+        placeholder={props.inputPlaceholder}
+        className="components-input" />
 }
 
 export default inputSearch;
