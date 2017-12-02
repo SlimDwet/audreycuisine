@@ -1,24 +1,13 @@
 .searchModuleContainer {
     padding-bottom: 7px;
 }
-.searchModuleContainer #inputSearch {
+.searchModuleContainer .components-input {
     width: 84%;
-    height: 35px;
-    padding: 10px 35px 10px 10px;
     margin-left: 7px;
-    font-family: OpenSans;
-    font-size: 14px;
-    border: 1px solid #be0063;
-    box-sizing: border-box;
-    color: #999;
 }
-.searchModuleContainer .buttonSearch {
+.searchModuleContainer .components-buttonSearch {
+    font-family: FontAwesome;
     width: 35px;
     height: 35px;
     margin-left: 2px;
-    font-family: FontAwesome;
-    color: #FFF;
-    background-color: #be0063;
-    border: none;
-    box-sizing: border-box;
 }
