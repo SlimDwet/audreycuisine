@@ -9,6 +9,7 @@ import WhoAmI from './Modules/WhoAmI/WhoAmI';
 import SocialMedias from './Modules/SocialMedias/SocialMedias';
 import Search from './Modules/Search/Search';
 import Newsletter from './Modules/Newsletter/Newsletter';
+import FindRecipe from './Modules/FindRecipe/FindRecipe';
 
 class App extends Component {
     render() {
@@ -26,6 +27,7 @@ class App extends Component {
                         <SocialMedias /><br/>
                         <Search /><br/>
                         <Newsletter /><br/>
+                        <FindRecipe /><br/>
                     </div>
                 </div>
             </div>
