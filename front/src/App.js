@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import urls from './utils/urls';
+import constants from './utils/constants';
 import Header from './Header/Header';
 import LastPosts from './LastPosts/LastPosts';
 import ButtonMagenta from './Components/ButtonMagenta/ButtonMagenta';
@@ -10,6 +11,8 @@ import SocialMedias from './Modules/SocialMedias/SocialMedias';
 import Search from './Modules/Search/Search';
 import Newsletter from './Modules/Newsletter/Newsletter';
 import FindRecipe from './Modules/FindRecipe/FindRecipe';
+import MyBooks from './Modules/MyBooks/MyBooks';
+import LikeTea from './Modules/LikeTea/LikeTea';
 
 class App extends Component {
     render() {
@@ -28,6 +31,8 @@ class App extends Component {
                         <Search /><br/>
                         <Newsletter /><br/>
                         <FindRecipe /><br/>
+                        <MyBooks books={constants.books} /><br/>
+                        <LikeTea /><br/>
                     </div>
                 </div>
             </div>
