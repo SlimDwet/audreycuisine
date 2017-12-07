@@ -1,0 +1,11 @@
+.myBooks .first {
+    display: block;
+    margin-left: 10px;
+}
+.myBooks .others {
+    padding: 10px;
+}
+.myBooks .others img {
+    display: inline-block;
+    width: 50%;
+}
