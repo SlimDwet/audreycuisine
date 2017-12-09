@@ -30,29 +30,29 @@
 /* FONTS */
 @font-face {
     font-family: 'OpenSans';
-    src: url('./public/font/OpenSans.woff2');
+    src: url('./assets/font/OpenSans.woff2');
 }
 @font-face {
     font-family: 'OpenSansBold';
-    src: url('./public/font/OpenSansBold.woff2');
+    src: url('./assets/font/OpenSansBold.woff2');
 }
 @font-face {
     font-family: 'RobotoBold';
-    src: url('./public/font/RobotoSlabBold.woff2');
+    src: url('./assets/font/RobotoSlabBold.woff2');
 }
 @font-face {
     font-family: 'Roboto';
-    src: url('./public/font/RobotoSlab.woff2');
+    src: url('./assets/font/RobotoSlab.woff2');
 }
 @font-face {
     font-family: 'FontAwesome';
-    src: url('./public/font/fontawesome-webfont.woff');
+    src: url('./assets/font/fontawesome-webfont.woff');
 }
 
 body {
     margin: 0;
     padding: 0;
-    background: url('public/images/fond.png') repeat;
+    background: url('assets/images/fond.png') repeat;
     font-family: 'OpenSans', 'sans-serif';
     color: #555;
 }
