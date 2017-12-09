@@ -1,7 +1,7 @@
 const urls = {
-    'lastPosts': "http://audreycuisine-dev.fr/app_dev.php/category/last-posts",
+    'lastPosts': "/category/last-posts",
     'allPosts': '/archives',
-    'inMyKitchen': 'http://audreycuisine-dev.fr/app_dev.php/selections',
+    'inMyKitchen': '/selections',
     'aPropos': '/a-propos'
 }
 

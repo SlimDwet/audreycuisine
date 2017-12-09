@@ -1,15 +1,18 @@
 import React from 'react';
 import './LastPosts.css';
 import SectionTitle from '../Components/SectionTitle/SectionTitle';
+import Loading from '../Components/Loading/Loading';
 import constants from '../utils/constants';
 import {getFrenchDate, getRandomKey} from '../utils/functions';
+import { sendRequest, treatResponse } from '../utils/requests';
 
 class LastPosts extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            lastPosts: null
+            lastPosts: null,
+            loading: true
         }
     }
 
@@ -21,14 +24,13 @@ class LastPosts extends React.Component {
     getLastPosts() {
         // On récupère les derniers articles
         if(!this.state.lastPosts) {
-            fetch(this.props.urlLastPosts)
-            .then(response => {
-                if(response.status === 200) {
-                    response.json().then(data => {
-                        this.setState({
-                            lastPosts: data.data
-                        });
-                    })
+            sendRequest('get', this.props.urlLastPosts).then(res => {
+                const response = treatResponse(res);
+                if(res.status === 200) {
+                    this.setState({
+                        lastPosts: response.data,
+                        loading: false
+                    });
                 } else throw new Error("Une erreur s'est produite lors du chargement des derniers articles");
             });
         }
@@ -54,7 +56,9 @@ class LastPosts extends React.Component {
 
     render() {
         let allPosts = [];
-        if(this.state.lastPosts) {
+        if(this.state.loading) {
+            allPosts.push(<Loading />);
+        } else if(this.state.lastPosts) {
             this.state.lastPosts.forEach(post => {
                 // On récupère les catégories
                 let categories = [];

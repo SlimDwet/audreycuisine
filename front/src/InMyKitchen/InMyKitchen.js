@@ -1,15 +1,18 @@
 import React from 'react';
 import './InMyKitchen.css';
 import SectionTitle from '../Components/SectionTitle/SectionTitle';
+import Loading from '../Components/Loading/Loading';
 import TileContainer from './TileContainer';
 import {getRandomKey} from '../utils/functions';
+import { sendRequest, treatResponse } from '../utils/requests';
 
 class InMyKitchen extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            inMyKitchen: null
+            inMyKitchen: null,
+            loading: true
         };
     }
 
@@ -25,14 +28,13 @@ class InMyKitchen extends React.Component {
     getSelections = () => {
         // On récupère les sélections
         if(!this.state.inMyKitchen) {
-            fetch(this.props.urlInMyKitchen)
-            .then(response => {
-                if(response.status === 200) {
-                    response.json().then(data => {
-                        this.setState({
-                            inMyKitchen: data.data
-                        });
-                    })
+            sendRequest('get', this.props.urlInMyKitchen).then(res => {
+                const response = treatResponse(res);
+                if(res.status === 200) {
+                    this.setState({
+                        inMyKitchen: response.data,
+                        loading: false
+                    });
                 } else throw new Error("Une erreur s'est produite lors du chargement des sélections");
             });
         }
@@ -40,8 +42,10 @@ class InMyKitchen extends React.Component {
 
     render() {
         let tileContainers = [];
-        if(this.state.inMyKitchen) {
-            this.state.inMyKitchen.forEach(selection => tileContainers.push(
+        if(this.state.loading) {
+            tileContainers.push(<Loading />);
+        } else if(this.state.inMyKitchen) {
+            this.state.inMyKitchen.map(selection => tileContainers.push(
                 <TileContainer name={selection.name} posts={selection.posts} key={getRandomKey('tileContainer')} />
             ));
         }
