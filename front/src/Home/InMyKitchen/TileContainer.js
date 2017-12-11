@@ -1,6 +1,6 @@
 import React from 'react';
 import './TileContainer.css';
-import {getRandomKey} from '../utils/functions';
+import {getRandomKey} from '../../utils/functions';
 import Tile from './Tile';
 
 const tileContainer = (props) => {

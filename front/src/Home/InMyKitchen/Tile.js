@@ -1,6 +1,6 @@
 import React from 'react';
 import './Tile.css';
-import {getFrenchDate} from '../utils/functions';
+import {getFrenchDate} from '../../utils/functions';
 
 const tile = (props) => {
     return (

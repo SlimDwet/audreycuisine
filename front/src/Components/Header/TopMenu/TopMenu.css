@@ -1,6 +1,6 @@
 .topMenu {
     height: 50px;
-    background: url('../../assets/images/fond_menu.png') no-repeat 139% center;
+    background: url('../../../assets/images/fond_menu.png') no-repeat 139% center;
     padding: 23px 0;
 }
 .topMenu ul {

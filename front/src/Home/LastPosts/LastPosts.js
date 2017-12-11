@@ -1,11 +1,11 @@
 import React from 'react';
 import './LastPosts.css';
-import SectionTitle from '../Components/SectionTitle/SectionTitle';
+import SectionTitle from '../../components/SectionTitle/SectionTitle';
 import EmptyLastPost from './EmptyLastPost';
-import Loading from '../Components/Loading/Loading';
-import constants from '../utils/constants';
-import {getFrenchDate, getRandomKey} from '../utils/functions';
-import { sendRequest, treatResponse } from '../utils/requests';
+import Loading from '../../components/Loading/Loading';
+import constants from '../../utils/constants';
+import {getFrenchDate, getRandomKey} from '../../utils/functions';
+import { sendRequest, treatResponse } from '../../utils/requests';
 
 class LastPosts extends React.Component {
 
@@ -65,7 +65,8 @@ class LastPosts extends React.Component {
                 <EmptyLastPost key={getRandomKey('lastPosts')}><Loading /></EmptyLastPost>,
                 <EmptyLastPost key={getRandomKey('lastPosts')}><Loading /></EmptyLastPost>
             ];
-        } else if(this.state.lastPosts) {
+        }
+        if(this.state.lastPosts) {
             this.state.lastPosts.forEach(post => {
                 // On récupère les catégories
                 let categories = [];

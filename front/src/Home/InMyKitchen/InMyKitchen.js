@@ -1,11 +1,11 @@
 import React from 'react';
 import './InMyKitchen.css';
-import SectionTitle from '../Components/SectionTitle/SectionTitle';
-import Loading from '../Components/Loading/Loading';
+import SectionTitle from '../../components/SectionTitle/SectionTitle';
+import Loading from '../../components/Loading/Loading';
 import TileContainer from './TileContainer';
 import EmptyTileContainer from './EmptyTileContainer';
-import {getRandomKey} from '../utils/functions';
-import { sendRequest, treatResponse } from '../utils/requests';
+import {getRandomKey} from '../../utils/functions';
+import { sendRequest, treatResponse } from '../../utils/requests';
 
 class InMyKitchen extends React.Component {
 
