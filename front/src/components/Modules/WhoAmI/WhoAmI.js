@@ -1,8 +1,8 @@
 import React from 'react';
 import './WhoAmI.css';
-import ModuleTitle from '../../Components/ModuleTitle/ModuleTitle';
-import utils from '../../utils/constants';
-import urls from '../../utils/urls';
+import ModuleTitle from '../../ModuleTitle/ModuleTitle';
+import utils from '../../../utils/constants';
+import urls from '../../../utils/urls';
 
 /**
  * Retourne la description du réseau social recherché

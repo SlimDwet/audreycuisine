@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './Newsletter.css';
-import ModuleTitle from '../../Components/ModuleTitle/ModuleTitle';
-import ButtonSearch from '../../Components/ButtonSearch/ButtonSearch';
-import InputSearch from '../../Components/InputSearch/InputSearch';
+import ModuleTitle from '../../ModuleTitle/ModuleTitle';
+import ButtonSearch from '../../ButtonSearch/ButtonSearch';
+import InputSearch from '../../InputSearch/InputSearch';
 
 class Newsletter extends Component {
 

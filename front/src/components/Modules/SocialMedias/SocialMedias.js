@@ -1,8 +1,8 @@
 import React from 'react'
 import './SocialMedias.css'
-import ModuleTitle from '../../Components/ModuleTitle/ModuleTitle'
+import ModuleTitle from '../../ModuleTitle/ModuleTitle'
 import SocialMediaItemCollection from './MediaItems/SocialMediaItemCollection'
-import utils from '../../utils/constants'
+import utils from '../../../utils/constants'
 
 const socialMedias = props => {
     return (

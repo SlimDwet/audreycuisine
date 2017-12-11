@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './Search.css';
-import ModuleTitle from '../../Components/ModuleTitle/ModuleTitle';
-import InputSearch from '../../Components/InputSearch/InputSearch';
-import ButtonSearch from '../../Components/ButtonSearch/ButtonSearch';
+import ModuleTitle from '../../ModuleTitle/ModuleTitle';
+import InputSearch from '../../InputSearch/InputSearch';
+import ButtonSearch from '../../ButtonSearch/ButtonSearch';
 
 class Search extends Component {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import SocialMediaItem from './SocialMediaItem';
-import {getRandomKey} from '../../../utils/functions'
+import {getRandomKey} from '../../../../utils/functions'
 
 /**
  * Tri des éléments

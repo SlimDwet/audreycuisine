@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './FindRecipe.css';
-import ModuleTitle from '../../Components/ModuleTitle/ModuleTitle';
-import IngredientLine from '../../Components/IngredientLine/IngredientLine';
-import ButtonSearch from '../../Components/ButtonSearch/ButtonSearch';
-import {getRandomKey} from '../../utils/functions';
+import ModuleTitle from '../../ModuleTitle/ModuleTitle';
+import IngredientLine from '../../IngredientLine/IngredientLine';
+import ButtonSearch from '../../ButtonSearch/ButtonSearch';
+import {getRandomKey} from '../../../utils/functions';
 
 class FindRecipe extends Component {
 

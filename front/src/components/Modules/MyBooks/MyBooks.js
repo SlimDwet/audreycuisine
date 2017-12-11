@@ -1,6 +1,6 @@
 import React from 'react';
 import './MyBooks.css';
-import ModuleTitle from '../../Components/ModuleTitle/ModuleTitle';
+import ModuleTitle from '../../ModuleTitle/ModuleTitle';
 
 /**
  * Module Mes livres

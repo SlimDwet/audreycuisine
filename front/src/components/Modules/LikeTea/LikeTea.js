@@ -1,6 +1,6 @@
 import React from 'react';
 import './LikeTea.css';
-import ModuleTitle from '../../Components/ModuleTitle/ModuleTitle';
+import ModuleTitle from '../../ModuleTitle/ModuleTitle';
 
 /**
  * Module Vous aimez le thé
