@@ -11,6 +11,9 @@
     width: 20%;
     background-color: #FFFFFF;
 }
+.lastPostsContainer .post.inLoading {
+    background-color: transparent;
+}
 .post img {
     display: block;
     width: 100%;

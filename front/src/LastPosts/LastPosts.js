@@ -57,7 +57,13 @@ class LastPosts extends React.Component {
     render() {
         let allPosts = [];
         if(this.state.loading) {
-            allPosts.push(<Loading />);
+            // On affiche le loader
+            allPosts = [
+                <div className="post inLoading" key={getRandomKey('lastPosts')}><Loading /></div>,
+                <div className="post inLoading" key={getRandomKey('lastPosts')}><Loading /></div>,
+                <div className="post inLoading" key={getRandomKey('lastPosts')}><Loading /></div>,
+                <div className="post inLoading" key={getRandomKey('lastPosts')}><Loading /></div>
+            ];
         } else if(this.state.lastPosts) {
             this.state.lastPosts.forEach(post => {
                 // On récupère les catégories

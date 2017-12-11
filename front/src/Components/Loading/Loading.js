@@ -8,7 +8,7 @@ import './Loading.css';
  * @return {[type]}       [description]
  */
 const loading = props => {
-    return <p className="loading"><img src={loadingImage} alt="Image loading" /></p>
+    return <div className="spinner"></div>
 }
 
 export default loading;
