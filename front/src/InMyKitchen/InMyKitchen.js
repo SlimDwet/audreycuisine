@@ -3,6 +3,7 @@ import './InMyKitchen.css';
 import SectionTitle from '../Components/SectionTitle/SectionTitle';
 import Loading from '../Components/Loading/Loading';
 import TileContainer from './TileContainer';
+import EmptyTileContainer from './EmptyTileContainer';
 import {getRandomKey} from '../utils/functions';
 import { sendRequest, treatResponse } from '../utils/requests';
 
@@ -43,7 +44,13 @@ class InMyKitchen extends React.Component {
     render() {
         let tileContainers = [];
         if(this.state.loading) {
-            tileContainers.push(<Loading />);
+            // Affichage du loader
+            tileContainers = [
+                <EmptyTileContainer key={getRandomKey('tileContainer')}><Loading /></EmptyTileContainer>,
+                <EmptyTileContainer key={getRandomKey('tileContainer')}><Loading /></EmptyTileContainer>,
+                <EmptyTileContainer key={getRandomKey('tileContainer')}><Loading /></EmptyTileContainer>,
+                <EmptyTileContainer key={getRandomKey('tileContainer')}><Loading /></EmptyTileContainer>,
+            ];
         } else if(this.state.inMyKitchen) {
             this.state.inMyKitchen.map(selection => tileContainers.push(
                 <TileContainer name={selection.name} posts={selection.posts} key={getRandomKey('tileContainer')} />

@@ -8,6 +8,9 @@
 	-webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
 	animation: sk-scaleout 1.0s infinite ease-in-out;
 }
+.inLoading {
+    background-color: transparent !important;
+}
 
 @-webkit-keyframes sk-scaleout {
 	0% { -webkit-transform: scale(0) }

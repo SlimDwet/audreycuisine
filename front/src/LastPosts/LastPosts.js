@@ -1,6 +1,7 @@
 import React from 'react';
 import './LastPosts.css';
 import SectionTitle from '../Components/SectionTitle/SectionTitle';
+import EmptyLastPost from './EmptyLastPost';
 import Loading from '../Components/Loading/Loading';
 import constants from '../utils/constants';
 import {getFrenchDate, getRandomKey} from '../utils/functions';
@@ -59,10 +60,10 @@ class LastPosts extends React.Component {
         if(this.state.loading) {
             // On affiche le loader
             allPosts = [
-                <div className="post inLoading" key={getRandomKey('lastPosts')}><Loading /></div>,
-                <div className="post inLoading" key={getRandomKey('lastPosts')}><Loading /></div>,
-                <div className="post inLoading" key={getRandomKey('lastPosts')}><Loading /></div>,
-                <div className="post inLoading" key={getRandomKey('lastPosts')}><Loading /></div>
+                <EmptyLastPost key={getRandomKey('lastPosts')}><Loading /></EmptyLastPost>,
+                <EmptyLastPost key={getRandomKey('lastPosts')}><Loading /></EmptyLastPost>,
+                <EmptyLastPost key={getRandomKey('lastPosts')}><Loading /></EmptyLastPost>,
+                <EmptyLastPost key={getRandomKey('lastPosts')}><Loading /></EmptyLastPost>
             ];
         } else if(this.state.lastPosts) {
             this.state.lastPosts.forEach(post => {
