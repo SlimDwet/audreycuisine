@@ -39,3 +39,9 @@
 .socialMediaItem .pinterest::after {
     content: '\f0d2';
 }
+.socialMediaItem .print::after {
+    content: '\f02f';
+}
+.socialMediaItem .envelop::after {
+    content: '\f2b6';
+}

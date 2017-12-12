@@ -2,12 +2,20 @@ const constants = {
     "excerptLength": 30,
     "socialMedias": [
         {'order': 1, 'css': 'rss', 'link': '/feed'},
-        {'order': 2, 'css': 'instagram', 'link': 'https://instagram.com/audreycuisine/'},
-        {'order': 3, 'css': 'facebook', 'link': 'https://www.facebook.com/audreycuisine.fr'},
-        {'order': 4, 'css': 'twitter', 'link': 'https://twitter.com/audreycuisine'},
-        {'order': 5, 'css': 'googleplus', 'link': 'https://plus.google.com/u/0/117618348036211786224/posts'},
-        {'order': 6, 'css': 'tumblr', 'link': 'http://audreycuisine.tumblr.com/'},
-        {'order': 7, 'css': 'pinterest', 'link': 'https://www.pinterest.com/audreycuisine/'}
+        {'order': 2, 'css': 'instagram', 'link': 'https://instagram.com/audreycuisine/', 'alt': null},
+        { 'order': 3, 'css': 'facebook', 'link': 'https://www.facebook.com/audreycuisine.fr', 'alt': null},
+        {'order': 4, 'css': 'twitter', 'link': 'https://twitter.com/audreycuisine', 'alt': null},
+        {'order': 5, 'css': 'googleplus', 'link': 'https://plus.google.com/u/0/117618348036211786224/posts', 'alt': null},
+        {'order': 6, 'css': 'tumblr', 'link': 'http://audreycuisine.tumblr.com/', 'alt': null},
+        {'order': 7, 'css': 'pinterest', 'link': 'https://www.pinterest.com/audreycuisine/', 'alt': null}
+    ],
+    "printSocialMedias": [
+        { 'order': 1, 'css': 'print', 'link': '/#print', 'alt': null },
+        { 'order': 2, 'css': 'envelop', 'link': '/?share=email&nb=1', 'alt': null },
+        { 'order': 3, 'css': 'facebook', 'link': '/?share=facebook&nb=1', 'alt': null },
+        { 'order': 4, 'css': 'twitter', 'link': '/?share=twitter&nb=1', 'alt': null },
+        { 'order': 5, 'css': 'googleplus', 'link': '/?share=google-plus-1&nb=1', 'alt': null },
+        { 'order': 6, 'css': 'pinterest', 'link': '/?share=pinterest&nb=1', 'alt': null }
     ],
     "books": [
         {

@@ -1,0 +1,11 @@
+.imOnFacebook {
+    padding: 10px 20px 30px 20px;
+}
+.imOnFacebook .title {
+    margin: 0;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    color: #be0063;
+    border-bottom: 1px solid #be0063;
+    font-family: Roboto, sans-serif;
+}

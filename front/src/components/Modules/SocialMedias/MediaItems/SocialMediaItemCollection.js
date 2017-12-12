@@ -22,7 +22,7 @@ const socialMediaItemsCollection = props => {
     const socialMedias = props.socialMediaList.sort(sortItems);
     // On génère les composants item
     return socialMedias.map(elt => {
-        return <SocialMediaItem itemClass={elt.css} itemLink={elt.link} key={getRandomKey('mediaItem')} />
+        return <SocialMediaItem itemClass={elt.css} itemLink={elt.link} itemAlt={elt.alt} key={getRandomKey('mediaItem')} />
     })
 }
 

@@ -4,7 +4,7 @@ import './SocialMediaItem.css'
 const socialMediaItem = props => {
     return (
         <li className="socialMediaItem">
-            <a className={props.itemClass} href={props.itemLink} target="_blank"></a>
+            <a className={props.itemClass} alt={props.itemAlt} href={props.itemLink} target="_blank"></a>
         </li>
     );
 }
