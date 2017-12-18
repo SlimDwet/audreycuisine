@@ -4,6 +4,7 @@ import urls from '../utils/urls';
 import constants from '../utils/constants';
 
 import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import LastPosts from './LastPosts/LastPosts';
 import ButtonMagenta from '../components/ButtonMagenta/ButtonMagenta';
 import InMyKitchen from './InMyKitchen/InMyKitchen';
@@ -51,7 +52,8 @@ class Home extends Component {
                         <MyBooks books={constants.books} /><br/>
                         <LikeTea /><br/>
                     </div>
-                </div>
+                </div><br/>
+                <Footer /><br/>
             </div>
         );
     }

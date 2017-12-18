@@ -35,3 +35,7 @@
 .home .printSocialMedias .socialMediaItem a {
     background-color: #fff;
 }
+.home .leftContent {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
