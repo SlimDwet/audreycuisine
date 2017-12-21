@@ -19,6 +19,7 @@ import LikeTea from '../components/Modules/LikeTea/LikeTea';
 import ImOnFacebook from '../components/Modules/ImOnFacebook/ImOnFacebook';
 import ImOnInstagram from '../components/Modules/ImOnInstagram/ImOnInstagram';
 import SocialMediaItemCollection from '../components/Modules/SocialMedias/MediaItems/SocialMediaItemCollection';
+import Carousel from '../components/Carousel/Carousel';
 
 class Home extends Component {
 
@@ -27,6 +28,16 @@ class Home extends Component {
             <div className="home">
                 <Header />
                 <div className="container">
+                    <div className="carouselWrapper">
+                        <div className="carouselContainer">
+                            <Carousel slides={constants.carousel} />
+                        </div>
+                        <div className="ad">
+                            <a href="https://www.formulebeaute.com/sabonner/#ae45-1">
+                                <img src="https://lb.affilae.com/imp/598c56825ad25b03a0cc6d08/59eda807bc9c3743ee5c2008/59957237e8facefe0c8b456a/https://s3-eu-west-1.amazonaws.com/aeup/uploads/programs/598c56825ad25b03a0cc6d08/elements/59957237e8facefe0c8b4567.jpeg" />
+                            </a>
+                        </div>
+                    </div><br/>
                     <div className="leftContent">
                         <LastPosts urlLastPosts={urls.lastPosts} /><br/><br/>
                         <ButtonMagenta text="Tous mes articles" link={urls.allPosts} />

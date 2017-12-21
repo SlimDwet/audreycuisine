@@ -1,0 +1,46 @@
+.carousel picture {
+    position: relative;
+    display: inline-block;
+    width: 976px;
+    max-height: 503px;
+}
+.carousel picture img {
+    width: 100%;
+    max-height: 503px;
+}
+.carousel a {
+    text-decoration: none;
+}
+.carousel .slideDetails {
+    position: absolute;
+    padding: 0 15px 30px 15px;
+    background: linear-gradient(to bottom,rgba(51,51,51,0) 0%,rgba(51,51,51,.9) 100%);
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.carousel .category {
+    padding: 5px;
+    color: #FFF;
+    background-color: #d1a7b5;
+    box-shadow: 1px 1px 2px black, 1px 1px 2px black, 1px 1px 2px black, 1px 1px 2px black;
+    font-size: 11px;
+    font-family: OpenSans, sans-serif;
+    text-transform: uppercase;
+}
+.carousel .link {
+    color: #FFF;
+    font-size: 32px;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+}
+.carousel .link:hover {
+    text-decoration: underline;
+}
+.carousel .date {
+    color: rgba(255,255,255,.7);
+    font-family: OpenSans, sans-serif;
+    text-shadow: 2px 2px 2px black, 2px 2px 2px black, 2px 2px 2px black, 2px 2px 2px black;
+    text-transform: uppercase;
+    font-size: 11px;
+}

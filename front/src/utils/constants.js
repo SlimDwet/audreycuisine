@@ -38,6 +38,32 @@ const constants = {
             'srcLink': 'https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2759026183&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=maptitecuis-21',
             'altText': '200 recettes pour enfants gourmands'
         }
+    ],
+    "carousel": [
+        {
+            'slideSrcset': '',
+            'slideMedia': '',
+            'slideImgSrc': 'https://www.audreycuisine.fr/wp-content/uploads/2015/10/velouté1-785x505_c.jpg',
+            'slideImgAlt': 'Illustration velouté',
+            'slideImgTitle': 'Velouté de potimaron à la pomme',
+            'slideCategories': "Butternut, potimaron & autres courges d'hiver",
+            'slideCategoriesLink': "/category/legumes-2/butternut",
+            'slideTitle': 'Velouté de potimaron à la pomme',
+            'slideLink': '/2015/10/veloute-potimaron-pomme',
+            'slideDate': '19 octobre 2015'
+        },
+        {
+            'slideSrcset': '',
+            'slideMedia': '',
+            'slideImgSrc': 'https://www.audreycuisine.fr/wp-content/uploads/2016/12/31424240375_d874ad190e_k-785x505_c.jpg',
+            'slideImgAlt': 'Rigatoni',
+            'slideImgTitle': 'Rigatoni gratinées au Parmesan & truffe blanche, gambas rôties à l’orange',
+            'slideCategories': "Plats de noël",
+            'slideCategoriesLink': "/category/recettes-salees/autres-recettes/par-fetes/recettes-de-fetes-3-theme/plats-noel",
+            'slideTitle': 'Rigatoni gratinées au Parmesan & truffe blanche, gambas rôties à l’orange',
+            'slideLink': '/2016/12/rigatoni-gratinees-gambas-orange',
+            'slideDate': '7 décembre 2016'
+        }
     ]
 }
 
