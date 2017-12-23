@@ -322,7 +322,7 @@ class Categories extends React.Component {
             {
                 "title": "Exotique",
                 "slug": "recettes-du-monde",
-                "isVisible": true,
+                "isVisible": false,
                 "children": [
                     {
                         "title": "Recettes d'Afrique du Nord",
@@ -473,14 +473,14 @@ class Categories extends React.Component {
                         "isVisible": true
                     },
                     {
-                        "title": "Produits Equitables",
-                        "slug": "produits-equitables",
+                        "title": "Cosmétiques maison",
+                        "slug": "cosmetiques-maison",
                         "isVisible": true
                     }
                 ]
             },
             {
-                "title": "Autres recettes",
+                "title": "+ de recettes",
                 "slug": "autres-recettes",
                 "isVisible": true,
                 "children": [
@@ -551,38 +551,33 @@ class Categories extends React.Component {
                 ]
             },
             {
-                "title": "Dans ma cuisine",
+                "title": "+ d'infos",
                 "slug": "dans-ma-cuisine",
                 "isVisible": true,
                 "children": [
                     {
-                        "title": "Je découvre...",
+                        "title": "Tout savoir sur",
                         "slug": "tous-savoir",
                         "isVisible": true
                     },
                     {
-                        "title": "Nouveaux produits",
+                        "title": "C'est nouveau et c'est bon",
                         "slug": "nouveau-bon",
                         "isVisible": true
                     },
                     {
-                        "title": "Mes livres de cuisine",
+                        "title": "Lectures gourmandes",
                         "slug": "livres",
                         "isVisible": true
                     },
                     {
-                        "title": "Ingrédients",
+                        "title": "Zoom sur les ingrédients",
                         "slug": "ingredients",
                         "isVisible": true
                     },
                     {
-                        "title": "Mon matériel pour cuisiner",
+                        "title": "Matériel pour cuisiner",
                         "slug": "materiel",
-                        "isVisible": true
-                    },
-                    {
-                        "title": "Vins",
-                        "slug": "vins",
                         "isVisible": true
                     },
                     {
@@ -834,6 +829,43 @@ class Categories extends React.Component {
                         "isVisible": true
                     }
                 ]
+            },
+            {
+                "title": "Recettes de noël",
+                "slug": "recettes-de-noel",
+                "isVisible": true,
+                "children": [
+                    {
+                        "title": "Apéro de Noël",
+                        "slug": "apero-de-noel",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Entrées de Noël",
+                        "slug": "entrees-de-noel",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Plats de Noël",
+                        "slug": "plats-de-noel",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Desserts de Noël",
+                        "slug": "desserts-de-noel",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Produits de fêtes",
+                        "slug": "produits-de-fetes",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "En attendant Noël",
+                        "slug": "en-attendant-noel",
+                        "isVisible": true
+                    }
+                ]
             }
         ];
         this.categoriesTree = null;
@@ -851,16 +883,18 @@ class Categories extends React.Component {
             let result = <ul key={getRandomKey('category')} className="submenu">
             {
                 tree.map(item => {
-                    let subtree;
-                    // On traite un nouveau niveau de sous-catégorie
-                    if(item.hasOwnProperty('children') && item.children.length > 0) {
-                        let currentSlug = slug + '/' + item.slug;
-                        let resultSubtree = this.buildRender(item.children, true, currentSlug);
-                        subtree = <li key={getRandomKey('category')}><a href={this.dns+currentSlug}>{item.title}</a>{resultSubtree}</li>
-                    } else {
-                        subtree = <li key={getRandomKey('category')}><a href={this.dns+slug+'/'+item.slug}>{item.title}</a></li>
+                    if(item.isVisible) {
+                        let subtree;
+                        // On traite un nouveau niveau de sous-catégorie
+                        if(item.hasOwnProperty('children') && item.children.length > 0) {
+                            let currentSlug = slug + '/' + item.slug;
+                            let resultSubtree = this.buildRender(item.children, true, currentSlug);
+                            subtree = <li key={getRandomKey('category')}><a href={this.dns+currentSlug}>{item.title}</a>{resultSubtree}</li>
+                        } else {
+                            subtree = <li key={getRandomKey('category')}><a href={this.dns+slug+'/'+item.slug}>{item.title}</a></li>
+                        }
+                        return subtree;
                     }
-                    return subtree;
                 })
             }
             </ul>;
@@ -869,15 +903,17 @@ class Categories extends React.Component {
             this.categoriesTree = <ul key={getRandomKey('category')}>
             {
                 tree.map(item => {
-                    let subtree;
-                    // Traitement des sous-catégories
-                    if(item.hasOwnProperty('children') && item.children.length > 0) {
-                        let resultSubtree = this.buildRender(item.children, true, item.slug);
-                        subtree = <li key={getRandomKey('category')}><a href={this.dns+item.slug}>{item.title}</a>{resultSubtree}</li>;
-                    } else {
-                        subtree = <li key={getRandomKey('category')}><a href={this.dns+item.slug}>{item.title}</a></li>;
+                    if(item.isVisible) {
+                        let subtree;
+                        // Traitement des sous-catégories
+                        if(item.hasOwnProperty('children') && item.children.length > 0) {
+                            let resultSubtree = this.buildRender(item.children, true, item.slug);
+                            subtree = <li key={getRandomKey('category')}><a href={this.dns+item.slug}>{item.title.toUpperCase()}</a>{resultSubtree}</li>;
+                        } else {
+                            subtree = <li key={getRandomKey('category')}><a href={this.dns+item.slug}>{item.title}</a></li>;
+                        }
+                        return subtree;
                     }
-                    return subtree;
                 })
             }
             </ul>
