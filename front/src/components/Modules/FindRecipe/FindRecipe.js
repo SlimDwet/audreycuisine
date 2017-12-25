@@ -11,10 +11,6 @@ class FindRecipe extends Component {
         'ingredientTags': null
     };
 
-    componentDidMount() {
-        console.log("componentDidMount");
-    }
-
     ingredientsSubmitHandler = evt => {
         evt.preventDefault();
     }
