@@ -5,9 +5,9 @@ import constants from '../utils/constants';
 
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-import LastPosts from './LastPosts/LastPosts';
+import LastPosts from '../containers/LastPosts/LastPosts';
 import ButtonMagenta from '../components/ButtonMagenta/ButtonMagenta';
-import InMyKitchen from './InMyKitchen/InMyKitchen';
+import InMyKitchen from '../containers/InMyKitchen/InMyKitchen';
 import SectionTitle from '../components/SectionTitle/SectionTitle';
 import WhoAmI from '../components/Modules/WhoAmI/WhoAmI';
 import SocialMedias from '../components/Modules/SocialMedias/SocialMedias';
