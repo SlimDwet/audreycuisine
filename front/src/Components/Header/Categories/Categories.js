@@ -72,8 +72,8 @@ class Categories extends React.Component {
                         "isVisible": true
                     },
                     {
-                        "title": "Bavarrois",
-                        "slug": "bavarrois",
+                        "title": "Bavarois",
+                        "slug": "bavarois",
                         "isVisible": true
                     },
                     {
