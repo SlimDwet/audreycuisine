@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : mariadb:3306
--- Généré le :  lun. 25 déc. 2017 à 11:27
+-- Généré le :  lun. 25 déc. 2017 à 00:25
 -- Version du serveur :  10.2.9-MariaDB-10.2.9+maria~jessie
 -- Version de PHP :  7.1.9
 
@@ -63,7 +63,7 @@ INSERT INTO `Category` (`id`, `name`, `slug`, `level`, `order_item`, `is_visible
 (26, 'Boissons chaudes', 'boissons-chaudes', 2, 8, 1, 1, '2017-10-29 15:44:36'),
 (27, 'Thés', 'thes', 2, 9, 1, 1, '2017-10-29 15:44:36'),
 (28, 'Gateaux', 'desserts-partager/gateaux-desserts-partager', 2, 1, 1, 2, '2017-11-03 15:29:11'),
-(29, 'Bavarois', 'desserts-partager/bavarois', 2, 2, 1, 2, '2017-11-03 15:29:11'),
+(29, 'Bavarrois', 'desserts-partager/bavarrois', 2, 2, 1, 2, '2017-11-03 15:29:11'),
 (30, 'Cheesecake', 'desserts-partager/cheesecake', 2, 3, 1, 2, '2017-11-03 15:29:11'),
 (31, 'Tarte sucrées', 'desserts-partager/tartes-sucrees', 2, 4, 1, 2, '2017-11-03 15:29:11'),
 (32, 'Desserts à partager', 'desserts-partager', 2, 5, 1, 2, '2017-11-03 15:29:11'),
