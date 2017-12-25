@@ -2,6 +2,8 @@
 
 namespace AudreyCuisineBundle\Repository;
 
+use AudreyCuisineBundle\Entity\Post;
+
 /**
  * PostRepository
  *
@@ -22,7 +24,17 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
             ['updated' => 'DESC'],
             $nb
         );
-        return $this->toArray($posts);
+        return $this->toFrontArray($posts);
+    }
+
+    /**
+     * Retourne un article à partir de son slug
+     * @param  string $slug [Slug de l'article]
+     * @return array|null        [Article sous forme de tableau]
+     */
+    public function getPostBySlug(string $slug): ?array {
+        $post = $this->findOneBy(['slug' => $slug, 'isVisible' => 1]);
+        return is_null($post) ? null : $this->toArray($post);
     }
 
     /**
@@ -30,10 +42,10 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
      * @param  Post[] $posts [Tableau d'entité Post]
      * @return array        [description]
      */
-    private function toArray(array $posts): array {
+    private function toFrontArray(array $posts): array {
         $result = [];
         foreach ($posts as $keyPost => $Post) {
-            // Récupération des catégoriees de l'article
+            // Récupération des catégories de l'article
             $categories = [];
             foreach ($Post->getCategory() as $keyCat => $Category) {
                 $categories[$keyCat] = array(
@@ -43,13 +55,40 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
 
             $result[$keyPost] = array(
                 'title' => $Post->getTitle(),
+                'category' => $categories,
                 'content' => $Post->getContent(),
                 'contentNoHtml' => strip_tags($Post->getContent()),
-                'urlPostThumbnail' => $Post->getUrlPostThumbnail(),
+                'slug' => $Post->getSlug(),
                 'updated' => $Post->getUpdated()->format(\Datetime::ISO8601), // Date au format ISO
-                'category' => $categories
+                'urlPostThumbnail' => $Post->getUrlPostThumbnail()
             );
         }
         return $result;
+    }
+
+    /**
+     * Transforme une entité en tableau
+     * @param  Post $Post [Entité Post]
+     * @return array        [Entité sous forme de tableau]
+     */
+    private function toArray(Post $Post): array {
+        $categories = [];
+        // Récupération des catégories de l'article
+        foreach ($Post->getCategory() as $keyCat => $Category) {
+            $categories[$keyCat] = array(
+                'name' => $Category->getName()
+            );
+        }
+
+        return array(
+            'title' => $Post->getTitle(),
+            'categories' => $categories,
+            'content' => $Post->getContent(),
+            'slug' => $Post->getSlug(),
+            'published' => $Post->getUpdated()->format(\Datetime::ISO8601), // Date au format ISO
+            'urlPostPicture' => $Post->getUrlPostPicture(),
+            'views' => $Post->getViews(),
+            'author'=> $Post->getUser()->getFullName()
+        );
     }
 }

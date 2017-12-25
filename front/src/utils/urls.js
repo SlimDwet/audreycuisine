@@ -1,8 +1,9 @@
 const urls = {
-    'lastPosts': "/category/last-posts",
+    'lastPosts': "/posts/last-posts",
     'allPosts': '/archives',
     'inMyKitchen': '/selections',
-    'aPropos': '/a-propos'
+    'aPropos': '/a-propos',
+    'posts': "/posts"
 }
 
 export default urls;

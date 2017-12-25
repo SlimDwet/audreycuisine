@@ -1,5 +1,6 @@
 import React from 'react';
 import './LastPosts.css';
+import { Link } from 'react-router-dom';
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
 import EmptyLastPost from './EmptyLastPost';
 import Loading from '../../components/Loading/Loading';
@@ -78,7 +79,7 @@ class LastPosts extends React.Component {
                         </a>
                         <div className="postContainer">
                             <span className="postCategories">{categories.join(' ')}</span>
-                            <a href="#" className="postLink">{post.title}</a>
+                            <Link to={'/article/'+post.slug} className="postLink">{post.title}</Link>
                             <p className="postExcerpt">{this.getExcerpt(post.contentNoHtml)}</p>
                             <p className="postDate">{getFrenchDate(post.updated)}</p>
                         </div>

@@ -1,0 +1,42 @@
+.postPage .container {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    width: 1109px;
+}
+.postPage .leftContent {
+    flex: 0.8;
+}
+.postPage .rightContent {
+    flex: 0.2;
+}
+.postPage article {
+    background-color: #FFF;
+}
+.postPage .postContent {
+    padding: 0 20px;
+    font-size: 13px;
+}
+
+.postPage .postTitle {
+    padding: 0 20px;
+    margin: 15px 0 .3em 0;
+    font-size: 30px;
+    font-family: Roboto, sans-serif;
+}
+
+
+/***** CSS DU SITE ORIGINAL ****/
+.postPage h1 {
+    font-weight: 400;
+    color: #333;
+}
+.postPage .postContent strong {
+    font-weight: 700;
+}
+.postPage .postContent .alignleft {
+    float: left;
+    margin: 15px 20px 10px 0;
+}
