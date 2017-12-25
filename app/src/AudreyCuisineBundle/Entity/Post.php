@@ -109,6 +109,7 @@ class Post
     public function __construct() {
         $this->tags = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->category = new ArrayCollection();
     }
 
 
@@ -291,30 +292,6 @@ class Post
     }
 
     /**
-     * Set category
-     *
-     * @param \AudreyCuisineBundle\Entity\Category $category
-     *
-     * @return Post
-     */
-    public function setCategory(\AudreyCuisineBundle\Entity\Category $category = null)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return \AudreyCuisineBundle\Entity\Category
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    /**
      * Add tag
      *
      * @param \AudreyCuisineBundle\Entity\Tag $tag
@@ -404,6 +381,16 @@ class Post
     public function removeCategory(\AudreyCuisineBundle\Entity\Category $category)
     {
         $this->category->removeElement($category);
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AudreyCuisineBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 
     /**
