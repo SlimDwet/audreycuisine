@@ -156,11 +156,6 @@ class FeedCommand extends ContainerAwareCommand {
         }
         // On build l'URL de l'illustration de l'article
         preg_match('#uploads\/(\d+)\/(\d+)\/([\w]+)_z#', strval($post->content), $matches);
-        $postImgUrl = self::SITE_URL_IMG.$matches[self::YEAR_INDEX].'/'.$matches[self::MONTH_INDEX].'/'.$matches[self::SLUG_INDEX].'_z-860x450_c.jpg';
-        // On check l'existance de l'image
-        if(curl_init($postImgUrl) !== false) {
-            $newPost->setUrlPostPicture($postImgUrl);
-        }
         $postThumbnailImgUrl = self::SITE_URL_IMG.$matches[self::YEAR_INDEX].'/'.$matches[self::MONTH_INDEX].'/'.$matches[self::SLUG_INDEX].'_z-300x225.jpg';
         // On check l'existance de la miniature
         if(curl_init($postThumbnailImgUrl) !== false) {
