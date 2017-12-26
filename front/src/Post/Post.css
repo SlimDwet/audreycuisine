@@ -7,25 +7,89 @@
     width: 1109px;
 }
 .postPage .leftContent {
-    flex: 0.8;
+    flex: 0.74;
 }
 .postPage .rightContent {
-    flex: 0.2;
+    flex: 0.26;
 }
-.postPage article {
+.postPage .postWrapper {
     background-color: #FFF;
+}
+.postPage .postPicture {
+    width: 100%;
+}
+.postPage .postDetails {
+    padding: 2px 20px;
+    font-size: 12px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.postPage .postDetails a {
+    color: #936;
+    text-decoration: none;
+}
+.postPage .postDetails a:hover {
+    color: #555;
+}
+.postPage .cell {
+    margin-right: 10px;
+    text-transform: uppercase;
+    color: #999;
+}
+.postPage .cell::before {
+    margin-right: 5px;
+    color: #936;
+    font-family: FontAwesome;
+}
+.postPage .author::before {
+    content: "\f007";
+}
+.postPage .calendar::before {
+    content: "\f133";
+}
+.postPage .comments::before {
+    content: "\f0e6";
+}
+.postPage .postCategories::before {
+    content: "\f07c";
+}
+.postPage .views::before {
+    content: "\f06e";
 }
 .postPage .postContent {
     padding: 0 20px;
     font-size: 13px;
 }
-
+.postPage .postContent .clear {
+    clear: both;
+}
 .postPage .postTitle {
     padding: 0 20px;
     margin: 15px 0 .3em 0;
     font-size: 30px;
     font-family: Roboto, sans-serif;
 }
+.postPage .socialNetworkPrintBanner {
+    padding: 0 20px;
+}
+.postPage .authorContainer {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    padding: 0 20px;
+}
+.postPage .authorContainer .authorLink {
+    margin-left: 10px;
+    font-family: OpenSansBold, sans-serif;
+    text-transform: uppercase;
+    color: #333;
+}
+.postPage .authorContainer .authorLink:hover {
+    text-decoration: underline;
+}
+
 
 
 /***** CSS DU SITE ORIGINAL ****/
@@ -33,10 +97,37 @@
     font-weight: 400;
     color: #333;
 }
-.postPage .postContent strong {
-    font-weight: 700;
-}
 .postPage .postContent .alignleft {
     float: left;
     margin: 15px 20px 10px 0;
+}
+.postPage .postWrapper a {
+    text-decoration: none;
+    text-shadow: none;
+    color: #936;
+}
+.postPage .postWrapper a:hover {
+    color: #333;
+}
+.postPage .postWrapper  strong {
+    font-family: OpenSansBold;
+}
+.postPage .postWrapper  p {
+    margin: 14px 0;
+}
+
+
+
+
+
+/******* MODULES ********/
+.postPage .moduleTitleContainer {
+    padding-left: 0;
+    padding-right: 0;
+}
+.postPage .moduleTitleContainer .title {
+    font-size: 13px;
+}
+.postPage .whoAmIContainer .myStory {
+    font-size: 11px;
 }

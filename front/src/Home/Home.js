@@ -18,7 +18,7 @@ import MyBooks from '../components/Modules/MyBooks/MyBooks';
 import LikeTea from '../components/Modules/LikeTea/LikeTea';
 import ImOnFacebook from '../components/Modules/ImOnFacebook/ImOnFacebook';
 import ImOnInstagram from '../components/Modules/ImOnInstagram/ImOnInstagram';
-import SocialMediaItemCollection from '../components/Modules/SocialMedias/MediaItems/SocialMediaItemCollection';
+import SocialNetworkPrintBanner from '../components/SocialNetworkPrintBanner/SocialNetworkPrintBanner';
 import Carousel from '../components/Carousel/Carousel';
 
 const home = props => {
@@ -32,7 +32,8 @@ const home = props => {
                     </div>
                     <div className="ad">
                         <a href="https://www.formulebeaute.com/sabonner/#ae45-1">
-                            <img src="https://lb.affilae.com/imp/598c56825ad25b03a0cc6d08/59eda807bc9c3743ee5c2008/59957237e8facefe0c8b456a/https://s3-eu-west-1.amazonaws.com/aeup/uploads/programs/598c56825ad25b03a0cc6d08/elements/59957237e8facefe0c8b4567.jpeg" />
+                            <img src="https://lb.affilae.com/imp/598c56825ad25b03a0cc6d08/59eda807bc9c3743ee5c2008/59957237e8facefe0c8b456a/https://s3-eu-west-1.amazonaws.com/aeup/uploads/programs/598c56825ad25b03a0cc6d08/elements/59957237e8facefe0c8b4567.jpeg"
+                                alt="ad"/>
                         </a>
                     </div>
                 </div><br/>
@@ -45,12 +46,7 @@ const home = props => {
                         <ImOnFacebook />
                         <ImOnInstagram />
                     </div>
-                    <p className="printPost">
-                        Pour imprimer mes articles ou les faire découvrir sur vos réseaux sociaux c'est facile : cliquez !
-                    </p>
-                    <ul className="printSocialMedias">
-                        <SocialMediaItemCollection socialMediaList={constants.printSocialMedias} />
-                    </ul>
+                    <SocialNetworkPrintBanner />
                 </div>
                 <div className="rightContent">
                     <WhoAmI /><br/>

@@ -14,27 +14,6 @@
     border-bottom: 1px solid #be0063;
     font-family: Roboto, sans-serif;
 }
-.home .printPost {
-    width: 70%;
-    margin: 0;
-    padding-top: 10px;
-    border-top: 1px solid #ddd;
-    font-family: Roboto, sans-serif;
-    font-size: 9pt;
-    font-weight: 700;
-    color: #333;
-}
-.home .printSocialMedias {
-    display: flex;
-    justify-content: left;
-    padding: 0;
-}
-.home .printSocialMedias .socialMediaItem {
-    display: inline-block;
-}
-.home .printSocialMedias .socialMediaItem a {
-    background-color: #fff;
-}
 .home .leftContent {
     padding-bottom: 20px;
     border-bottom: 1px solid #eee;

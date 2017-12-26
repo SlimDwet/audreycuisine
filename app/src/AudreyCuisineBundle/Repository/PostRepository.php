@@ -76,7 +76,8 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
         // Récupération des catégories de l'article
         foreach ($Post->getCategory() as $keyCat => $Category) {
             $categories[$keyCat] = array(
-                'name' => $Category->getName()
+                'name' => $Category->getName(),
+                'slug' => $Category->getSlug()
             );
         }
 
@@ -88,7 +89,10 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
             'published' => $Post->getUpdated()->format(\Datetime::ISO8601), // Date au format ISO
             'urlPostPicture' => $Post->getUrlPostPicture(),
             'views' => $Post->getViews(),
-            'author'=> $Post->getUser()->getFullName()
+            'author'=> array(
+                'name' => $Post->getUser()->getFullName(),
+                'url' => $Post->getUser()->getSlug()
+            )
         );
     }
 }
