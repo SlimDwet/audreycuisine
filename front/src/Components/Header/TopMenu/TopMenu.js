@@ -1,46 +1,46 @@
 import React from 'react';
 import './TopMenu.css';
+import { NavLink } from 'react-router-dom';
 
 class TopMenu extends React.Component {
 
     constructor() {
         super();
         // Définition du top menu
-        this.dns = "http://audreycuisine-dev.fr/app_dev.php/";
         this.topMenuDefinition = [
             {
                 "title": "Accueil",
-                "slug": "",
+                "slug": "/",
                 "isVisible": true
             },
             {
                 "title": "Présentation",
-                "slug": "a-propos",
+                "slug": "/a-propos",
                 "isVisible": true
             },
             {
                 "title": "Références",
-                "slug": "a-propos/references",
+                "slug": "/a-propos/references",
                 "isVisible": true
             },
             {
                 "title": "Mes livres",
-                "slug": "mes-livres",
+                "slug": "/mes-livres",
                 "isVisible": true
             },
             {
                 "title": "Prestations",
-                "slug": "prestations",
+                "slug": "/prestations",
                 "isVisible": true
             },
             {
                 "title": "Index",
-                "slug": "index",
+                "slug": "/index",
                 "isVisible": true
             },
             {
                 "title": "Contact",
-                "slug": "contact",
+                "slug": "/contact",
                 "isVisible": true
             }
         ];
@@ -49,9 +49,7 @@ class TopMenu extends React.Component {
     render() {
         let topMenuItems = [];
         this.topMenuDefinition.forEach((menu, index) => {
-            let url = this.dns+menu.slug;
-            let linkClass = (menu.slug === "") ? "active" : "";
-            topMenuItems.push(<li key={index}><a href={url} className={linkClass}>{menu.title}</a></li>);
+            topMenuItems.push(<li key={index}><NavLink exact to={menu.slug}>{menu.title}</NavLink></li>);
         });
         return (
             <nav className="topMenu">

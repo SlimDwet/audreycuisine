@@ -405,7 +405,7 @@ class Categories extends React.Component {
                     },
                     {
                         "title": "Europe",
-                        "slug": "europe",
+                        "slug": "europe-tourisme",
                         "isVisible": true,
                         "children": [
                             {
@@ -440,7 +440,7 @@ class Categories extends React.Component {
                             },
                             {
                                 "title": "Royaume-Uni",
-                                "slug": "royaume-uni",
+                                "slug": "royaume-uni-tourisme",
                                 "isVisible": true
                             }
                         ]
@@ -655,8 +655,8 @@ class Categories extends React.Component {
                         ]
                     },
                     {
-                        "title": "Europe",
-                        "slug": "europe-recettes-du-monde",
+                        "title": "Destination en Europe",
+                        "slug": "voyages-europe",
                         "isVisible": true,
                         "children": [
                             {
@@ -759,7 +759,7 @@ class Categories extends React.Component {
                     },
                     {
                         "title": "Asie",
-                        "slug": "asie",
+                        "slug": "asie-tourisme",
                         "isVisible": true,
                         "children": [
                             {
@@ -789,7 +789,7 @@ class Categories extends React.Component {
                 ]
             },
             {
-                "title": "Bonnes adresses",
+                "title": "Adresses",
                 "slug": "adresses-gourmandes",
                 "isVisible": true,
                 "children": [
