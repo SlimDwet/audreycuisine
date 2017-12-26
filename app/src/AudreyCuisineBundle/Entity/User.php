@@ -30,6 +30,13 @@ class User
     private $fullName;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=100, unique=true, options={"comment": "URL vers le profil de l'auteur"})
+     */
+    private $slug;
+
+    /**
      * @var [type]
      *
      * @ORM\OneToMany(targetEntity="Post", mappedBy="user")
@@ -107,5 +114,29 @@ class User
     public function getPosts()
     {
         return $this->posts;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return User
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

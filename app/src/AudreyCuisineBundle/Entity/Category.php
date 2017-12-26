@@ -31,7 +31,7 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="slug", type="string", length=100, options={"comment": "Slug pour l'URL"})
+     * @ORM\Column(name="slug", type="string", length=100, unique=true, options={"comment": "Slug pour l'URL"})
      */
     private $slug;
 

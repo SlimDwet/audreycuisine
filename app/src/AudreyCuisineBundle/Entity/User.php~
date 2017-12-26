@@ -30,6 +30,13 @@ class User
     private $fullName;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=100, unique=true, options={"comment": "URL vers le profil de l'auteur"})
+     */
+    private $slug;
+
+    /**
      * @var [type]
      *
      * @ORM\OneToMany(targetEntity="Post", mappedBy="user")
