@@ -74,9 +74,9 @@ class LastPosts extends React.Component {
                 post.category.map(elt => categories.push(elt.name));
                 allPosts.push(
                     <div className="post" key={getRandomKey('lastPosts')}>
-                        <a href="#">
-                            <img src={post.urlPostThumbnail} />
-                        </a>
+                        <Link to={'/article/'+post.slug}>
+                            <img src={post.urlPostThumbnail} alt={post.title} />
+                        </Link>
                         <div className="postContainer">
                             <span className="postCategories">{categories.join(' ')}</span>
                             <Link to={'/article/'+post.slug} className="postLink">{post.title}</Link>
