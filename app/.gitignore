@@ -17,3 +17,4 @@
 /web/bundles/
 /web/config.php
 /var/SymfonyRequirements.php
+/src/AudreyCuisineBundle/Entity/*.php~
