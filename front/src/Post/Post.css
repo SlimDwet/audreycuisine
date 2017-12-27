@@ -122,12 +122,19 @@
 
 /******* MODULES ********/
 .postPage .moduleTitleContainer {
-    padding-left: 0;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+.postPage .whoAmIContainer .moduleTitleContainer {
     padding-right: 0;
+    padding-left: 0;
 }
 .postPage .moduleTitleContainer .title {
     font-size: 13px;
 }
 .postPage .whoAmIContainer .myStory {
     font-size: 11px;
+}
+.postPage .searchModuleContainer .components-input {
+    width: 80%;
 }
