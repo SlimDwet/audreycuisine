@@ -17,6 +17,7 @@ import Newsletter from '../components/Modules/Newsletter/Newsletter';
 import FindRecipe from '../components/Modules/FindRecipe/FindRecipe';
 import MyBooks from '../components/Modules/MyBooks/MyBooks';
 import LikeTea from '../components/Modules/LikeTea/LikeTea';
+import Comments from '../components/Comments/Comments';
 
 class Post extends Component {
 
@@ -70,7 +71,7 @@ class Post extends Component {
                     <p className="postDetails">
                         <span className="cell author">Auteur <Link to={`/author/${post.author.url}`} className="authorLink">{post.author.name}</Link></span>
                         <span className="cell calendar"> Publié <Link to="/">{getFrenchDate(post.published)}</Link></span>
-                        <span className="cell comments"> Commentaires <Link to="#comments">0</Link></span>
+                        <span className="cell comments"> Commentaires <Link to="#comments">{post.comments.length}</Link></span>
                     </p>
                     <div className="postContent">
                         <div dangerouslySetInnerHTML={this.createMarkup(post.content)}></div>
@@ -86,7 +87,12 @@ class Post extends Component {
                     <img src="https://secure.gravatar.com/avatar/bbce278a76df9a84f10710f475b6e546?s=100&d=mm&r=g" alt="Photo auteur" />
                     <span><Link to={`/author/${post.author.url}`} className="authorLink">{post.author.name}</Link></span>
                 </div>
-                <div id="comments"></div>
+                <div id="comments">
+                    <p className="title">
+                        <strong>{(post.comments.length > 1) ? `${post.comments.length} commentaires` : `${post.comments.length} commentaire` }</strong>
+                    </p>
+                    <Comments comments={post.comments} />
+                </div>
                 <br/><br/><br/>
             </div>
         );

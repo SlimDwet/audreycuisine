@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : mariadb:3306
--- Généré le :  mer. 27 déc. 2017 à 15:02
+-- Généré le :  mer. 27 déc. 2017 à 18:17
 -- Version du serveur :  10.2.9-MariaDB-10.2.9+maria~jessie
 -- Version de PHP :  7.1.9
 
@@ -220,8 +220,29 @@ CREATE TABLE `Comment` (
   `post_id` int(11) DEFAULT NULL,
   `content` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT 'Contenu du commentaire',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nom complet de l''auteur du commentaire',
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Email de l''auteur du commentaire'
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Email de l''auteur du commentaire',
+  `mailAlert` tinyint(1) NOT NULL COMMENT 'Etre prévenu des nouveaux commentaires par mail',
+  `mailPost` tinyint(1) NOT NULL COMMENT 'Etre prévenu des nouveaux articles par mail',
+  `published` date NOT NULL COMMENT 'Date de publication'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `Comment`
+--
+
+INSERT INTO `Comment` (`id`, `post_id`, `content`, `name`, `email`, `mailAlert`, `mailPost`, `published`) VALUES
+(1, 80, 'Quel plaisir de voir ces magnifiques paysages, j\'ai fait ce superbe voyage récemment un des plus beaux. On ne se lasse pas de revoir de telles splendeurs. Merci pour ce partage.', 'Francine', 'francine@test.com', 0, 0, '2017-12-27'),
+(2, 79, 'Ces gourmandises ont du disparaître bien vite...', 'LadyMilonguera', 'ladymilonguera@test.com', 0, 0, '2017-12-26'),
+(3, 79, 'Le glaçage chocolat tombe à pic en ce qui me concerne...Je vais m\'en servir à l\'instant...\r\n\r\nJoyeuses Fêtes de Belgique...', 'Phill Gates', 'phill.gates@test.com', 0, 0, '2017-12-26'),
+(4, 79, 'J\'en connais d\'autres des fans de donuts, ça va leur plaire.', 'Cooking & Cakes', 'cooking-and-cakes@test.com', 0, 0, '2017-12-26'),
+(13, 50, 'Merci Audrey pou cette belle recette que je vais realiser pour mes \"mangeurs de viande\" , l autre moitie se regalera avec des Paves de Saumon a l OSEILLE du jardin ( ramassee et congelee a cet effet en fin d ete) ...\r\nJe te souhaite de tres bonnes fetes du Bassin d Arcachon...', 'Christian pouchin', 'christian.pouchin@test.com', 0, 0, '2017-12-23'),
+(14, 50, 'Trés belle recette, simple et trés alléchante !.\r\nJe te souhaite de bonnes fêtes à toi et tes proches.Merci de nous régaler quotidiennement de tes succulentes recettes et découvertes culinaires', 'Kat', 'kat@test.com', 0, 0, '2017-12-23'),
+(15, 50, 'Magnifique! Je la garde pour d\'autres réveillon, car cette année je ne cuisine pas! je te souhaite de très chaleureuses (et gourmandes) fêtes.', 'Sonia', 'sonia@test.com', 0, 0, '2017-12-23'),
+(16, 50, 'oups, (s) à reveillon... :/', 'Sonia', 'sonia@test.com', 0, 0, '2017-12-23'),
+(17, 50, 'Je fonds devant ton beau canard...', 'LadyMilonguera', 'ladymilonguera@test.com', 0, 0, '2017-12-25'),
+(18, 50, 'un vrai régal !', 'floencuisine', 'floencuisine@test.com', 0, 0, '2017-12-26'),
+(19, 80, 'Encore une fois, un superbe article qui fait rêver. Merci.', 'Sonia', 'sonia@test.com', 0, 0, '2017-12-27'),
+(20, 51, 'Très beau dessert félicitations! Ca me tente bien de le faire pour la nouvelle année par contre chez nous se sera plus biscuit à la cuillère et surtout mon hic par quoi puis je remplacer le fondant noix de coco ici la majorité n’aime pas la noix de coco  Merci et bonne continuation\r\n\r\nDiana', 'montginoul', 'montginoul@test.com', 0, 0, '2017-12-26');
 
 -- --------------------------------------------------------
 
@@ -643,7 +664,7 @@ ALTER TABLE `Category`
 -- AUTO_INCREMENT pour la table `Comment`
 --
 ALTER TABLE `Comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT pour la table `Post`

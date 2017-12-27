@@ -72,6 +72,9 @@
 .postPage .socialNetworkPrintBanner {
     padding: 0 20px;
 }
+.postPage .socialNetworkPrintBanner .printPost {
+    width: 100%;
+}
 .postPage .authorContainer {
     display: -webkit-flex;
     display: -moz-flex;
@@ -89,8 +92,35 @@
 .postPage .authorContainer .authorLink:hover {
     text-decoration: underline;
 }
-
-
+#comments {
+    margin-top: 50px;
+    padding: 0 20px;
+}
+#comments .title {
+    position: relative;
+    z-index: 1;
+}
+#comments .title::after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    display: block;
+    border-top: 1px solid #EEE;
+    z-index: -1;
+}
+#comments .title strong {
+    position: relative;
+    z-index: 1;
+    padding-right: 10px;
+    font-family: Roboto, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #FFF;
+}
 
 /***** CSS DU SITE ORIGINAL ****/
 .postPage h1 {
