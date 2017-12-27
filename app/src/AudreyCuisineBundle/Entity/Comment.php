@@ -49,6 +49,30 @@ class Comment
      */
     private $post;
 
+    /**
+     * Etre prévenu de tous les nouveaux commentaires par mail
+     * @var [type]
+     *
+     * @ORM\Column(name="mailAlert", type="boolean", options={"comment": "Etre prévenu des nouveaux commentaires par mail"})
+     */
+    private $mailAlert;
+
+    /**
+     * Etre prévenu de tous les articles par mail
+     * @var [type]
+     *
+     * @ORM\Column(name="mailPost", type="boolean", options={"comment": "Etre prévenu des nouveaux articles par mail"})
+     */
+    private $mailPost;
+
+    /**
+     * Date de publication du commentaire
+     * @var [type]
+     *
+     * @ORM\Column(name="published", type="date", options={"comment": "Date de publication"})
+     */
+    private $published;
+
 
     /**
      * Get id
@@ -154,5 +178,77 @@ class Comment
     public function getPost()
     {
         return $this->post;
+    }
+
+    /**
+     * Set mailAlert
+     *
+     * @param boolean $mailAlert
+     *
+     * @return Comment
+     */
+    public function setMailAlert($mailAlert)
+    {
+        $this->mailAlert = $mailAlert;
+
+        return $this;
+    }
+
+    /**
+     * Get mailAlert
+     *
+     * @return boolean
+     */
+    public function getMailAlert()
+    {
+        return $this->mailAlert;
+    }
+
+    /**
+     * Set mailPost
+     *
+     * @param boolean $mailPost
+     *
+     * @return Comment
+     */
+    public function setMailPost($mailPost)
+    {
+        $this->mailPost = $mailPost;
+
+        return $this;
+    }
+
+    /**
+     * Get mailPost
+     *
+     * @return boolean
+     */
+    public function getMailPost()
+    {
+        return $this->mailPost;
+    }
+
+    /**
+     * Set published
+     *
+     * @param \DateTime $published
+     *
+     * @return Comment
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * Get published
+     *
+     * @return \DateTime
+     */
+    public function getPublished()
+    {
+        return $this->published;
     }
 }
