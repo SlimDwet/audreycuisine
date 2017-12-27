@@ -27,7 +27,7 @@ class FeedCommand extends ContainerAwareCommand {
     const MONTH_INDEX = 2;
     const SLUG_INDEX = 3;
     const SITE_URL_IMG = 'https://www.audreycuisine.fr/wp-content/uploads/';
-    const POST_AUTHOR = 'Audrey Bourdin';
+    const POST_AUTHOR = 'AudreyCuisine';
 
     protected function configure() {
         $this
