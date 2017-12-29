@@ -459,7 +459,7 @@ class Categories extends React.Component {
                     },
                     {
                         "title": "Recettes sans Gluten",
-                        "slug": "recettes-sans-gluten",
+                        "slug": "sans-gluten",
                         "isVisible": true
                     },
                     {

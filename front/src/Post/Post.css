@@ -131,6 +131,9 @@
     float: left;
     margin: 15px 20px 10px 0;
 }
+.postPage .postContent .alignnone {
+    width: 100%;
+}
 .postPage .postWrapper a {
     text-decoration: none;
     text-shadow: none;
