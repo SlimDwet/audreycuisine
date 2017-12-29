@@ -1,2 +1,4 @@
 parameters:
+    base_url: 'https://www.audreycuisine.fr/'
     feed_url: 'https://www.audreycuisine.fr/feed'
+    feed_comments_url: 'https://www.audreycuisine.fr/comments/feed/'
