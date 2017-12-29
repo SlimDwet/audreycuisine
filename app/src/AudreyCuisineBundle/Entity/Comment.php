@@ -38,7 +38,7 @@ class Comment
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255, options={"comment": "Email de l'auteur du commentaire"})
+     * @ORM\Column(name="email", type="string", length=255, nullable=true, options={"comment": "Email de l'auteur du commentaire"})
      */
     private $email;
 
