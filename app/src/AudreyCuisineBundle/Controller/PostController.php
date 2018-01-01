@@ -15,8 +15,11 @@ class PostController extends Controller
     /**
      * Retourne les 4 derniers articles postés
      * @Rest\Get("/posts/last-posts.{_format}", name="last_posts", defaults={"_format": "json"})
+     *
+     * @param  Request $request [Objet Request]
+     * @return JsonResponse           [description]
      */
-    public function getLastPosts(Request $request) {
+    public function getLastPostsAction(Request $request): JsonResponse {
         $response = new JsonResponse();
         $repository = $this->getDoctrine()->getRepository(Post::class);
         // On récupère les derniers articles postés
@@ -33,7 +36,7 @@ class PostController extends Controller
      * @param  string $slug [Slug de l'article]
      * @return JsonResponse           [description]
      */
-    public function getPost(Request $request, string $slug): JsonResponse {
+    public function getPostAction(Request $request, string $slug): JsonResponse {
         $response = new JsonResponse();
         $postRepository = $this->getDoctrine()->getRepository(Post::class);
         // On récupère l'article
@@ -45,6 +48,19 @@ class PostController extends Controller
             $response->setData(['Erreur' => "Impossible de retrouver cet article"]);
             $response->setStatusCode(404);
         }
+        return $response;
+    }
+
+    /**
+     * Retourne les archives
+     * @Rest\Get("/archives/{page}.{_format}", name="get_archives", defaults={"_format": "json", "page": 1}, requirements={"page": "\d+"})
+     *
+     * @param  Request $request [Objet Request]
+     * @return JsonResponse           [description]
+     */
+    public function getArchivesAction(Request $request, int $page): JsonResponse {
+        $response = new JsonResponse();
+        $response->setData(['data' => "archives page $page"]);
         return $response;
     }
 
