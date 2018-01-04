@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : mariadb:3306
--- Généré le :  jeu. 04 jan. 2018 à 20:29
+-- Généré le :  jeu. 04 jan. 2018 à 20:32
 -- Version du serveur :  10.2.9-MariaDB-10.2.9+maria~jessie
 -- Version de PHP :  7.1.9
 
@@ -228,7 +228,7 @@ CREATE TABLE IF NOT EXISTS `Comment` (
   `published` date NOT NULL COMMENT 'Date de publication',
   PRIMARY KEY (`id`),
   KEY `IDX_5BC96BF04B89032C` (`post_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `Comment`
@@ -249,7 +249,12 @@ INSERT INTO `Comment` (`id`, `post_id`, `content`, `name`, `email`, `mailAlert`,
 (20, 51, 'Très beau dessert félicitations! Ca me tente bien de le faire pour la nouvelle année par contre chez nous se sera plus biscuit à la cuillère et surtout mon hic par quoi puis je remplacer le fondant noix de coco ici la majorité n’aime pas la noix de coco  Merci et bonne continuation\r\n\r\nDiana', 'montginoul', 'montginoul@test.com', 0, 0, '2017-12-26'),
 (21, 83, 'Ce wok est tout à fait à mon goût...', 'LadyMilonguera', NULL, 0, 0, '2017-12-28'),
 (22, 72, 'Bonjour Audrey, \r\nMerci beaucoup pour cette recette que j\'ai testée le 25 et qui a fait sensation auprès de tous mes invités : on a tous adoré! En plus j\'ai pu la préparer à l\'avance (avec juste au dernier moment la crêpe dentelle et la clémentine confite). Merci encore pour toutes vos recettes et tous vos articles! Je vous souhaite de passer une très belle fin d\'année!', 'Lisa', NULL, 0, 0, '2017-12-27'),
-(23, 50, 'un vrai régal !\n\n&lt;strong&gt;&lt;em&gt;@ merci', 'floencuisine', NULL, 0, 0, '2017-12-26');
+(23, 50, 'un vrai régal !\n\n&lt;strong&gt;&lt;em&gt;@ merci', 'floencuisine', NULL, 0, 0, '2017-12-26'),
+(24, 79, 'Testé et approuvé par mes 3 têtes blondes aujourd\'hui même ! Merci pour cette recette', 'Cécile', NULL, 0, 0, '2018-01-04'),
+(25, 84, 'héhé, nous avons donc eu exactement le même réveillon du jour de l\'an!! Roti de magret et gratin dauphinois! De notre côté, on s\'est régalés!', 'Sonia', NULL, 0, 0, '2018-01-04'),
+(26, 84, 'D\'abord une très Bonne Année 2018 avec des Vœux de Bonheur et sur tout une Santé à toute épreuve.\r\nConcernant ton gratin \'\' Dauphinoise \'\', l\'idée est géniale.\r\nJ\'ai eu la chance d\'apprendre à le réaliser dans un chalet de montagne dans le Dauphiné, dans le massif de le Belledonne.\r\nN\'étant pas originaire de la région, j\'ai tout naturellement demande d\'y rajouter une couche de gruyère, là les foudre des Dames du logis me sont tombés dessus.\r\nElles m\'ont même parlé d\'hérésie ! ! ! Jamais au grand Jamais de gruyère, ni autres fromages et surtout ne pas oublier de frotter le poêlon avec une gousse d\'ail . . .\r\nLà pour les puristes, je pense néanmoins que l\'essentiel c\'est de l\'apprécier de la façon dont on le confectionne.\r\nEncore une excellente journée.\r\nCordiales salutations.\r\nPatrick', 'Patrick', NULL, 0, 0, '2018-01-04'),
+(27, 84, 'Ça a l\'air très bon, je la referai avec plaisir.\r\n\r\nMerci', 'Fleur', NULL, 0, 0, '2018-01-04'),
+(28, 87, 'Bonjour Audrey,\r\n\r\nMeilleurs voeux à toi et à toute ta famille. Je te suis depuis de nombreuses années et je suis RAVIE de retrouver ces articles de partage, je retrouve ton blog d\'avant que j\'apprécie tant.\r\nDonc bienvenue au changement :-)\r\nTrès bonne journée', 'Roxane', NULL, 0, 0, '2018-01-04');
 
 -- --------------------------------------------------------
 
