@@ -131,6 +131,10 @@
     float: left;
     margin: 15px 20px 10px 0;
 }
+.postPage .postContent .alignright {
+    float: right;
+    margin: 15px 0 10px 20px;
+}
 .postPage .postContent .alignnone {
     max-width: 100%;
 }
