@@ -133,7 +133,7 @@ class FeedPostCommand extends ContainerAwareCommand {
         // Extraction du slug
         $postIdentifier = explode('/', $this->postIdentifier);
         $newPost->setSlug($postIdentifier[self::SLUG_INDEX]);
-        $newPost->setContent($this->cleanString(strval($post->content)));
+        $newPost->setContent($this->cleanString(html_entity_decode(strval($post->content))));
         $newPost->setIsVisible(1);
         $newPost->setViews(0);
         $publishedDate = strtotime(strval($post->pubDate));
@@ -156,8 +156,8 @@ class FeedPostCommand extends ContainerAwareCommand {
      * @return string      [String cleanée]
      */
     private function cleanString(string $str): string {
-        $search = ['’', '<content:encoded>', '</content:encoded>', '&#8217;', '🙂'];
-        $replace = ["'", '<content>', '</content>', "'", ""];
+        $search = ['’', '<content:encoded>', '</content:encoded>', '&#8217;', '🙂', '…'];
+        $replace = ["'", '<content>', '</content>', "'", "", '...'];
         return str_replace($search, $replace, $str);
     }
 
