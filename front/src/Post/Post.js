@@ -61,7 +61,7 @@ class Post extends Component {
         const postCategoryLinks = post.categories.map((cat, index) => {
             return (index+1 === post.categories.length) ?
                 <Link key={index} to={`/category/${cat.slug}`}>{cat.name}</Link> :
-                <span><Link to={`/category/${cat.slug}`}>{cat.name}</Link>, </span>;
+                <span key={index}><Link to={`/category/${cat.slug}`}>{cat.name}</Link>, </span>;
         });
         return (
             <div className="postWrapper">
