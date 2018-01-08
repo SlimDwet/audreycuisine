@@ -13,8 +13,8 @@ import Slide from './Slide/Slide';
 const carousel = props => {
     // Carousel settings
     const settings = {
-        arrows: false,
-        autoplay: false,
+        arrows: true,
+        autoplay: true,
         dots: false,
         infinite: true,
         speed: 500,

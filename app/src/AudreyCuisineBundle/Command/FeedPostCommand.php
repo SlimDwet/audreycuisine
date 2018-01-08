@@ -168,6 +168,7 @@ class FeedPostCommand extends ContainerAwareCommand {
      */
     private function removeAnalytics(string $str): string {
         $start = strpos($str, '<script async');
+        if($start === false) return $str;
         $length = strpos($str, '</script></p>')+9 - $start;
         $analytics = substr($str, $start, $length);
         return str_replace($analytics, "", $str, $count);

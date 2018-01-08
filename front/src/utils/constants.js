@@ -43,14 +43,26 @@ const constants = {
         {
             'slideSrcset': '',
             'slideMedia': '',
-            'slideImgSrc': 'https://www.audreycuisine.fr/wp-content/uploads/2011/06/IMG_0787_1_1-785x505_c.jpg',
-            'slideImgAlt': 'Illustration brioche au sucre',
-            'slideImgTitle': 'Brioche au sucre',
-            'slideCategories': "Viennoiseries",
-            'slideCategoriesLink': "/category/brunchs/viennoiseries",
-            'slideTitle': 'Brioche au sucre',
-            'slideLink': '/2011/06/brioche-au-sucre',
-            'slideDate': '7 juin 2011'
+            'slideImgSrc': 'https://www.audreycuisine.fr/wp-content/uploads/2016/01/galette-des-rois-785x505_c.jpg',
+            'slideImgAlt': 'Illustration galette des rois',
+            'slideImgTitle': 'Galettes des rois feuilletée aux noisettes pour l\'Epiphanie',
+            'slideCategories': "Galettes des rois",
+            'slideCategoriesLink': "/category/recettes-sucrees/desserts-partager/galette-des-rois",
+            'slideTitle': 'Galettes des rois feuilletée aux noisettes pour l\'Epiphanie',
+            'slideLink': '/2016/01/galettes-des-rois-epiphanie',
+            'slideDate': '6 janvier 2016'
+        },
+        {
+            'slideSrcset': '',
+            'slideMedia': '',
+            'slideImgSrc': 'https://www.audreycuisine.fr/wp-content/uploads/2015/01/galette-des-rois-bordelaise-briochée-785x505_c.jpg',
+            'slideImgAlt': 'Illustration galette des rois à la bordelaise',
+            'slideImgTitle': 'Galette des rois à la Bordelaise, au thermomix',
+            'slideCategories': "Robot cuiseur (Thermomix - Companion - Cook-Expert)",
+            'slideCategoriesLink': "/category/recettes-salees/autres-recettes/ustensiles/robot-cuiseur",
+            'slideTitle': 'Galette des rois à la Bordelaise, au thermomix',
+            'slideLink': '/2015/01/galette-des-rois-au-thermomix',
+            'slideDate': '4 janvier 2015'
         }
     ]
 }
