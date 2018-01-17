@@ -63,6 +63,16 @@ class Post extends Component {
                 <Link key={index} to={`/category/${cat.slug}`}>{cat.name}</Link> :
                 <span key={index}><Link to={`/category/${cat.slug}`}>{cat.name}</Link>, </span>;
         });
+        // Tags
+        let tags;
+        if(post.tags.length > 0) {
+            const postTagsLinks = post.tags.map((tag, index) => {
+                return (index+1 === post.tags.length) ?
+                    <Link key={index} to={`/tag/${tag.slug}`}>{tag.name}</Link> :
+                    <span key={index}><Link to={`/tag/${tag.slug}`}>{tag.name}</Link>, </span>
+            });
+            tags = <span className="cell postTags">Mots-clefs {postTagsLinks}   </span>
+        }
         return (
             <div className="postWrapper">
                 <div>
@@ -80,6 +90,7 @@ class Post extends Component {
                 </div>
                 <SocialNetworkPrintBanner />
                 <div className="postDetails">
+                    {tags}
                     <span className="cell postCategories">Catégories {postCategoryLinks}    </span>
                     <span className="cell views">Vues {post.views}</span>
                 </div><br/>

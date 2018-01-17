@@ -72,7 +72,7 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
      * @return array        [Entité sous forme de tableau]
      */
     private function toArray(Post $Post): array {
-        $categories = $comments = [];
+        $categories = $comments = $tags = [];
         // Récupération des catégories de l'article
         foreach ($Post->getCategory() as $keyCat => $Category) {
             $categories[$keyCat] = array(
@@ -88,6 +88,13 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
                 'published' => $Comment->getPublished()->format(\Datetime::ISO8601)
             );
         }
+        // Récupération des tags de l'article
+        foreach ($Post->getTags() as $keyTag => $Tag) {
+            $tags[$keyTag] = array(
+                'name' => $Tag->getName(),
+                'slug' => $Tag->getSlug()
+            );
+        }
 
         return array(
             'title' => $Post->getTitle(),
@@ -101,7 +108,8 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
                 'name' => $Post->getUser()->getFullName(),
                 'url' => $Post->getUser()->getSlug()
             ),
-            'comments' => $comments
+            'comments' => $comments,
+            'tags' => $tags
         );
     }
 }

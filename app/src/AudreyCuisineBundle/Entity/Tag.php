@@ -25,6 +25,13 @@ class Tag
     /**
      * @var string
      *
+     * @ORM\Column(name="name", type="string", length=255, options={"comment": "Nom du tag"})
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="slug", type="string", length=255, options={"comment": "Slug du mot-clé"})
      */
     private $slug;
@@ -107,5 +114,29 @@ class Tag
     public function getPosts()
     {
         return $this->posts;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Tag
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }

@@ -56,6 +56,9 @@
 .postPage .views::before {
     content: "\f06e";
 }
+.postPage .postTags::before {
+    content: "\f02b";
+}
 .postPage .postContent {
     padding: 0 20px;
     font-size: 13px;
