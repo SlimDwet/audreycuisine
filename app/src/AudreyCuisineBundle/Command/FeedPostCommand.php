@@ -13,6 +13,7 @@ use \SimpleXMLElement;
 use AudreyCuisineBundle\Entity\Post;
 use AudreyCuisineBundle\Entity\Category;
 use AudreyCuisineBundle\Entity\User;
+use AudreyCuisineBundle\Entity\Tag;
 
 class FeedPostCommand extends ContainerAwareCommand {
 
@@ -22,6 +23,7 @@ class FeedPostCommand extends ContainerAwareCommand {
     private $postRepo = null;
     private $categoryRepo = null;
     private $userRepo = null;
+    private $tagRepo = null;
     private $postIdentifier = null;
     const SITE_BASE_URL = 'https://www.audreycuisine.fr/';
     const POST_AUTHOR = 'AudreyCuisine';
@@ -31,6 +33,8 @@ class FeedPostCommand extends ContainerAwareCommand {
         'Sans Gluten' => 'Recettes sans gluten',
         "Recettes d'Italie" => 'Italie'
     ];
+    // Liste des catégories/tags existantes en BDD
+    private $existedCategoriesTags = [];
 
     protected function configure() {
         $this
@@ -64,6 +68,7 @@ class FeedPostCommand extends ContainerAwareCommand {
             $this->postRepo = $this->doctrine->getRepository(Post::class);
             $this->categoryRepo = $this->doctrine->getRepository(Category::class);
             $this->userRepo = $this->doctrine->getRepository(User::class);
+            $this->tagRepo = $this->doctrine->getRepository(Tag::class);
             $output->writeln("<info>Parsing du XML...</info>");
             // Parsing du fichier
             $this->parseFeed();
@@ -118,13 +123,20 @@ class FeedPostCommand extends ContainerAwareCommand {
      * @return []                 []
      */
     private function insertNewPost(SimpleXMLElement $post) {
-        // On vérifie si la/les catégories existant
+        // On vérifie si la/les catégories/tags existant
         foreach ($post->category as $cat) {
             $cat = $this->cleanString($cat);
-            if(!isset($this->categoriesMapping[$cat]) && is_null($this->categoryRepo->findOneBy(['name' => $cat]))) {
-                // Catégorie non existante
-                $this->output->writeln('<error>La catégorie "'.$cat.'" n\'existe pas<error>');
-                exit();
+            if(!isset($this->existedCategoriesTags[$cat])) {
+                if(
+                    !isset($this->categoriesMapping[$cat]) &&
+                    (is_null($this->categoryRepo->findOneBy(['name' => $cat])) && is_null($this->tagRepo->findOneBy(['name' => $cat])))
+                ) {
+                    // Catégorie non existante
+                    $this->output->writeln('<error>La catégorie/tag "'.$cat.'" n\'existe pas<error>');
+                    exit();
+                } else {
+                    $this->existedCategoriesTags[] = $cat;
+                }
             }
         }
         // On crée l'article
@@ -141,8 +153,12 @@ class FeedPostCommand extends ContainerAwareCommand {
         $newPost->setUser($this->userRepo->findOneBy(['fullName' => self::POST_AUTHOR]));
         foreach ($post->category as $cat) {
             $cat = isset($this->categoriesMapping[strval($cat)]) ? $this->categoriesMapping[strval($cat)] : $this->cleanString(strval($cat));
-            $CategoryEntity = $this->categoryRepo->findOneBy(['name' => $cat]);
-            $newPost->addCategory($CategoryEntity);
+            // Ajout de la catégorie/tag
+            if($CategoryEntity = $this->categoryRepo->findOneBy(['name' => $cat])) {
+                $newPost->addCategory($CategoryEntity);
+            } elseif($TagEntity = $this->tagRepo->findOneBy(['name' => $cat])) {
+                $newPost->addTag($TagEntity);
+            }
         }
         // On insère l'article en BDD
         $em = $this->doctrine->getManager();

@@ -23,8 +23,8 @@ class NewFeedCommand extends ContainerAwareCommand {
     private $categoryRepo = null;
     private $userRepo = null;
     private $tagRepo = null;
-    // Liste des catégories existantes en BDD
-    private $existedCategories = [];
+    // Liste des catégories/tags existantes en BDD
+    private $existedCategoriesTags = [];
     const SLUG_INDEX = 3;
     const SITE_URL_IMG = 'https://www.audreycuisine.fr/wp-content/uploads/';
     const POST_AUTHOR = 'AudreyCuisine';
@@ -126,10 +126,10 @@ class NewFeedCommand extends ContainerAwareCommand {
      * @return []                 []
      */
     private function insertNewPost(SimpleXMLElement $post) {
-        // On vérifie si la/les catégories existant
+        // On vérifie si la/les catégories/tags existant
         foreach ($post->category as $cat) {
             $cat = $this->cleanString($cat);
-            if(!isset($this->existedCategories[$cat])) {
+            if(!isset($this->existedCategoriesTags[$cat])) {
                 if(
                     !isset($this->categoriesMapping[$cat]) &&
                     (is_null($this->categoryRepo->findOneBy(['name' => $cat])) && is_null($this->tagRepo->findOneBy(['name' => $cat])))
@@ -138,7 +138,7 @@ class NewFeedCommand extends ContainerAwareCommand {
                     $this->output->writeln('<error>La catégorie/tag "'.$cat.'" n\'existe pas<error>');
                     exit();
                 } else {
-                    $this->existedCategories[] = $cat;
+                    $this->existedCategoriesTags[] = $cat;
                 }
             }
         }
