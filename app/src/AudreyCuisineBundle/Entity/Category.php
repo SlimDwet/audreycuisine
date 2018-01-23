@@ -73,7 +73,7 @@ class Category
     /**
      * @var [type]
      *
-     * @ORM\ManyToMany(targetEntity="Post", mappedBy="category")
+     * @ORM\ManyToMany(targetEntity="Post", mappedBy="category", indexBy="id")
      */
     private $posts;
 
@@ -272,7 +272,7 @@ class Category
      */
     public function addPost(\AudreyCuisineBundle\Entity\Post $post)
     {
-        $this->posts[] = $post;
+        $this->posts[$post->getId()] = $post;
 
         return $this;
     }

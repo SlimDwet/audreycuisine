@@ -74,7 +74,7 @@ class Post
     /**
      * @var [type]
      *
-     * @ORM\ManyToMany(targetEntity="Category", inversedBy="posts")
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="posts", indexBy="id")
      */
     private $category;
 
@@ -369,7 +369,7 @@ class Post
      */
     public function addCategory(\AudreyCuisineBundle\Entity\Category $category)
     {
-        $this->category[] = $category;
+        $this->category[$category->getId()] = $category;
 
         return $this;
     }
