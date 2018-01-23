@@ -11,54 +11,6 @@ namespace AudreyCuisineBundle\Repository;
 class SelectionRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    /**
-     * Retourne les X premières sélection
-     * @param  integer $nbSelections [Nombre de sélections à retourner]
-     * @param  integer $nbPosts [Nombre d'article par sélection]
-     * @return array                [Liste des sélections]
-     */
-    public function getSelections(int $nbSelections = 8, int $nbPosts = 4): array {
-        $selections = $this->findBy([], ['selectionOrder' => 'ASC'], $nbSelections);
-        return $this->toArray($selections, $nbPosts);
-    }
-
-    /**
-     * Formate un tableau d'entité en tableau prêt à être affiché
-     * @param  Selection[] $selections [Liste des entités Selection]
-     * @param  integer $nbPosts [Nombre d'article par sélection]
-     * @return array        []
-     */
-    private function toArray(array $selections, $nbPosts): array {
-        $result = [];
-        foreach ($selections as $Selection) {
-            // Récupération des articles de la sélection
-            $selectionPosts = [];
-            foreach ($Selection->getPosts() as $Post) {
-                $selectionPosts[] = array(
-                    'title' => $Post->getTitle(),
-                    'date' => $Post->getUpdated()->format(\Datetime::ISO8601),
-                    'thumbnail' => $Post->getUrlPostThumbnail()
-                );
-            }
-            // Tri des articles du plus récent au plus ancien
-            usort($selectionPosts, [$this, "orderPostPublishedDate"]);
-            $sortedPostsSelection = array_reverse($selectionPosts);
-            $result[] = array(
-                'name' => $Selection->getName(),
-                'posts' => array_slice($sortedPostsSelection, 0, $nbPosts)
-            );
-        }
-        return $result;
-    }
-
-    /**
-     * Tri par ordre croissant les dates des articles
-     * @param  array $post1 [Article 1]
-     * @param  array $post2 [Article 2]
-     * @return int           [Résultat de la comparaison]
-     */
-    private function orderPostPublishedDate(array $post1, array $post2): int {
-        return strcmp($post1['date'], $post2['date']);
-    }
+    //
 
 }

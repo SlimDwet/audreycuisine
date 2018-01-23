@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+use AudreyCuisineBundle\Manager\EntityManager;
+use AudreyCuisineBundle\Utils\Utils;
 use AudreyCuisineBundle\Entity\Post;
 
 class PostController extends Controller
@@ -21,10 +23,10 @@ class PostController extends Controller
      */
     public function getLastPostsAction(Request $request): JsonResponse {
         $response = new JsonResponse();
-        $repository = $this->getDoctrine()->getRepository(Post::class);
+        $em = new EntityManager($this->getDoctrine());
         // On récupère les derniers articles postés
-        $lastPosts = array('data' => $repository->getLastPosts());
-        $response->setData($lastPosts);
+        $lastPosts = $em->getLastPosts();
+        $response->setData(Utils::formateToOutput($lastPosts));
         $response->headers->set('Access-Control-Allow-Origin', '*');
         return $response;
     }
@@ -38,14 +40,12 @@ class PostController extends Controller
      */
     public function getPostAction(Request $request, string $slug): JsonResponse {
         $response = new JsonResponse();
-        $postRepository = $this->getDoctrine()->getRepository(Post::class);
-        // On récupère l'article
-        $post = $postRepository->getPostBySlug($slug);
-        if(!is_null($post)) {
-            $response->setData(['data' => $post]);
+        $em = new EntityManager($this->getDoctrine());
+        if(!is_null($post = $em->getPostBySlug($slug))) {
+            $response->setData(Utils::formateToOutput($post));
             $response->headers->set('Access-Control-Allow-Origin', '*');
         } else {
-            $response->setData(['Erreur' => "Impossible de retrouver cet article"]);
+            $response->setData(Utils::formateToErrorOutput("Impossible de retrouver cet article"));
             $response->setStatusCode(404);
         }
         return $response;

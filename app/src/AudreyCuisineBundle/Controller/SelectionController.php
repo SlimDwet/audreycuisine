@@ -3,25 +3,26 @@
 namespace AudreyCuisineBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-use AudreyCuisineBundle\Entity\Selection;
+use AudreyCuisineBundle\Manager\EntityManager;
+use AudreyCuisineBundle\Utils\Utils;
 
 class SelectionController extends Controller
 {
 
     /**
      * Retourne les 4 derniers articles postés
-     * @Route("/selections", name="all_selections")
+     * @Rest\Get("/selections", name="all_selections")
      */
     public function getSelections(Request $request) {
         $response = new JsonResponse();
-        $repository = $this->getDoctrine()->getRepository(Selection::class);
+        $em = new EntityManager($this->getDoctrine());
         // On récupère les sélections
-        $selections = array('data' => $repository->getSelections());
-        $response->setData($selections);
+        $selections = $em->getSelections();
+        $response->setData(Utils::formateToOutput($selections));
         $response->headers->set('Access-Control-Allow-Origin', '*');
         return $response;
     }
