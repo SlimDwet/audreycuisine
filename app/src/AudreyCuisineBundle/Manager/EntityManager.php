@@ -24,13 +24,13 @@ class EntityManager {
      * @return array                 [Liste des sélections]
      */
     public function getSelections(int $expectedSelections = 8, int $postsPerSelection = 4): array {
-        $repository = $this->doctrine->getRepository(Selection::class);
-        $selections = $repository->findBy([], ['selectionOrder' => 'ASC'], $expectedSelections);
         $result = [];
-        foreach ($selections as $Selection) {
-            // Récupération des articles de la sélection
+        $repository = $this->doctrine->getRepository(Selection::class);
+        $selections = $repository->getSelectionPosts($expectedSelections, $postsPerSelection);
+        foreach ($selections as $keySel => $sel) {
+            // Extraction des articles de la sélection
             $selectionPosts = [];
-            foreach ($Selection->getPosts() as $Post) {
+            foreach ($sel['posts'] as $Post) {
                 $selectionPosts[] = array(
                     'title' => $Post->getTitle(),
                     'date' => $Post->getUpdated()->format(Datetime::ISO8601),
@@ -38,12 +38,11 @@ class EntityManager {
                     'slug' => $Post->getSlug()
                 );
             }
-            // Tri des articles du plus récent au plus ancien
-            usort($selectionPosts, [Utils::class, 'orderPostPublishedDate']);
-            $sortedPostsSelection = array_reverse($selectionPosts);
-            $result[] = array(
-                'name' => $Selection->getName(),
-                'posts' => array_slice($sortedPostsSelection, 0, $postsPerSelection)
+            // On récupère le nom de la sélection ou, à défaut, le nom de la catégorie
+            $selectionName = is_null($sel['selection']->getName()) ? $sel['selection']->getCategory()->getName() : $sel['selection']->getName();
+            $result[$keySel] = array(
+                'name' => $selectionName,
+                'posts' => $selectionPosts
             );
         }
         return $result;

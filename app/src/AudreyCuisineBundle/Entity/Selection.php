@@ -4,6 +4,7 @@ namespace AudreyCuisineBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Category;
 
 /**
  * Selection
@@ -25,7 +26,7 @@ class Selection
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=100, options={"comment": "Nom de la sélection"})
+     * @ORM\Column(name="name", type="string", length=100, nullable=true, options={"comment": "Nom de la sélection"})
      */
     private $name;
 
@@ -39,16 +40,13 @@ class Selection
     /**
      * @var [type]
      *
-     * @ORM\ManyToMany(targetEntity="Post")
-     * @ORM\JoinTable(name="selection_post",
-     *      joinColumns={@ORM\JoinColumn(name="selection_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id", unique=true)}
-     * )
+     * @ORM\OneToOne(targetEntity="Category")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
-    private $posts;
+    private $category;
 
     public function __construct() {
-        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
+        //
     }
 
 
@@ -111,36 +109,26 @@ class Selection
     }
 
     /**
-     * Add post
+     * Set category
      *
-     * @param \AudreyCuisineBundle\Entity\Post $post
+     * @param Category $category
      *
      * @return Selection
      */
-    public function addPost(\AudreyCuisineBundle\Entity\Post $post)
+    public function setCategory(Category $category = null)
     {
-        $this->posts[] = $post;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Remove post
+     * Get category
      *
-     * @param \AudreyCuisineBundle\Entity\Post $post
+     * @return Category
      */
-    public function removePost(\AudreyCuisineBundle\Entity\Post $post)
+    public function getCategory()
     {
-        $this->posts->removeElement($post);
-    }
-
-    /**
-     * Get posts
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPosts()
-    {
-        return $this->posts;
+        return $this->category;
     }
 }
