@@ -32,7 +32,7 @@ class Tag
     /**
      * @var string
      *
-     * @ORM\Column(name="slug", type="string", length=255, options={"comment": "Slug du mot-clé"})
+     * @ORM\Column(name="slug", type="string", unique=true, length=255, options={"comment": "Slug du mot-clé"})
      */
     private $slug;
 
