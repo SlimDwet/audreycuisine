@@ -12,5 +12,18 @@ use AudreyCuisineBundle\Entity\Post;
  */
 class PostRepository extends \Doctrine\ORM\EntityRepository
 {
-    //
+
+    /**
+     * Recherche d'articles à partir des termes
+     * @param  string $terms [Termes à rechercher]
+     * @return array         [Résultat de la requête]
+     */
+    public function searchPostsByTerms(string $terms): array {
+        $qb = $this->createQueryBuilder('p')
+            ->where("p.title LIKE :terms")
+            ->setParameter('terms', '%'.$terms.'%')
+            ->getQuery();
+        return $qb->getResult();
+    }
+
 }

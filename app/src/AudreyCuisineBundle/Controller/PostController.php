@@ -64,4 +64,26 @@ class PostController extends Controller
         return $response;
     }
 
+    /**
+     * Recherche d'articles
+     * @Rest\Get("/search/{terms}.{_format}", name="post_search", defaults={"_format": "json"})
+     *
+     * @param  Request      $request [Objet Request]
+     * @param  string       $terms   [Termes recherchés]
+     * @return JsonResponse          [description]
+     */
+    public function searchTermsAction(Request $request, string $terms): JsonResponse {
+        $response = new JsonResponse();
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        $em = new EntityManager($this->getDoctrine());
+        $searchResult = $em->getPostsBySearchedTerms($terms);
+        if(!empty($searchResult)) {
+            $response->setData(Utils::formateToOutput($searchResult));
+        } else {
+            $response->setData(Utils::formateToErrorOutput("Aucun article correspond à la recherche"));
+            $response->setStatusCode(404);
+        }
+        return $response;
+    }
+
 }

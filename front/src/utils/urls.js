@@ -3,7 +3,8 @@ const urls = {
     'allPosts': '/archives',
     'inMyKitchen': '/selections',
     'aPropos': '/a-propos',
-    'posts': "/posts"
+    'posts': "/posts",
+    'search': "/search"
 }
 
 export default urls;

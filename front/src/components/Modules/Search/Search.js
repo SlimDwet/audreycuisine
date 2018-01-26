@@ -1,14 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './Search.css';
 import ModuleTitle from '../../ModuleTitle/ModuleTitle';
 import InputSearch from '../../InputSearch/InputSearch';
 import ButtonSearch from '../../ButtonSearch/ButtonSearch';
 
 class Search extends Component {
-
-    state = {
-        'searchText': ''
-    }
 
     /**
      * Fonction qui récupère le texte recherché
@@ -19,11 +16,12 @@ class Search extends Component {
         evt.preventDefault();
         // Récupération du texte saisi
         const inputIndex = 0;
-        let searchText = evt.target.elements[inputIndex].value;
+        const searchText = evt.target.elements[inputIndex].value;
         // Mise à jour du state
-        this.setState({
-            'searchText': searchText
-        })
+        this.props.history.push({
+            pathname: '/search',
+            search: '?terms='+encodeURI(searchText)
+        }, this.props.location.state);
     }
 
     render() {
@@ -38,4 +36,4 @@ class Search extends Component {
 
 }
 
-export default Search;
+export default withRouter(Search);

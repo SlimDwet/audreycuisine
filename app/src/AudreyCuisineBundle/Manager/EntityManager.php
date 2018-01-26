@@ -110,4 +110,23 @@ class EntityManager {
         );
     }
 
+    /**
+     * Retourne le résultat de la recherche d'articles par termes
+     * @param  string $terms [Termes recherchés]
+     * @return array        [description]
+     */
+    public function getPostsBySearchedTerms(string $terms): array {
+        $repository = $this->doctrine->getRepository(Post::class);
+        $result = [];
+        // Liste des articles de la recherche
+        $queryResult = $repository->searchPostsByTerms($terms);
+        foreach ($queryResult as $Post) {
+            $result[] = array(
+                'title' => $Post->getTitle(),
+                'slug' => $Post->getSlug()
+            );
+        }
+        return $result;
+    }
+
 }
