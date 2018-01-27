@@ -21,6 +21,7 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
     public function searchPostsByTerms(string $terms): array {
         $qb = $this->createQueryBuilder('p')
             ->where("p.title LIKE :terms")
+            ->orderBy('p.updated', 'DESC')
             ->setParameter('terms', '%'.$terms.'%')
             ->getQuery();
         return $qb->getResult();

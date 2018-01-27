@@ -9,13 +9,7 @@ import LastPosts from '../containers/LastPosts/LastPosts';
 import ButtonMagenta from '../components/ButtonMagenta/ButtonMagenta';
 import InMyKitchen from '../containers/InMyKitchen/InMyKitchen';
 import SectionTitle from '../components/SectionTitle/SectionTitle';
-import WhoAmI from '../components/Modules/WhoAmI/WhoAmI';
-import SocialMedias from '../components/Modules/SocialMedias/SocialMedias';
-import Search from '../components/Modules/Search/Search';
-import Newsletter from '../components/Modules/Newsletter/Newsletter';
-import FindRecipe from '../components/Modules/FindRecipe/FindRecipe';
-import MyBooks from '../components/Modules/MyBooks/MyBooks';
-import LikeTea from '../components/Modules/LikeTea/LikeTea';
+import RightSidebar from '../components/RightSidebar/RightSidebar';
 import ImOnFacebook from '../components/Modules/ImOnFacebook/ImOnFacebook';
 import ImOnInstagram from '../components/Modules/ImOnInstagram/ImOnInstagram';
 import SocialNetworkPrintBanner from '../components/SocialNetworkPrintBanner/SocialNetworkPrintBanner';
@@ -48,15 +42,7 @@ const home = props => {
                     </div>
                     <SocialNetworkPrintBanner />
                 </div>
-                <div className="rightContent">
-                    <WhoAmI /><br/>
-                    <SocialMedias /><br/>
-                    <Search /><br/>
-                    <Newsletter /><br/>
-                    <FindRecipe /><br/>
-                    <MyBooks books={constants.books} /><br/>
-                    <LikeTea /><br/>
-                </div>
+                <RightSidebar />
             </div><br/>
             <Footer /><br/>
         </div>

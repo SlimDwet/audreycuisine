@@ -5,7 +5,7 @@ import SectionTitle from '../../components/SectionTitle/SectionTitle';
 import EmptyLastPost from './EmptyLastPost';
 import Loading from '../../components/Loading/Loading';
 import constants from '../../utils/constants';
-import {getFrenchDate, getRandomKey} from '../../utils/functions';
+import {getFrenchDate, getRandomKey, getExcerpt} from '../../utils/functions';
 import { sendRequest, treatResponse } from '../../utils/requests';
 
 class LastPosts extends React.Component {
@@ -38,24 +38,6 @@ class LastPosts extends React.Component {
         }
     }
 
-    /**
-     * Retourne les X premiers mots du texte comme extrait
-     * @param  {string} text [Texte à partir duquel on extrait le résumé]
-     * @return {string}      [Extrait]
-     */
-    getExcerpt(text) {
-        let words = text.trim().split(/\s+/);
-        let excerpt = '';
-        if(words.length > constants.excerptLength) {
-            // On récupère les X premiers mots pour avoir le résumé
-            let reducedWords = words.slice(0, constants.excerptLength);
-            excerpt = reducedWords.join(' ')+'...';
-        } else {
-            excerpt = text;
-        }
-        return excerpt;
-    }
-
     render() {
         let allPosts = [];
         if(this.state.loading) {
@@ -80,7 +62,7 @@ class LastPosts extends React.Component {
                         <div className="postContainer">
                             <span className="postCategories">{categories.join(' ')}</span>
                             <Link to={'/article/'+post.slug} className="postLink">{post.title}</Link>
-                            <p className="postExcerpt">{this.getExcerpt(post.contentNoHtml)}</p>
+                            <p className="postExcerpt">{getExcerpt(post.contentNoHtml, constants.excerptLength)}</p>
                             <p className="postDate">{getFrenchDate(post.updated)}</p>
                         </div>
                     </div>

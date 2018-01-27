@@ -1,5 +1,6 @@
 const constants = {
     "excerptLength": 30,
+    "longExcerptLength": 50,
     "socialMedias": [
         {'order': 1, 'css': 'rss', 'link': '/feed'},
         {'order': 2, 'css': 'instagram', 'link': 'https://instagram.com/audreycuisine/', 'alt': null},

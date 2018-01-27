@@ -33,8 +33,8 @@ class EntityManager {
             foreach ($sel['posts'] as $Post) {
                 $selectionPosts[] = array(
                     'title' => $Post->getTitle(),
-                    'date' => $Post->getUpdated()->format(Datetime::ISO8601),
                     'thumbnail' => $Post->getUrlPostThumbnail(),
+                    'date' => $Post->getUpdated()->format(Datetime::ISO8601),
                     'slug' => $Post->getSlug()
                 );
             }
@@ -123,7 +123,12 @@ class EntityManager {
         foreach ($queryResult as $Post) {
             $result[] = array(
                 'title' => $Post->getTitle(),
-                'slug' => $Post->getSlug()
+                'content' => strip_tags($Post->getContent()),
+                'slug' => $Post->getSlug(),
+                'thumbnail' => $Post->getUrlPostThumbnail(),
+                'published' => $Post->getUpdated(),
+                'comments' => Utils::getPostComments($Post->getComments()),
+                'author' => $Post->getUser()->getFullName()
             );
         }
         return $result;

@@ -1,0 +1,59 @@
+.search-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #FFFFFF;
+}
+.search-item p {
+    margin: 0;
+}
+.search-item .search-post-link {
+    text-decoration: none;
+    color: #333;
+    font-family: Roboto, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+.search-item .search-post-link:hover {
+    text-decoration: underline;
+}
+.search-item .search-post-container {
+    width: 50%;
+}
+.search-item .search-post-details {
+    margin: 10px 0 15px 0;
+    padding: 5px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #999;
+}
+.search-item .search-post-details span {
+    margin-right: 10px;
+}
+.search-item .search-post-details a {
+    color: #993366;
+    text-decoration: none;
+}
+.search-item .search-post-details a:hover {
+    color: #333;
+}
+.search-item .search-post-details .icon {
+    margin-right: 3px;
+    font-family: FontAwesome, sans-serif;
+    font-style: normal;
+}
+.search-item .search-post-details .calendar::before {
+    content: "\f133";
+}
+.search-item .search-post-details .comment::before {
+    content: "\f075";
+}
+.search-item .search-post-details .author::before {
+    content: "\f007";
+}
+.search-item .search-post-content {
+    font-size: 13px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d4d4d4;
+}

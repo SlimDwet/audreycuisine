@@ -4,21 +4,18 @@ import { Link } from 'react-router-dom';
 import { sendRequest, treatResponse } from '../utils/requests';
 import { getFrenchDate } from '../utils/functions';
 import urls from '../utils/urls';
-import constants from '../utils/constants';
 
 import Header from '../components/Header/Header';
 import Loading from '../components/Loading/Loading';
 import SocialNetworkPrintBanner from '../components/SocialNetworkPrintBanner/SocialNetworkPrintBanner';
+import RightSidebar from '../components/RightSidebar/RightSidebar';
 import Footer from '../components/Footer/Footer';
-import WhoAmI from '../components/Modules/WhoAmI/WhoAmI';
-import SocialMedias from '../components/Modules/SocialMedias/SocialMedias';
-import Search from '../components/Modules/Search/Search';
-import Newsletter from '../components/Modules/Newsletter/Newsletter';
-import FindRecipe from '../components/Modules/FindRecipe/FindRecipe';
-import MyBooks from '../components/Modules/MyBooks/MyBooks';
-import LikeTea from '../components/Modules/LikeTea/LikeTea';
 import Comments from '../components/Comments/Comments';
 
+/**
+ * Composant affichant la page d'article
+ * @type {Object}
+ */
 class Post extends Component {
 
     state = {
@@ -118,15 +115,7 @@ class Post extends Component {
                     <div className="leftContent">
                         {postRendering}
                     </div>
-                    <div className="rightContent">
-                        <WhoAmI /><br/>
-                        <SocialMedias /><br/>
-                        <Search /><br/>
-                        <Newsletter /><br/>
-                        <FindRecipe /><br/>
-                        <MyBooks books={constants.books} /><br/>
-                        <LikeTea /><br/>
-                    </div>
+                    <RightSidebar />
                 </div><br/>
                 <Footer /><br/>
             </div>
