@@ -33,3 +33,35 @@
     background-color: #bb0963;
     border-radius: 5px;
 }
+
+
+/*** THEME NOIR ET BLANC ***/
+.light-bg .topMenu {
+    height: 40px;
+    padding: 0;
+    background-image: none;
+    border-bottom: 1px solid #333;
+}
+.light-bg .topMenu ul {
+    float: left;
+    margin: 0 0 0 20%;
+}
+.light-bg .topMenu ul li {
+    padding: 0;
+    font-family: OpenSans, sans-serif;
+}
+.light-bg .topMenu ul li a {
+    padding: 0 10px;
+    line-height: 40px;
+    border-left: 1px solid #333;
+    font-size: 11px;
+    color: #999;
+}
+.light-bg .topMenu ul li a:hover {
+    background-color: #292929;
+    color: #FFF;
+    transition: background-color 1s, color 1s;
+}
+.light-bg .topMenu ul li:last-child a {
+    border-right: 1px solid #333;
+}

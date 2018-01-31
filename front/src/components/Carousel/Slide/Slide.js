@@ -1,5 +1,6 @@
 import React from 'react';
 import './Slide.css';
+import { Link } from 'react-router-dom';
 
 /**
  * Slide du carousel
@@ -12,11 +13,11 @@ const slide = props => {
             <source srcSet={props.slideSrcset} media={props.slideMedia}/>
             <img src={props.slideImgSrc} alt={props.slideImgAlt} title={props.slideImgTitle} />
             <div className="slideDetails">
-                <a href={props.slideCategoriesLink}>
+                <Link to={props.slideCategoriesLink}>
                     <span className="category">{props.slideCategories}</span>
-                </a>
+                </Link>
                 <p>
-                    <a href={props.slideLink} className="link">{props.slideTitle}</a>
+                    <Link to={props.slideLink} className="link">{props.slideTitle}</Link>
                 </p>
                 <span className="date">{props.slideDate}</span>
             </div>

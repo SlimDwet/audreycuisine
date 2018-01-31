@@ -44,26 +44,14 @@ const constants = {
         {
             'slideSrcset': '',
             'slideMedia': '',
-            'slideImgSrc': 'https://www.audreycuisine.fr/wp-content/uploads/2016/01/galette-des-rois-785x505_c.jpg',
-            'slideImgAlt': 'Illustration galette des rois',
-            'slideImgTitle': 'Galettes des rois feuilletée aux noisettes pour l\'Epiphanie',
-            'slideCategories': "Galettes des rois",
-            'slideCategoriesLink': "/category/recettes-sucrees/desserts-partager/galette-des-rois",
-            'slideTitle': 'Galettes des rois feuilletée aux noisettes pour l\'Epiphanie',
-            'slideLink': '/2016/01/galettes-des-rois-epiphanie',
-            'slideDate': '6 janvier 2016'
-        },
-        {
-            'slideSrcset': '',
-            'slideMedia': '',
-            'slideImgSrc': 'https://www.audreycuisine.fr/wp-content/uploads/2015/01/galette-des-rois-bordelaise-briochée-785x505_c.jpg',
-            'slideImgAlt': 'Illustration galette des rois à la bordelaise',
-            'slideImgTitle': 'Galette des rois à la Bordelaise, au thermomix',
-            'slideCategories': "Robot cuiseur (Thermomix - Companion - Cook-Expert)",
-            'slideCategoriesLink': "/category/recettes-salees/autres-recettes/ustensiles/robot-cuiseur",
-            'slideTitle': 'Galette des rois à la Bordelaise, au thermomix',
-            'slideLink': '/2015/01/galette-des-rois-au-thermomix',
-            'slideDate': '4 janvier 2015'
+            'slideImgSrc': 'https://www.audreycuisine.fr/wp-content/uploads/2017/01/31343289004_1164c06ccd_z-785x505_c.jpg',
+            'slideImgAlt': 'Illustration dômes de crêpes',
+            'slideImgTitle': 'Dômes de crêpes aux pommes & caramel',
+            'slideCategories': "Crêpes, blinis & pancakes",
+            'slideCategoriesLink': "/category/brunchs/crepes",
+            'slideTitle': 'Dômes de crêpes aux pommes & caramel',
+            'slideLink': '/article/domes-de-crepes-aux-pommes-caramel',
+            'slideDate': '15 janvier 2017'
         }
     ]
 }

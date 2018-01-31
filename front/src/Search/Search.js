@@ -106,7 +106,7 @@ class Search extends Component {
     render() {
         const searchRender = this.state.loading === true ? <Loading /> : this.getSearchRender();
         return (
-            <div className="searchPage">
+            <div className="wallpaper searchPage">
                 <Header />
                 <div className="container">
                     <div className="leftContent">

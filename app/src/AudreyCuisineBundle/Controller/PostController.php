@@ -86,4 +86,27 @@ class PostController extends Controller
         return $response;
     }
 
+    /**
+     * Retourne les articles d'une catégorie
+     *
+     * @Rest\Get("/category/{slug}.{_format}", name="get_posts_category", defaults={"_format": "json"}, requirements={"slug": "[\w-]+"})
+     * @param  Request      $request      [description]
+     * @param  string       $categorySlug [description]
+     * @return JsonResponse               [description]
+     */
+    public function getPostsInCategoryAction(Request $request, string $slug): JsonResponse {
+        $response = new JsonResponse();
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        $em = new EntityManager($this->getDoctrine());
+        // Récupération des articles
+        $postResult = $em->getPostsInCategory($slug);
+        if(!empty($postResult)) {
+            $response->setData(Utils::formateToOutput($postResult));
+        } else {
+            $response->setData(Utils::formateToErrorOutput("Aucun article trouvé dans cette catégorie"));
+            $response->setStatusCode(404);
+        }
+        return $response;
+    }
+
 }

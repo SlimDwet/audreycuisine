@@ -17,7 +17,7 @@ import Carousel from '../components/Carousel/Carousel';
 
 const home = props => {
     return (
-        <div className="home">
+        <div className="wallpaper home">
             <Header />
             <div className="container">
                 <div className="carouselWrapper">

@@ -1,0 +1,18 @@
+.category-post {
+    margin-bottom: 30px;
+}
+.category-post::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.category-post img {
+    float: left;
+    width: 40%;
+}
+.category-post figcaption {
+    float: right;
+    width: 60%;
+    padding-left: 15px;
+    box-sizing: border-box;
+}

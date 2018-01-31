@@ -134,4 +134,25 @@ class EntityManager {
         return $result;
     }
 
+    /**
+     * Retourne la liste des articles appartenant à une catégorie
+     * @param  string $slug [Slug de la catégorie]
+     * @return array        [Liste des articles]
+     */
+    public function getPostsInCategory(string $slug): array {
+        $repository = $this->doctrine->getRepository(Post::class);
+        $posts = $repository->getPostsInCategory($slug);
+        $result = [];
+        foreach ($posts as $key => $Post) {
+            $result[$key]['title'] = $Post->getTitle();
+            $result[$key]['slug'] = $Post->getSlug();
+            $result[$key]['content'] = $Post->getContent();
+            $result[$key]['comments'] = count(Utils::getPostComments($Post->getComments()));
+            $result[$key]['author'] = $Post->getUser()->getFullName();
+            $result[$key]['thumbnail'] = $Post->getUrlPostThumbnail();
+            $result[$key]['updated'] = $Post->getUpdated();
+        }
+        return $result;
+    }
+
 }

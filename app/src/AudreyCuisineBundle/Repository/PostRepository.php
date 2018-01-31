@@ -27,4 +27,19 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
+    /**
+     * Retourne les entités Post appartenant à une catégorie à partir de son slug
+     * @param  string $slug [Slug de la catégorie]
+     * @return Post[]        [Liste des articles]
+     */
+    public function getPostsInCategory(string $slug) {
+        $qb = $this->createQueryBuilder('p');
+        $query = $qb->join('p.category', 'c')
+            ->where('c.slug = :categorySlug')
+            ->orderBy('p.updated', 'DESC')
+            ->setParameter('categorySlug', $slug)
+            ->getQuery();
+        return $query->getResult();
+    }
+
 }

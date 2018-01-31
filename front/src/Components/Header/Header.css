@@ -6,3 +6,30 @@
     padding-left: 13%;
     background: linear-gradient(90deg, #78616D, #78616D 60%, transparent);
 }
+.topMenuWrapper .site-description {
+    display: none;
+}
+
+
+
+/** THEME NOIR ET BLANC **/
+.light-bg .topMenuWrapper {
+    background-color: #222;
+}
+.light-bg .topMenuWrapper .logo {
+    margin-top: 20px;
+    padding-left: 20%;
+    background: none;
+}
+.light-bg .topMenuWrapper .logo img {
+    width: 80%;
+}
+.light-bg .topMenuWrapper .site-description {
+    display: block;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: normal;
+    color: #666;
+}

@@ -109,7 +109,7 @@ class Post extends Component {
     render() {
         let postRendering = (this.state.loading === true) ? <Loading /> : this.getPostRendering();
         return (
-            <div className="postPage">
+            <div className="wallpaper postPage">
                 <Header />
                 <div className="container">
                     <div className="leftContent">

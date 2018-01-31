@@ -52,9 +52,11 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('assets/images/fond.png') repeat;
     font-family: 'OpenSans', 'sans-serif';
     color: #555;
+}
+.wallpaper {
+    background: url('assets/images/fond.png') repeat;
 }
 .container {
     width: 1220px;
@@ -78,3 +80,11 @@ body {
 .modules {
     background-color: #FFFFFF;
 }
+.clear {
+    clear: both;
+}
+
+
+
+/*** THEME NOIR ET BLANC ***/
+.light-bg {}
