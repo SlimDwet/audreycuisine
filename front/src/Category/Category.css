@@ -1,3 +1,16 @@
 .category .no-result {
     color: #FFFFFF;
 }
+.category .categoryName {
+    margin: 0;
+    padding: 0 0 15px 380px;
+    font-family: Roboto, sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    color: #222;
+    letter-spacing: -1px;
+    border-bottom: 1px solid #eee;
+}
+.category .leftContent {
+    margin-top: 20px;
+}

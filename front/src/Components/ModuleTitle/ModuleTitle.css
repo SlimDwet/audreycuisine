@@ -31,3 +31,25 @@
     margin-left: 5px;
     background-color: #993366;
 }
+
+
+
+/*** THEME NOIR ET BLANC ***/
+.light-bg .moduleTitleContainer {
+    margin: 0;
+    padding: 5px 0;
+}
+.light-bg .moduleTitleContainer .title {
+    display: block;
+    width: 100%;
+    flex: none;
+    padding-bottom: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #4a86b8;
+    border-bottom: 3px solid #eee;
+}
+.light-bg .moduleTitleContainer .separatorContainer {
+    display: none;
+}

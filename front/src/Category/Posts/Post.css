@@ -1,5 +1,7 @@
 .category-post {
     margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
 }
 .category-post::after {
     content: "";
@@ -7,12 +9,58 @@
     clear: both;
 }
 .category-post img {
-    float: left;
     width: 40%;
+    padding-right: 15px;
+    float: left;
+    box-sizing: border-box;
+}
+.category-post a {
+    text-decoration: none;
+    color: #4a86b8;
+    font-size: 13px;
 }
 .category-post figcaption {
     float: right;
     width: 60%;
-    padding-left: 15px;
     box-sizing: border-box;
+}
+.category-post .postTitle {
+    color: #333;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: Roboto, sans-serif;
+}
+.category .postDetails {
+    padding: 2px 0;
+    font-size: 12px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.category .postDetails a {
+    font-size: 9px;
+}
+.category a:hover {
+    color: #333;
+}
+.category .cell {
+    margin-right: 10px;
+    text-transform: uppercase;
+    color: #999;
+}
+.category .cell::before {
+    margin-right: 5px;
+    font-family: FontAwesome;
+}
+.category .calendar::before {
+    content: '\f133';
+}
+.category .comments::before {
+    content: '\f075';
+}
+.category .author::before {
+    content: '\f007';
+}
+.category .postContent {
+    font-family: OpenSans, sans-serif;
+    font-size: 13px;
 }

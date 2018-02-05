@@ -4,6 +4,7 @@
 }
 .socialMediaItem a {
     display: inline-block;
+    position: relative;
     width: 32px;
     height: 32px;
     border: 2px solid #be0063;
@@ -11,16 +12,18 @@
     box-sizing: border-box;
     line-height: 32px;
     text-align: center;
-}
-.socialMediaItem a:hover {
-    border-color: transparent;
-    opacity: 0.6;
+    text-indent: -9999px;
 }
 .socialMediaItem a::after {
     display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     color: #be0063;
     font-family: 'FontAwesome';
     font-size: 16px;
+    text-indent: 0px;
 }
 .socialMediaItem .rss::after {
     content: "\f09e";
@@ -48,4 +51,27 @@
 }
 .socialMediaItem .envelop::after {
     content: "\f0e0";
+}
+
+
+
+
+/*** THEME NOIR ET BLANC ***/
+.light-bg .socialMediaList {
+    display: block;
+    margin: 0;
+}
+.light-bg .socialMediaItem a {
+    display: inline;
+    border: none;
+    line-height: normal;
+    font-size: 13px;
+    text-decoration: none;
+    color: #4a86b8;
+}
+.light-bg .socialMediaItem a:hover {
+    color: #333;
+}
+.light-bg .socialMediaItem a::after {
+    display: none;
 }

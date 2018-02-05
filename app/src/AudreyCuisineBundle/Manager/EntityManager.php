@@ -143,14 +143,17 @@ class EntityManager {
         $repository = $this->doctrine->getRepository(Post::class);
         $posts = $repository->getPostsInCategory($slug);
         $result = [];
-        foreach ($posts as $key => $Post) {
-            $result[$key]['title'] = $Post->getTitle();
-            $result[$key]['slug'] = $Post->getSlug();
-            $result[$key]['content'] = $Post->getContent();
-            $result[$key]['comments'] = count(Utils::getPostComments($Post->getComments()));
-            $result[$key]['author'] = $Post->getUser()->getFullName();
-            $result[$key]['thumbnail'] = $Post->getUrlPostThumbnail();
-            $result[$key]['updated'] = $Post->getUpdated();
+        foreach ($posts as $Post) {
+            if(!isset($result['category'])) $result['category'] = $Post['category'];
+            $result['posts'][] = [
+                'title' => $Post['post']->getTitle(),
+                'slug' => $Post['post']->getSlug(),
+                'content' => strip_tags($Post['post']->getContent()),
+                'comments' => count(Utils::getPostComments($Post['post']->getComments())),
+                'author' => $Post['post']->getUser()->getFullName(),
+                'thumbnail' => $Post['post']->getUrlPostThumbnail(),
+                'updated' => $Post['post']->getUpdated()
+            ];
         }
         return $result;
     }

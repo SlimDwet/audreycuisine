@@ -16,7 +16,8 @@ class Category extends Component {
 
     state = {
         loading: true,
-        posts: null
+        posts: null,
+        categoryFullName: null
     }
 
     componentWillMount() {
@@ -40,7 +41,7 @@ class Category extends Component {
         .then(response => {
             if(response.status === 200) {
                 const posts = treatResponse(response);
-                this.setState({loading: false, posts: posts.data});
+                this.setState({loading: false, posts: posts.data.posts, categoryFullName: posts.data.category});
             } else {
                 this.setState({loading: false});
             }
@@ -56,7 +57,13 @@ class Category extends Component {
      */
     getPosts = () => {
         if(this.state.posts !== null) {
-            return this.state.posts.map(post => <Post key={getRandomKey('category')} data={post} />);
+            const posts = this.state.posts.map(post => <Post key={getRandomKey('category')} data={post} />);
+            const render = (
+                <div className="postList">
+                    {posts}
+                </div>
+            );
+            return render;
         } else if(this.state.loading === false) {
             return <h1 className="no-result">Aucun résultat</h1>
         } else {
@@ -78,6 +85,7 @@ class Category extends Component {
         return (
             <div className="category light-bg">
                 <Header />
+                <h2 className="categoryName">{this.state.categoryFullName}</h2>
                 <div className="container">
                     <div className="leftContent">
                         {categoryRender}

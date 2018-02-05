@@ -84,3 +84,41 @@
     left: 0;
     top: 100%;
 }
+
+
+
+/*** THEME NOIR ET BLANC ***/
+.light-bg .categories {
+    background-color: #222;
+    border-color: #333;
+}
+.light-bg .categories > ul > li:first-child > a,
+.light-bg .categories .submenu > li a {
+    border-color: #333;
+}
+.light-bg .categories .submenu a,
+.light-bg .categories li:hover > a {
+    background-color: transparent;
+}
+.light-bg .categories a {
+    border-right-color: #333;
+    font-size: 13px;
+    padding: 12px 17px 12px 12px;
+}
+.light-bg .categories > ul > li:hover > a {
+    background-color: #292929;
+}
+.light-bg .categories > ul > li:hover .submenu {
+    background-color: #222;
+}
+.light-bg .categories > ul > li:hover > .submenu > li:first-child {
+    border-top-color: #333;
+}
+.light-bg .categories > ul > li:hover > .submenu > li a {
+    color: #999;
+}
+.light-bg .categories > ul > li:hover .submenu > li:hover > a {
+    background-color: #292929;
+    color: #FFF;
+    transition: background-color 1s, color 1s;
+}

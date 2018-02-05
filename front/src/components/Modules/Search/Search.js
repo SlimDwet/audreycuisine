@@ -28,8 +28,10 @@ class Search extends Component {
         return (
             <form className="searchModuleContainer modules" onSubmit={this.inputSearchHandler}>
                 <ModuleTitle title="Recherche" />
-                <InputSearch inputPlaceholder="Tapez votre recherche puis Ent" />
-                <ButtonSearch buttonText="" />
+                <div className="inputContainer">
+                    <InputSearch inputPlaceholder="Tapez votre recherche puis Ent" />
+                    <ButtonSearch buttonText="" />
+                </div>
             </form>
         );
     }

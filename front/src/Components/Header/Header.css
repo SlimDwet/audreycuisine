@@ -15,6 +15,7 @@
 /** THEME NOIR ET BLANC **/
 .light-bg .topMenuWrapper {
     background-color: #222;
+    margin-bottom: 5px;
 }
 .light-bg .topMenuWrapper .logo {
     margin-top: 20px;

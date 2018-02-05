@@ -2,13 +2,13 @@ const constants = {
     "excerptLength": 30,
     "longExcerptLength": 50,
     "socialMedias": [
-        {'order': 1, 'css': 'rss', 'link': '/feed'},
-        {'order': 2, 'css': 'instagram', 'link': 'https://instagram.com/audreycuisine/', 'alt': null},
-        { 'order': 3, 'css': 'facebook', 'link': 'https://www.facebook.com/audreycuisine.fr', 'alt': null},
-        {'order': 4, 'css': 'twitter', 'link': 'https://twitter.com/audreycuisine', 'alt': null},
-        {'order': 5, 'css': 'googleplus', 'link': 'https://plus.google.com/u/0/117618348036211786224/posts', 'alt': null},
-        {'order': 6, 'css': 'tumblr', 'link': 'http://audreycuisine.tumblr.com/', 'alt': null},
-        {'order': 7, 'css': 'pinterest', 'link': 'https://www.pinterest.com/audreycuisine/', 'alt': null}
+        {'order': 1, 'name': 'RSS', 'css': 'rss', 'link': '/feed'},
+        {'order': 2, 'name': 'Instagram', 'css': 'instagram', 'link': 'https://instagram.com/audreycuisine/', 'alt': null},
+        {'order': 3, 'name': 'Facebook', 'css': 'facebook', 'link': 'https://www.facebook.com/audreycuisine.fr', 'alt': null},
+        {'order': 4, 'name': 'Twitter', 'css': 'twitter', 'link': 'https://twitter.com/audreycuisine', 'alt': null},
+        {'order': 5, 'name': 'Google+', 'css': 'googleplus', 'link': 'https://plus.google.com/u/0/117618348036211786224/posts', 'alt': null},
+        {'order': 6, 'name': 'Tumblr', 'css': 'tumblr', 'link': 'http://audreycuisine.tumblr.com/', 'alt': null},
+        {'order': 7, 'name': 'Pinterest', 'css': 'pinterest', 'link': 'https://www.pinterest.com/audreycuisine/', 'alt': null}
     ],
     "printSocialMedias": [
         { 'order': 1, 'css': 'print', 'link': '/#print', 'alt': null },
@@ -20,23 +20,23 @@ const constants = {
     ],
     "books": [
         {
-            'srcLink': '//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=FR&ASIN=2759033295&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=maptitecuis-21',
+            'srcLink': 'https://images-na.ssl-images-amazon.com/images/I/61t7lPeoAUL._SX258_BO1,204,203,200_.jpg',
             'altText': 'Le meilleur de ma p\'tite cuisine'
         },
         {
-            'srcLink': 'https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2759016722&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=maptitecuis-21',
+            'srcLink': 'https://images-na.ssl-images-amazon.com/images/I/51qEorU9ShL._SX371_BO1,204,203,200_.jpg',
             'altText': '30 jours pour devenir un cordon-bleu'
         },
         {
-            'srcLink': 'https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2759017001&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=maptitecuis-21',
+            'srcLink': 'https://images-na.ssl-images-amazon.com/images/I/519OHVnst5L._SX357_BO1,204,203,200_.jpg',
             'altText': 'La cuisine étudiante Nouveau guide'
         },
         {
-            'srcLink': 'https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2759022714&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=maptitecuis-21',
+            'srcLink': 'https://images-na.ssl-images-amazon.com/images/I/513N73NREyL._SX351_BO1,204,203,200_.jpg',
             'altText': '200 recettes pour bébés gourmands'
         },
         {
-            'srcLink': 'https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2759026183&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=maptitecuis-21',
+            'srcLink': 'https://images-na.ssl-images-amazon.com/images/I/51TiZ0lRDML._SX350_BO1,204,203,200_.jpg',
             'altText': '200 recettes pour enfants gourmands'
         }
     ],

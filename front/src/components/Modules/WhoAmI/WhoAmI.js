@@ -27,9 +27,7 @@ const WhoAmI = () => {
     return (
         <div className="whoAmIContainer modules">
             <ModuleTitle title="Qui se cache derrière Ma P'tite cuisine" />
-            <br/>
             <img src="https://www.audreycuisine.fr/wp-content/uploads/2017/10/37532703230_417b127798_z.jpg" alt="Audrey Bourdin" />
-            <br/><br/>
             <span className="name">Audrey Bourdin</span>
             <em className="hobbies">Auteur, blogueur & influenceur</em><br/>
             <p className="myStory">

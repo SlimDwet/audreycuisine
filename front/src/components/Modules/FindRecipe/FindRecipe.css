@@ -19,3 +19,31 @@
     padding: 2px 8px;
     font-size: 18px;
 }
+
+
+
+/*** THEME NOIR ET BLANC ***/
+.light-bg .findRecipeContent {
+    padding: 0 0 15px 0;
+}
+.light-bg .ingredientLine {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+}
+.light-bg .findRecipeContent label {
+    margin-bottom: 0.5em;
+    font-family: OpenSans, sans-serif;
+    font-size: 13px;
+    text-align: left;
+    color: #999;
+}
+.light-bg input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    color: #999;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}

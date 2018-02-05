@@ -4,6 +4,7 @@
 .whoAmIContainer img {
     display: block;
     width: 100%;
+    margin: 20px 0 40px 0;
 }
 .whoAmIContainer .name, .whoAmIContainer .hobbies {
     display: block;
@@ -31,4 +32,29 @@
 .whoAmIContainer .myStory a {
     text-decoration: none;
     color: #be0063;
+}
+
+
+
+/*** THEME NOIR ET BLANC ***/
+.light-bg .whoAmIContainer {
+    margin-top: 30px;
+    padding: 0;
+}
+.light-bg .whoAmIContainer img {
+    margin: 0 0 10px 0;
+}
+.light-bg .whoAmIContainer .name,
+.light-bg .whoAmIContainer .hobbies {
+    font-size: 12px;
+}
+.light-bg .whoAmIContainer .myStory {
+    color: #999;
+    font-size: 13px;
+}
+.light-bg .whoAmIContainer .myStory a {
+    color: #4a86b8;
+}
+.light-bg .whoAmIContainer .myStory a:hover {
+    color: #333;
 }

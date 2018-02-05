@@ -34,7 +34,8 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
      */
     public function getPostsInCategory(string $slug) {
         $qb = $this->createQueryBuilder('p');
-        $query = $qb->join('p.category', 'c')
+        $query = $qb->select('p as post, c.name as category')
+            ->join('p.category', 'c')
             ->where('c.slug = :categorySlug')
             ->orderBy('p.updated', 'DESC')
             ->setParameter('categorySlug', $slug)
