@@ -25,8 +25,9 @@
 /*** THEME NOIR ET BLANC ***/
 .light-bg .findRecipeContent {
     padding: 0 0 15px 0;
+    text-align: left;
 }
-.light-bg .ingredientLine {
+.light-bg .findRecipeContent .ingredientLine {
     -webkit-flex-direction: column;
     -moz-flex-direction: column;
     -ms-flex-direction: column;
@@ -40,10 +41,22 @@
     text-align: left;
     color: #999;
 }
-.light-bg input[type="text"] {
+.light-bg .findRecipeContent input[type="text"] {
     width: 100%;
     padding: 5px;
     color: #999;
     border: 1px solid #ccc;
     box-sizing: border-box;
+}
+.light-bg .findRecipeContent .components-buttonSearch {
+    margin: 5px 0 0 0;
+    border-top: 2px outset #ddd;
+    border-bottom: 2px outset #ddd;
+    border-left: 2px outset #ddd;
+    border-right: 2px outset #ddd;
+    font-family: OpenSans, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    background-color: #ddd;
+    color: #999;
 }

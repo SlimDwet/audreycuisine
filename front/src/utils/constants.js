@@ -44,14 +44,14 @@ const constants = {
         {
             'slideSrcset': '',
             'slideMedia': '',
-            'slideImgSrc': 'https://www.audreycuisine.fr/wp-content/uploads/2017/01/31343289004_1164c06ccd_z-785x505_c.jpg',
-            'slideImgAlt': 'Illustration dômes de crêpes',
-            'slideImgTitle': 'Dômes de crêpes aux pommes & caramel',
+            'slideImgSrc': 'https://www.audreycuisine.fr/wp-content/uploads/2018/02/39383732624_77a19124e0_z-785x505_c.jpg',
+            'slideImgAlt': 'Illustration crêpes tourbillon vanille',
+            'slideImgTitle': 'Crêpes tourbillon vanille & chocolat',
             'slideCategories': "Crêpes, blinis & pancakes",
             'slideCategoriesLink': "/category/brunchs/crepes",
-            'slideTitle': 'Dômes de crêpes aux pommes & caramel',
-            'slideLink': '/article/domes-de-crepes-aux-pommes-caramel',
-            'slideDate': '15 janvier 2017'
+            'slideTitle': 'Crêpes tourbillon vanille & chocolat',
+            'slideLink': '/article/crepes-tourbillon',
+            'slideDate': '6 février 2018'
         }
     ]
 }

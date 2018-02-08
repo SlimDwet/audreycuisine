@@ -14,3 +14,10 @@
 .category .leftContent {
     margin-top: 20px;
 }
+
+
+
+/*** THEME NOIR ET BLANC ***/
+.light-bg.category .no-result {
+    color: #333;
+}

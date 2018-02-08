@@ -18,8 +18,9 @@ footer a:hover {
 
 /*** THEME NOIR ET BLANC ***/
 .light-bg footer {
+    padding: 15px 0;
     color: #999;
-    background-color: #222;
+    background-color: #333;
     font-family: OpenSans, sans-serif;
     font-weight: 400;
     font-size: 13px;

@@ -25,8 +25,15 @@
     border: 1px solid #ccc;
 }
 .light-bg .newsletter_container .components-buttonSearch {
+    margin: 20px 0 0 0;
+    border-top: 2px outset #ddd;
+    border-bottom: 2px outset #ddd;
+    border-left: 2px outset #ddd;
+    border-right: 2px outset #ddd;
+    font-family: OpenSans, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
     background-color: #ddd;
-    -webkit-appearance: none;
-    border: outset;
-    cursor: pointer;
+    color: #999;
+    text-transform: none;
 }

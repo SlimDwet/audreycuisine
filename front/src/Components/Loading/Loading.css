@@ -8,6 +8,9 @@
 	-webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
 	animation: sk-scaleout 1.0s infinite ease-in-out;
 }
+.light-bg .spinner {
+	background-color: #333;
+}
 .inLoading {
     background-color: transparent !important;
 }
