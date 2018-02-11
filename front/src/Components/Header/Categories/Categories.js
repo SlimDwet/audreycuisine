@@ -480,6 +480,38 @@ class Categories extends React.Component {
                 ]
             },
             {
+                "title": "Boissons",
+                "slug": "boissons",
+                "isVisible": true,
+                "children": [
+                    {
+                        "title": "Cocktails",
+                        "slug": "cocktails",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Vins",
+                        "slug": "vins",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Boissons chaudes",
+                        "slug": "boissons-chaudes",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Thés",
+                        "slug": "thes",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Smoothies et jus de fruits",
+                        "slug": "smoothies",
+                        "isVisible": true
+                    },
+                ]
+            },
+            {
                 "title": "+ de recettes",
                 "slug": "autres-recettes",
                 "isVisible": true,
@@ -547,48 +579,6 @@ class Categories extends React.Component {
                                 "isVisible": true
                             }
                         ]
-                    }
-                ]
-            },
-            {
-                "title": "+ d'infos",
-                "slug": "dans-ma-cuisine",
-                "isVisible": true,
-                "children": [
-                    {
-                        "title": "Tout savoir sur",
-                        "slug": "tous-savoir",
-                        "isVisible": true
-                    },
-                    {
-                        "title": "C'est nouveau et c'est bon",
-                        "slug": "nouveau-bon",
-                        "isVisible": true
-                    },
-                    {
-                        "title": "Lectures gourmandes",
-                        "slug": "livres",
-                        "isVisible": true
-                    },
-                    {
-                        "title": "Zoom sur les ingrédients",
-                        "slug": "ingredients",
-                        "isVisible": true
-                    },
-                    {
-                        "title": "Matériel pour cuisiner",
-                        "slug": "materiel",
-                        "isVisible": true
-                    },
-                    {
-                        "title": "Box",
-                        "slug": "box",
-                        "isVisible": true
-                    },
-                    {
-                        "title": "Bavardages",
-                        "slug": "bavardages",
-                        "isVisible": true
                     }
                 ]
             },
@@ -831,38 +821,75 @@ class Categories extends React.Component {
                 ]
             },
             {
-                "title": "Recettes de noël",
-                "slug": "recettes-de-noel",
+                "title": "Lifestyle",
+                "slug": "lifestyle",
                 "isVisible": true,
                 "children": [
                     {
-                        "title": "Apéro de Noël",
-                        "slug": "apero-de-noel",
+                        "title": "Lectures gourmandes",
+                        "slug": "livres",
                         "isVisible": true
                     },
                     {
-                        "title": "Entrées de Noël",
-                        "slug": "entrees-de-noel",
+                        "title": "Mes futilités",
+                        "slug": "futilites",
                         "isVisible": true
                     },
                     {
-                        "title": "Plats de Noël",
-                        "slug": "plats-de-noel",
+                        "title": "Cosmétiques maison",
+                        "slug": "cosmetiques-maison",
                         "isVisible": true
                     },
                     {
-                        "title": "Desserts de Noël",
-                        "slug": "desserts-de-noel",
+                        "title": "SPA & Thalasso",
+                        "slug": "spa-thalasso",
                         "isVisible": true
                     },
                     {
-                        "title": "Produits de fêtes",
-                        "slug": "produits-de-fetes",
+                        "title": "Bavardages",
+                        "slug": "bavardages",
+                        "isVisible": true
+                    }
+                ]
+            },
+            {
+                "title": "+ d'infos",
+                "slug": "dans-ma-cuisine",
+                "isVisible": true,
+                "children": [
+                    {
+                        "title": "Tout savoir sur",
+                        "slug": "tous-savoir",
                         "isVisible": true
                     },
                     {
-                        "title": "En attendant Noël",
-                        "slug": "en-attendant-noel",
+                        "title": "C'est nouveau et c'est bon",
+                        "slug": "nouveau-bon",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Lectures gourmandes",
+                        "slug": "livres",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Zoom sur les ingrédients",
+                        "slug": "ingredients",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Matériel pour cuisiner",
+                        "slug": "materiel",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Box",
+                        "slug": "box",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Bavardages",
+                        "slug": "bavardages",
                         "isVisible": true
                     }
                 ]
