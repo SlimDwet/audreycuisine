@@ -471,11 +471,6 @@ class Categories extends React.Component {
                         "title": "Produits bio",
                         "slug": "produits-bio",
                         "isVisible": true
-                    },
-                    {
-                        "title": "Cosmétiques maison",
-                        "slug": "cosmetiques-maison",
-                        "isVisible": true
                     }
                 ]
             },
@@ -517,7 +512,7 @@ class Categories extends React.Component {
                 "isVisible": true,
                 "children": [
                     {
-                        "title": "A emporter au bureau",
+                        "title": "Déjeuner au bureau",
                         "slug": "a-emporter",
                         "isVisible": true
                     },
@@ -527,7 +522,7 @@ class Categories extends React.Component {
                         "isVisible": true
                     },
                     {
-                        "title": "Recettes économiques",
+                        "title": "Economiques",
                         "slug": "menu-a-moins-de-5-euros",
                         "isVisible": true
                     },
@@ -537,31 +532,14 @@ class Categories extends React.Component {
                         "isVisible": true
                     },
                     {
-                        "title": "Par ustensiles",
-                        "slug": "ustensiles",
-                        "isVisible": true,
-                        "children": [
-                            {
-                                "title": "Multicuiseur",
-                                "slug": "multicuiseur",
-                                "isVisible": true
-                            },
-                            {
-                                "title": "Robot cuiseur",
-                                "slug": "robot-cuiseur",
-                                "isVisible": true
-                            },
-                            {
-                                "title": "Super Blender",
-                                "slug": "super-blender",
-                                "isVisible": true
-                            },
-                            {
-                                "title": "Produits Tupperware",
-                                "slug": "produits-tupperwares",
-                                "isVisible": true
-                            }
-                        ]
+                        "title": "Thermomix, Cook-Expert, Cooking-Chef, etc",
+                        "slug": "robot-cuiseur",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Tupperware",
+                        "slug": "produits-tupperware",
+                        "isVisible": true
                     },
                     {
                         "title": "Par fêtes",
@@ -577,6 +555,43 @@ class Categories extends React.Component {
                                 "title": "Nouvel an chinois",
                                 "slug": "nouvel-an-chinois",
                                 "isVisible": true
+                            },
+                            {
+                                "title": "Recettes de Noël",
+                                "slug": "recettes-de-fetes",
+                                "isVisible": true,
+                                "children": [
+                                    {
+                                        "title": "Apéro Noël",
+                                        "slug": "apero-noel",
+                                        "isVisible": true
+                                    },
+                                    {
+                                        "title": "Entrées de Noël",
+                                        "slug": "entrees-noel",
+                                        "isVisible": true
+                                    },
+                                    {
+                                        "title": "Plats de Noël",
+                                        "slug": "plats-noel",
+                                        "isVisible": true
+                                    },
+                                    {
+                                        "title": "Desserts de Noël",
+                                        "slug": "dessert-noel",
+                                        "isVisible": true
+                                    },
+                                    {
+                                        "title": "Produits de Noël",
+                                        "slug": "produits-noel",
+                                        "isVisible": true
+                                    },
+                                    {
+                                        "title": "En attendant Noël",
+                                        "slug": "en-attendant-noel",
+                                        "isVisible": true
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -588,7 +603,7 @@ class Categories extends React.Component {
                 "isVisible": true,
                 "children": [
                     {
-                        "title": "Récap de tous mes voyages",
+                        "title": "Détail de tous mes voyages",
                         "slug": "recap-voyages",
                         "isVisible": true
                     },
@@ -645,39 +660,45 @@ class Categories extends React.Component {
                         ]
                     },
                     {
-                        "title": "Destination en Europe",
+                        "title": "Europe",
                         "slug": "voyages-europe",
                         "isVisible": true,
                         "children": [
                             {
-                                "title": "Amsterdam (City Guid)",
-                                "slug": "amsterdam",
-                                "isVisible": true
-                            },
-                            {
                                 "title": "Barcelone (City Guid)",
                                 "slug": "barcelone-city-guid",
-                                "isVisible": true
-                            },
-                            {
-                                "title": "Irlande",
-                                "slug": "irlande",
-                                "isVisible": true
+                                "isVisible": true,
+                                "children": [
+                                    {
+                                        "title": "Recettes d'Espagne",
+                                        "slug": "recettes-espagne",
+                                        "isVisible": true,
+                                    }
+                                ]
                             },
                             {
                                 "title": "Islande",
                                 "slug": "islande",
-                                "isVisible": true
+                                "isVisible": true,
+                                "children": [
+                                    {
+                                        "title": "Recettes d'Islande",
+                                        "slug": "recette-scandinaves",
+                                        "isVisible": true,
+                                    }
+                                ]
                             },
                             {
                                 "title": "Italie",
                                 "slug": "italie",
-                                "isVisible": true
-                            },
-                            {
-                                "title": "Londres (City Guid)",
-                                "slug": "londres-city-guid",
-                                "isVisible": true
+                                "isVisible": true,
+                                "children": [
+                                    {
+                                        "title": "Recettes d'Italie",
+                                        "slug": "recette-italie",
+                                        "isVisible": true,
+                                    }
+                                ]
                             },
                             {
                                 "title": "Malte",
@@ -685,9 +706,26 @@ class Categories extends React.Component {
                                 "isVisible": true
                             },
                             {
-                                "title": "Royaume-Uni",
+                                "title": "Royaume-Uni & Irlande",
                                 "slug": "royaume-uni",
-                                "isVisible": true
+                                "isVisible": true,
+                                "children": [
+                                    {
+                                        "title": "Irlande",
+                                        "slug": "irlande",
+                                        "isVisible": true,
+                                    },
+                                    {
+                                        "title": "Londres (City Guid)",
+                                        "slug": "londres-city-guid",
+                                        "isVisible": true,
+                                    },
+                                    {
+                                        "title": "Recettes Anglaises & Irlandaises",
+                                        "slug": "recette-anglaises",
+                                        "isVisible": true,
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -799,23 +837,18 @@ class Categories extends React.Component {
                         "isVisible": true
                     },
                     {
-                        "title": "Adresses gourmandes",
+                        "title": "Shopping",
                         "slug": "bonnes-adresses",
+                        "isVisible": true
+                    },
+                    {
+                        "title": "Hébergements",
+                        "slug": "hebergements",
                         "isVisible": true
                     },
                     {
                         "title": "Oenotourisme",
                         "slug": "oenotourisme",
-                        "isVisible": true
-                    },
-                    {
-                        "title": "Hôtels, maisons d'hotes, résidences de vacances",
-                        "slug": "hebergements",
-                        "isVisible": true
-                    },
-                    {
-                        "title": "SPA & Thalasso",
-                        "slug": "spa-thalasso",
                         "isVisible": true
                     }
                 ]
@@ -868,11 +901,6 @@ class Categories extends React.Component {
                         "isVisible": true
                     },
                     {
-                        "title": "Lectures gourmandes",
-                        "slug": "livres",
-                        "isVisible": true
-                    },
-                    {
                         "title": "Zoom sur les ingrédients",
                         "slug": "ingredients",
                         "isVisible": true
@@ -885,11 +913,6 @@ class Categories extends React.Component {
                     {
                         "title": "Box",
                         "slug": "box",
-                        "isVisible": true
-                    },
-                    {
-                        "title": "Bavardages",
-                        "slug": "bavardages",
                         "isVisible": true
                     }
                 ]
