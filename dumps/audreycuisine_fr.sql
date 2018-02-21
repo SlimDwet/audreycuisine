@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : mariadb:3306
--- Généré le :  mar. 20 fév. 2018 à 14:26
+-- Généré le :  mer. 21 fév. 2018 à 16:47
 -- Version du serveur :  10.2.10-MariaDB-10.2.10+maria~jessie
 -- Version de PHP :  7.1.9
 
@@ -853,14 +853,14 @@ CREATE TABLE IF NOT EXISTS `Selection` (
 --
 
 INSERT INTO `Selection` (`id`, `name`, `selectionOrder`, `category_id`) VALUES
-(1, 'Galettes des rois', 1, 35),
-(2, NULL, 2, 19),
-(3, 'Volailles', 3, 59),
-(4, NULL, 4, 62),
-(5, NULL, 5, 121),
+(1, NULL, 1, 23),
+(2, 'Tartes', 2, 31),
+(3, 'Végétarien', 3, 97),
+(4, 'Poissons', 4, 60),
+(5, 'Amsterdam', 5, 156),
 (6, 'Roadtrip Ouest USA', 6, 164),
 (7, 'Road-Trip Islande', 7, 159),
-(8, 'Road-Trip Canada Ouest', 8, 166);
+(8, NULL, 8, 160);
 
 -- --------------------------------------------------------
 
