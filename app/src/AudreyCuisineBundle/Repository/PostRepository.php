@@ -43,4 +43,32 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
         return $query->getResult();
     }
 
+    /**
+     * Retourne la liste d'articles correspondant aux ingrédients
+     * @param  [string] $ingredient1 [Ingrédient 1]
+     * @param  [string|null] $ingredient2 [Ingrédient 2]
+     * @param  [string|null] $ingredient3 [Ingrédient 3]
+     * @return Post[]              [Liste des articles]
+     */
+    public function getPostsByIngredients($ingredient1, $ingredient2, $ingredient3) {
+        $qb = $this->createQueryBuilder('p');
+        $query = $qb
+            ->where('p.title LIKE :ingredient1 OR p.content LIKE :ingredient1')
+            ->setParameter('ingredient1', '%'.$ingredient1.'%');
+        if(!is_null($ingredient2)) {
+            $query = $qb
+                ->andWhere('p.title LIKE :ingredient2 OR p.content LIKE :ingredient2')
+                ->setParameter('ingredient2', '%'.$ingredient2.'%');
+        }
+        if(!is_null($ingredient3)) {
+            $query = $qb
+                ->andWhere('p.title LIKE :ingredient3 OR p.content LIKE :ingredient3')
+                ->setParameter('ingredient3', '%'.$ingredient3.'%');
+        }
+        $query = $qb
+            ->orderBy('p.updated', 'DESC')
+            ->getQuery();
+        return $query->getResult();
+    }
+
 }

@@ -158,4 +158,28 @@ class EntityManager {
         return $result;
     }
 
+    /**
+     * Retourne la liste d'articles correspondant aux ingrédients
+     * @param  [string] $ingredient1 [Ingrédient 1]
+     * @param  [string|null] $ingredient2 [Ingrédient 2]
+     * @param  [string|null] $ingredient3 [Ingrédient 3]
+     * @return array               [Liste des articles]
+     */
+    public function getPostsByIngredients($ingredient1, $ingredient2, $ingredient3): array {
+        $repository = $this->doctrine->getRepository(Post::class);
+        // Récupération des articles
+        $posts = $repository->getPostsByIngredients($ingredient1, $ingredient2, $ingredient3);
+        $result = [];
+        foreach ($posts as $Post) {
+            $result[] = [
+                'title' => $Post->getTitle(),
+                'slug' => $Post->getSlug(),
+                'content' => $Post->getContent(),
+                'thumbnail' => $Post->getUrlPostThumbnail(),
+                'updated' => $Post->getUpdated()
+            ];
+        }
+        return $result;
+    }
+
 }
