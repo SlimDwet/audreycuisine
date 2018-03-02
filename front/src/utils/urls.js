@@ -4,7 +4,8 @@ const urls = {
     'inMyKitchen': '/selections',
     'aPropos': '/a-propos',
     'posts': "/posts",
-    'search': "/search"
+    'search': "/search",
+    'ingredients': "/ingredients"
 }
 
 export default urls;
