@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { withRouter } from 'react-router-dom';
 import './FindRecipe.css';
 import ModuleTitle from '../../ModuleTitle/ModuleTitle';
 import IngredientLine from '../../IngredientLine/IngredientLine';
@@ -9,21 +10,34 @@ class FindRecipe extends Component {
 
     constructor() {
         super();
-        this.ingredient1 = null;
-        this.ingredient2 = null;
-        this.ingredient3 = null;
+        this.ingredient1 = '';
+        this.ingredient2 = '';
+        this.ingredient3 = '';
+        this.state = {
+            'urlParameters': null
+        };
     }
 
     ingredientsSubmitHandler = evt => {
         evt.preventDefault();
         // Construction des paramètres de l'URL
-        if(this.ingredient1 !== null || this.ingredient2 !== null || this.ingredient3 !== null)
+        if(this.ingredient1.length > 2 || this.ingredient2.length > 2 || this.ingredient3.length > 2)
         {
-            let ingredientUrlParams = '';
-            if(this.ingredient1 !== null) ingredientUrlParams += '/'+encodeURI(this.ingredient1);
-            if(this.ingredient2 !== null) ingredientUrlParams += '/'+encodeURI(this.ingredient2);
-            if(this.ingredient3 !== null) ingredientUrlParams += '/'+encodeURI(this.ingredient3);
-            console.log('URL parameters', ingredientUrlParams);
+            let ingredientUrlParams = [], paramsCounter = 1;
+            if(this.ingredient1.length > 2) {
+                ingredientUrlParams.push(`ingredient${paramsCounter}=${encodeURI(this.ingredient1)}`); paramsCounter++;
+            }
+            if(this.ingredient2.length > 2) {
+                ingredientUrlParams.push(`ingredient${paramsCounter}=${encodeURI(this.ingredient2)}`); paramsCounter++;
+            }
+            if(this.ingredient3.length > 2) {
+                ingredientUrlParams.push(`ingredient${paramsCounter}=${encodeURI(this.ingredient3)}`); paramsCounter++;
+            }
+            // Redirection vers la page des résultats de la recherche
+            this.props.history.push({
+                pathname: '/search',
+                search: ingredientUrlParams.join('&')
+            });
         }
     }
 
@@ -43,4 +57,4 @@ class FindRecipe extends Component {
 
 }
 
-export default FindRecipe;
+export default withRouter(FindRecipe);

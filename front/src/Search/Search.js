@@ -47,10 +47,8 @@ class Search extends Component {
                 searchResult: null
             }
         }, () => {
-            // On extrait les termes à rechercher dans l'URL
-            const url = new URLSearchParams(this.props.location.search);
             // On lance la recherche des termes
-            this.searchTerm(url.get('terms'));
+            this.searchTerm(this.props.location.search.slice(1));
         })
     }
 
@@ -60,7 +58,7 @@ class Search extends Component {
      * @return {}       [description]
      */
     searchTerm = terms => {
-        const searchUrl = `${urls.search}/${encodeURI(terms)}`;
+        const searchUrl = `${urls.ingredients}?${encodeURI(terms)}`;
         if(terms !== null) {
             sendRequest('GET', searchUrl)
                 .then(response => {
@@ -87,16 +85,17 @@ class Search extends Component {
      * @return {} []
      */
     getSearchRender = () => {
-        if(this.state.searchedTerms === null) {
+        if(this.state.searchedTerms === null || this.state.searchResult.length === 0) {
             return <h1 className="no-result">Aucun résultat ne correspond à votre recherche</h1>
         } else {
-            const sectionTitle = `Résultats de recherche pour "${this.state.searchedTerms}"`;
+            const urlParams = new URLSearchParams(this.state.searchedTerms);
             const posts = this.state.searchResult.map(post => <ResultItem post={post} key={getRandomKey('search')} />);
             return (
                 <div className="result">
-                    <SectionTitle title={sectionTitle} />
+                    <h2>Recettes avec les ingrédients : {[...urlParams.values()].join(', ')}</h2>
+                    <p className="result-intro">Voici les recettes contenant tous les ingrédients que vous recherchez :</p>
                     <div className="post-list">
-                        {posts}
+                        <ul>{posts}</ul>
                     </div>
                 </div>
             );

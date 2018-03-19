@@ -1,3 +1,24 @@
 .searchPage .no-result {
     color: #FFFFFF;
 }
+.searchPage h2 {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    color: #333;
+}
+.searchPage .result {
+    background-color: #FFFFFF;
+    padding: 15px 15px;
+}
+.searchPage .result-intro {
+    font-size: 13px;
+}
+.searchPage .result a {
+    color: #936;
+    text-decoration: none;
+}
+.searchPage .result a:hover {
+    color: #333;
+}

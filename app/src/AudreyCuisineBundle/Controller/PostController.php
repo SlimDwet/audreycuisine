@@ -111,23 +111,23 @@ class PostController extends Controller
 
     /**
      * Retourne les articles correspondant aux ingrédients
-     * @Rest\Get("/ingredients.{_format}/{ingredient1}/{ingredient2}/{ingredient3}",
-     *      defaults={"_format": "json", "ingredient2": null, "ingredient3": null}
+     * @Rest\Get("/ingredients.{_format}",
+     *      defaults={"_format": "json"}
      * )
      *
      * @param  Request      $request     [description]
-     * @param  [string]       $ingredient1 [Ingrédient 1]
-     * @param  [string]       $ingredient2 [Ingrédient 2]
-     * @param  [string]       $ingredient3 [Ingrédient 3]
      * @return JsonResponse              [description]
      */
-    public function getPostsByIngredients(Request $request, $ingredient1, $ingredient2, $ingredient3): JsonResponse {
+    public function getPostsByIngredients(Request $request): JsonResponse {
         $response = new JsonResponse();
+        $ingredient1 = $request->query->get('ingredient1');
+        $ingredient2 = $request->query->get('ingredient2');
+        $ingredient3 = $request->query->get('ingredient3');
         $response->headers->set('Access-Control-Allow-Origin', '*');
         $em = new EntityManager($this->getDoctrine());
         // Récupération des articles
         $posts = $em->getPostsByIngredients($ingredient1, $ingredient2, $ingredient3);
-        $response->setData($posts);
+        $response->setData(Utils::formateToOutput($posts));
         return $response;
     }
 

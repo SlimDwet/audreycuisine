@@ -52,6 +52,7 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
      */
     public function getPostsByIngredients($ingredient1, $ingredient2, $ingredient3) {
         $qb = $this->createQueryBuilder('p');
+        $qb->join('p.comments', 'comments');
         $query = $qb
             ->where('p.title LIKE :ingredient1 OR p.content LIKE :ingredient1')
             ->setParameter('ingredient1', '%'.$ingredient1.'%');

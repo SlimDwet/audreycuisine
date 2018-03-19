@@ -165,19 +165,22 @@ class EntityManager {
      * @param  [string|null] $ingredient3 [Ingrédient 3]
      * @return array               [Liste des articles]
      */
-    public function getPostsByIngredients($ingredient1, $ingredient2, $ingredient3): array {
-        $repository = $this->doctrine->getRepository(Post::class);
-        // Récupération des articles
-        $posts = $repository->getPostsByIngredients($ingredient1, $ingredient2, $ingredient3);
+    public function getPostsByIngredients(string $ingredient1 = null, string $ingredient2 = null, string $ingredient3 = null): array {
         $result = [];
-        foreach ($posts as $Post) {
-            $result[] = [
-                'title' => $Post->getTitle(),
-                'slug' => $Post->getSlug(),
-                'content' => $Post->getContent(),
-                'thumbnail' => $Post->getUrlPostThumbnail(),
-                'updated' => $Post->getUpdated()
-            ];
+        if(!is_null($ingredient1)) {
+            // Récupération des articles
+            $repository = $this->doctrine->getRepository(Post::class);
+            $posts = $repository->getPostsByIngredients($ingredient1, $ingredient2, $ingredient3);
+            foreach ($posts as $Post) {
+                $result[] = [
+                    'title' => $Post->getTitle(),
+                    'slug' => $Post->getSlug(),
+                    'content' => strip_tags($Post->getContent()),
+                    'thumbnail' => $Post->getUrlPostThumbnail(),
+                    'comments' => Utils::getPostComments($Post->getComments()),
+                    'updated' => $Post->getUpdated()
+                ];
+            }
         }
         return $result;
     }
