@@ -2,19 +2,24 @@
 
 namespace AudreyCuisineBundle\Manager;
 
-use Doctrine\Bundle\DoctrineBundle\Registry;
+use Doctrine\ORM\EntityManager as DoctrineEntityManager;
 use AudreyCuisineBundle\Utils\Utils;
 use \Datetime;
+use JsonSchema\Validator;
+use Exception;
+use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 // Entities
 use AudreyCuisineBundle\Entity\Selection;
 use AudreyCuisineBundle\Entity\Post;
+use AudreyCuisineBundle\Entity\Newsletter;
 
 class EntityManager {
 
-    private $doctrine;
+    private $em;
+    const NEWSLETTER_SCHEMA_FILENAME = 'newsletterSchema.json';
 
-    public function __construct(Registry $doctrine) {
-        $this->doctrine = $doctrine;
+    public function __construct(DoctrineEntityManager $em) {
+        $this->em = $em;
     }
 
     /**
@@ -25,7 +30,7 @@ class EntityManager {
      */
     public function getSelections(int $expectedSelections = 8, int $postsPerSelection = 4): array {
         $result = [];
-        $repository = $this->doctrine->getRepository(Selection::class);
+        $repository = $this->em->getRepository(Selection::class);
         $selections = $repository->getSelectionPosts($expectedSelections, $postsPerSelection);
         foreach ($selections as $keySel => $sel) {
             // Extraction des articles de la sélection
@@ -54,7 +59,7 @@ class EntityManager {
      * @return array          [Liste des derniers articles]
      */
     public function getLastPosts(int $total = 4): array {
-        $repository = $this->doctrine->getRepository(Post::class);
+        $repository = $this->em->getRepository(Post::class);
         $posts = $repository->findBy(
             ['isVisible' => 1],
             ['updated' => 'DESC'],
@@ -91,7 +96,7 @@ class EntityManager {
      * @return array|null       [Article ou null]
      */
     public function getPostBySlug(string $slug): ?array {
-        $repository = $this->doctrine->getRepository(Post::class);
+        $repository = $this->em->getRepository(Post::class);
         $Post = $repository->findOneBy(['slug' => $slug, 'isVisible' => 1]);
         return array(
             'title' => $Post->getTitle(),
@@ -116,7 +121,7 @@ class EntityManager {
      * @return array        [description]
      */
     public function getPostsBySearchedTerms(string $terms): array {
-        $repository = $this->doctrine->getRepository(Post::class);
+        $repository = $this->em->getRepository(Post::class);
         $result = [];
         // Liste des articles de la recherche
         $queryResult = $repository->searchPostsByTerms($terms);
@@ -140,7 +145,7 @@ class EntityManager {
      * @return array        [Liste des articles]
      */
     public function getPostsInCategory(string $slug): array {
-        $repository = $this->doctrine->getRepository(Post::class);
+        $repository = $this->em->getRepository(Post::class);
         $posts = $repository->getPostsInCategory($slug);
         $result = [];
         foreach ($posts as $Post) {
@@ -169,7 +174,7 @@ class EntityManager {
         $result = [];
         if(!is_null($ingredient1)) {
             // Récupération des articles
-            $repository = $this->doctrine->getRepository(Post::class);
+            $repository = $this->em->getRepository(Post::class);
             $posts = $repository->getPostsByIngredients($ingredient1, $ingredient2, $ingredient3);
             foreach ($posts as $Post) {
                 $result[] = [
@@ -183,6 +188,41 @@ class EntityManager {
             }
         }
         return $result;
+    }
+
+    /**
+     * Ajoute une adresse mail à la newsletter
+     * @param  string $data [Contenu du POST]
+     * @return array        [Résultat de l'ajout]
+     */
+    public function addNewsletterMail(string $data): array {
+        $data = json_decode($data);
+        if(empty($data)) return ['success' => false, "errors" => "Aucune adresse mail renseignée"];
+        $validator = new Validator();
+        $validator->validate($data, (object)['$ref' => 'file://' . realpath(__DIR__.'/../Utils/'.self::NEWSLETTER_SCHEMA_FILENAME)]);
+        if($validator->isValid()) {
+            try {
+                // Ajout de l'adresse mail en BDD
+                $newsletter = new Newsletter();
+                $newsletter->setMail($data->mail);
+                $newsletter->setActive(true);
+                $this->em->persist($newsletter);
+                $this->em->flush();
+                return ['success' => true, "message" => "L'adresse mail a bien été ajoutée à la newsletter"];
+            } catch(Exception $e) {
+                // Email déjà existante
+                if($e instanceof UniqueConstraintViolationException) {
+                    return ['success' => false, 'errors' => "Cette adresse mail est déjà existante"];
+                }
+                return ['success' => false, 'errors' => "Une erreur s'est produite lors de l'ajout du mail"];
+            }
+        }
+        // Le JSON est invalide
+        $errors = [];
+        foreach ($validator->getErrors() as $error) {
+            $errors[] = "Le champs ".$error['property']." contient l'erreur suivante => ".$error['message'];
+        }
+        return ['success' => false, 'errors' => $errors];
     }
 
 }

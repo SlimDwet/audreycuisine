@@ -21,6 +21,15 @@ class NewsletterController extends Controller
         $response = new JsonResponse();
         $em = $this->get('audrey_cuisine.entity_manager');
         // On valide le JSON
+        $data = $request->getContent();
+        $isValid = $em->addNewsletterMail($data);
+        if($isValid['success']) {
+            $response->setStatusCode(201);
+        } else {
+            // Erreur à l'ajout
+            $response->setStatusCode(400);
+        }
+        $response->setData(Utils::formateToOutput($isValid));
         $response->headers->set('Access-Control-Allow-Origin', '*');
         return $response;
     }
