@@ -118,7 +118,7 @@ class PostController extends Controller
      * @param  Request      $request     [description]
      * @return JsonResponse              [description]
      */
-    public function getPostsByIngredients(Request $request): JsonResponse {
+    public function getPostsByIngredientsAction(Request $request): JsonResponse {
         $response = new JsonResponse();
         $ingredient1 = $request->query->get('ingredient1');
         $ingredient2 = $request->query->get('ingredient2');

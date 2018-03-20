@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : mariadb:3306
--- Généré le :  lun. 19 mars 2018 à 13:34
--- Version du serveur :  10.2.9-MariaDB-10.2.9+maria~jessie
+-- Généré le :  mar. 20 mars 2018 à 13:11
+-- Version du serveur :  10.2.10-MariaDB-10.2.10+maria~jessie
 -- Version de PHP :  7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -347,6 +347,20 @@ INSERT INTO `Comment` (`id`, `post_id`, `content`, `name`, `email`, `mailAlert`,
 (105, 138, 'Ces boulettes sont bien alléchantes.', 'LadyMilonguera', NULL, 0, 0, '2018-02-15'),
 (106, 143, 'Ta brioche est aussi jolie que gourmande !', 'LadyMilonguera', NULL, 0, 0, '2018-02-15'),
 (107, 143, 'Ça donne envie pour le goûté de dimanche Il n\'y a plus qu\'à .......', 'Sagatrep', NULL, 0, 0, '2018-02-15');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Newsletter`
+--
+
+CREATE TABLE IF NOT EXISTS `Newsletter` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_31D886185126AC48` (`mail`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 

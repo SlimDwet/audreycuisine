@@ -10,19 +10,17 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use AudreyCuisineBundle\Manager\EntityManager;
 use AudreyCuisineBundle\Utils\Utils;
 
-class SelectionController extends Controller
+class NewsletterController extends Controller
 {
 
     /**
-     * Retourne les 4 derniers articles postés
-     * @Rest\Get("/selections", name="all_selections")
+     * Ajoute une adresse mail dans la newsletter
+     * @Rest\Post("/newsletter", name="add_newsletter_mail")
      */
-    public function getSelectionsAction(Request $request) {
+    public function addNewsletterMailAction(Request $request) {
         $response = new JsonResponse();
-        $em = new EntityManager($this->getDoctrine());
-        // On récupère les sélections
-        $selections = $em->getSelections();
-        $response->setData(Utils::formateToOutput($selections));
+        $em = $this->get('audrey_cuisine.entity_manager');
+        // On valide le JSON
         $response->headers->set('Access-Control-Allow-Origin', '*');
         return $response;
     }
